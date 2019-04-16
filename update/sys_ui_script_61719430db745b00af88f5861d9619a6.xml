@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>filter for  ng-template on the form widget to make it tabular</description>
+        <global>false</global>
+        <name>x_dnf_gw_obf.myTabbedFormFilters</name>
+        <script><![CDATA[(function() {
+	angular.module('myTabbedFormFilters', []).filter('titledFormSectionFilter', function() {
+		return function(input) {
+			var output = [];
+			//console.log('JMM: input.length: '+ input.length);
+			if(input){
+				for (var i = 0; i < input.length; i++) {
+					if (input[i].captionDisplay.length > 0) {
+						//console.log('JMM: captionDisplay:' + input[i].captionDisplay);
+						output.push(input[i]);
+					}	
+
+				}
+				return output;
+			}
+		};
+	}).filter('currentFormSectionFilter', function() {
+		return function(input, startingCaptionDisplay) {
+			var output = [];
+			var include = false;
+			for (var i = 0; i < input.length; i++) {
+				if (input[i].captionDisplay == startingCaptionDisplay) {
+					include = true;
+					output.push(input[i]);
+				} else if((include)&&(input[i].captionDisplay == '')){
+					output.push(input[i]);
+				} else {
+					include = false;
+				}
+			}
+			return output;
+		};
+	});
+
+})();]]></script>
+        <script_name>myTabbedFormFilters</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-09 14:25:34</sys_created_on>
+        <sys_id>61719430db745b00af88f5861d9619a6</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>x_dnf_gw_obf.myTabbedFormFilters</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_ui_script_61719430db745b00af88f5861d9619a6</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-03-09 15:35:56</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

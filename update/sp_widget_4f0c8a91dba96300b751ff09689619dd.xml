@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($http, $window, spUtil,$scope) {	 
+	var c = this;	
+	/*$http.get(c.options.queue_url).then(function (response) {		
+		if (response.data.result && response.data.result.length)
+			angular.extend(c.data, response.data.result[0]);
+		else
+			angular.extend(c.data, response.data.result);
+
+	})*/	
+	c.open = function () {
+		console.log(spUtil.format(c.options.window.url, {sys_id: c.data.sys_id}), c.options.window.target, c.options.window.options)
+		$window.open(spUtil.format(c.options.window.url, {sys_id: c.data.sys_id}), c.options.window.target, c.options.window.options);
+	};
+	$(".chatwindow").hide();
+	$('.chatbutton').click(function(){
+		$('.chatwindow').toggle('slow');
+		var text = $('.chatbutton').text();
+		$('.chatbutton').text(
+			text == c.options.message ? "Minimize" : c.options.message);
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.chatbutton {
+  position: fixed;
+  bottom: 10px;
+  width: 150px;
+  right: 25px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10000;
+}
+.chatwindow {
+  z-index: 10000;
+  position: fixed;
+  bottom: 45px;
+  right: 25px;
+}
+.btn-info{
+  background-color: #ee8622;
+  border: #efefef;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>aie_chat</id>
+        <internal>false</internal>
+        <link/>
+        <name>AIE chat</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {	
+	// Default Values
+	/*options.queue_url = options.queue_url || '/api/now/connect/support/queues';	
+	if (options.queue_name) 
+		options.queue_url += '?queue_name=' + options.queue_name;
+
+	if (options.queue_id) 
+		options.queue_url += '/' + options.queue_id;
+
+	options.title = options.title || 'Chat Support';
+	options.title = gs.getMessage(options.title);	
+
+	options.message = options.message || 'Click here to start a chat';
+	options.message = gs.getMessage(options.message);	
+	options.window = options.window || {url: '/$chat_support.do?queueID={sys_id}', target: '_blank', options: 'location=no,toolbar=no,menubar=no,scrollbars=yes,width=760,height=600'};		
+*/
+	options.message = options.message || 'Click here to start a chat';
+	/*var me = gs.getUserID();
+	var counselor_id = '';
+
+	var hr = new GlideRecord('x_dnf_gateway_pcs_pcs_case_prototype');
+	hr.addQuery('affected_employee', me);
+	hr.query();
+	if(hr.next()) {
+		counselor_id = hr.getValue('pcs_coordinator');
+	}
+
+	data.chatlink = '';
+	var chat = new GlideRecord('chat_queue');
+	chat.addQuery('assignment_group.manager',counselor_id);
+	chat.query();
+	if(chat.next()){
+		data.chatlink = chat.getValue('support_link');
+	} */
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-11-02 15:34:37</sys_created_on>
+        <sys_id>4f0c8a91dba96300b751ff09689619dd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>AIE chat</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_4f0c8a91dba96300b751ff09689619dd</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-11-02 15:38:40</sys_updated_on>
+        <template><![CDATA[<iframe id="chatwindow" class="chatwindow" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="$chat_support.do?queueID=daabc691dba96300b751ff0968961970" width="300" height="600"></iframe>
+<a class="btn btn-info chatbutton">{{::c.options.message}}</a>]]></template>
+    </sp_widget>
+</record_update>

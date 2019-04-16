@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>traditional_pretax_contributions_dollars</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-16 17:42:47</sys_created_on>
+        <sys_id>56120183db3c5f00af88f5861d9619cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>traditional_pretax_contributions_dollars</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_ui_policy_action_56120183db3c5f00af88f5861d9619cf</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-03-16 17:42:47</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <ui_policy display_value="if Traditional % is not empty then make Traditional $ readOnly">cd02cd43db3c5f00af88f5861d96198b</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>

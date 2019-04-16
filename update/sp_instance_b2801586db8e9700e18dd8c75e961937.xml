@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>success</color>
+        <css/>
+        <glyph>signal</glyph>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">d580dd46db8e9700e18dd8c75e9619c9</sp_column>
+        <sp_widget display_value="Form Percent Complete">b8fdb1f6dbbd5300af88f5861d9619bd</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-05-14 19:30:19</sys_created_on>
+        <sys_id>b2801586db8e9700e18dd8c75e961937</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_instance_b2801586db8e9700e18dd8c75e961937</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-05-18 15:29:09</sys_updated_on>
+        <title>test</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"table": {
+		"value": "",
+		"displayValue": ""
+	},
+	"query": {
+		"value": "",
+		"displayValue": ""
+	},
+	"display_values": {
+		"value": "",
+		"displayValue": ""
+	},
+	"bg_color": {
+		"value": "",
+		"displayValue": ""
+	},
+	"progress_bar_color": {
+		"value": "progress-bar-info",
+		"displayValue": "progress-bar-info"
+	},
+	"bar_height": {
+		"value": null,
+		"displayValue": ""
+	},
+	"font_size": {
+		"value": "",
+		"displayValue": ""
+	},
+	"danger_threshold_high": {
+		"value": 70,
+		"displayValue": "70"
+	},
+	"warning_threshold_low": {
+		"value": 70,
+		"displayValue": "70"
+	},
+	"warning_threshold_high": {
+		"value": 90,
+		"displayValue": "90"
+	},
+	"primary_threshold_low": {
+		"value": 90,
+		"displayValue": "90"
+	},
+	"primary_threshold_high": {
+		"value": 99,
+		"displayValue": "99"
+	},
+	"danger_threshold": {
+		"value": null,
+		"displayValue": ""
+	},
+	"warning_threshold": {
+		"value": null,
+		"displayValue": ""
+	},
+	"primary_threshold": {
+		"value": null,
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=b2801586db8e9700e18dd8c75e961937"/>
+</record_update>

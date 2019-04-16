@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-29 20:35:29</sys_created_on>
+        <sys_id>870a22c4dba96380b751ff0968961923</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_dnf_gw_obf_federal_onboarding_questionnaire.*.x_dnf_gw_obf.admin</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_security_acl display_value="x_dnf_gw_obf_federal_onboarding_questionnaire.*">9aa86a44dba96380b751ff0968961966</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_870a22c4dba96380b751ff0968961923</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-10-29 20:35:29</sys_updated_on>
+        <sys_user_role display_value="x_dnf_gw_obf.admin" name="x_dnf_gw_obf.admin">bd0dac77db249700e18dd8c75e961995</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

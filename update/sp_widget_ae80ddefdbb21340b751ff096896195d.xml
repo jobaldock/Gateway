@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.disabled
+{
+  pointer-events: none;
+
+ 
+  opacity: 0.3;
+  background: #CCC;
+}
+
+.grey {
+  padding: 10px 20%;
+
+  //background-color: #dcdad5;
+} 
+
+.thumbnail-grid {
+  user-select: none
+}
+.thumbnail-grid figure {
+  position: relative;
+  min-width: 350px;
+  height: 250px;
+  margin: 15px;
+  border-radius: 3px;
+  box-shadow: inset 0 -50px 0 0 rgba(30,30,30,.5);
+  transition: all .2s ease-in-out
+}
+.thumbnail-grid figure:hover {
+  box-shadow: inset 0 -250px 0 0 rgba(254,195,37,.5);
+}
+.thumbnail-grid figcaption {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  bottom: 5px;
+  font-size: 30px;
+  font-weight: bold;
+text-transform: uppercase;
+  transition: all .2s ease-in-out
+}
+.thumbnail-grid figure:hover figcaption {
+  bottom: 100px
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch
+}
+.flex-item {
+  flex: 1 0 auto
+}
+
+
+* {
+  box-sizing: border-box
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.thumbnail-grid figure.i1 {
+
+ 	background: url(https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg) no-repeat center;
+  background-size: cover;
+}
+
+
+}
+//end example 1
+
+//start codepen
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
+h1, p {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  color: #14353f;
+}
+
+.container2 {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.tile {
+  width: 200px;
+  height: 200px;
+  margin: 1.25em .25em 0em;
+  border-radius: 6px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  overflow: hidden;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+  position: relative;
+}
+.tile span {
+  transition: transform       0.5s ease;
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+.tile span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #14353f;
+  opacity: .6;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+.tile img {
+  width: 100%;
+  display: block;
+  transition: transform 3s ease;
+}
+.tile a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  flex-flow: column wrap;
+  text-align: center;
+  color: white;
+}
+.tile a h2 {
+  font-size: 20px;
+  margin: 0;
+  line-height: 0;
+  font-weight: 400;
+}
+.tile a p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: white;
+  font-weight: 300;
+}
+.tile:hover {
+  transform: scale(1.1);
+}
+.tile:hover span::after {
+  opacity: 0;
+}
+.tile:hover img {
+  transform: scale(1.2);
+}
+.tile:hover a h2 {
+  text-decoration: underline;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding_tiles</id>
+        <internal>false</internal>
+        <link/>
+        <name>onboarding tiles</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-06-25 18:08:17</sys_created_on>
+        <sys_id>ae80ddefdbb21340b751ff096896195d</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>onboarding tiles</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_ae80ddefdbb21340b751ff096896195d</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-06-25 21:31:18</sys_updated_on>
+        <template><![CDATA[<div class="grey">	
+  <div class="container-fluid">
+    <div class="row"> 
+      <div class="col-xs-12"> 			
+        <section class="thumbnail-grid flex">
+          <a href="#" class="flex-item">
+            <figure class="i1">
+              <figcaption>&#9733; Questionnaire</figcaption>
+            </figure>
+          </a>			
+        </section>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<h1>Flexbox Image Gallery</h1>
+<p>Hover to see zoom animation and color change</p>
+<div class="container2">
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2><div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+  <div class="tile"><span><img src="https://www.24seventalent.com/blog/wp-content/uploads/2017/10/HR.jpeg" alt=""></span><a href="#"><h2>Lorem</h2> <div class="description"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p></div></a></div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

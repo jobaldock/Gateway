@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spUtil, $rootScope) {
+	var c = this;
+
+	//Get option values
+	c.title = c.options.title || 'My Beneficiaries';
+	c.glyph = c.options.glyph || 'users';
+	c.options.color = c.options.color;
+	
+	console.log('Options');
+	console.log(c.options);
+
+	//Set value to show loading spinner
+	c.data.loading = true;
+
+	//After page initially loads re-call server script to load data
+
+	c.runServer = function() {
+		c.server.get({
+			action: 'get_benes'
+		}).then(function(response) {
+
+			//Set value to hide loading spinner
+			c.data.loading = false;
+
+			console.log('Response');
+			console.log(response);
+
+			//Get link data
+			c.list = response.data.list;
+			c.data = response.data;
+			c.benefit_type = response.data.benefit_type;
+		});	
+	}
+	c.runServer();
+	
+	c.newEntry = function(sysId, table, template, view, benefitTypeId, benefitTypeName) {
+		if(c.modalInstance){
+			c.modalInstance2 = $uibModal.open({
+				templateUrl: template,
+				scope: $scope,
+				size: 'lg'
+			});
+		} else if (!c.modalInstance){
+			c.modalInstance = $uibModal.open({
+				templateUrl: template,
+				scope: $scope,
+				size: 'lg'
+			});
+		}
+
+		spUtil.get("widget-form-scoped", {
+			sys_id: sysId,
+			view: view,
+			table: table,
+			benefit_type_id:benefitTypeId,
+			benefit_type_name:benefitTypeName
+		}).then(function(response) {
+			if (template == 'newBene'){
+				c.newBene = response;
+			}
+			if (template == 'newContact'){
+				c.newContact = response;
+			}
+		});
+	};
+
+	c.deleteEntry = function(beneficiary) {
+		var con = confirm("Permantly delete this beneficiary?");
+		if (con == true){
+			c.data.beneficiary_sysID = beneficiary;
+			c.data.action = "delete-beneficiary";
+			c.server.update().then(function(response){
+				c.data.action = undefined;
+			});
+		}
+	};
+	
+	//closeModal for the "x" 
+	c.closeModal = function() {
+		c.modalInstance.close();
+	}
+
+	//receiving $broadcast closeModal from Appt Scheduler widget so window closes automatically onSubmit
+	$rootScope.$on('closeModal', function() {
+		if(c.modalInstance){
+			c.modalInstance.close();
+		}
+		if(c.modalInstance2){
+			c.modalInstance2.close();
+		}
+	});
+
+	spUtil.recordWatch($scope, 'sn_hr_core_beneficiary', "",function(event,data){
+		//spUtil.update($scope);	
+		c.runServer();	
+	});
+
+	//pagination
+	$scope.setPageNum = function(num) {
+		$scope.data.p = num;
+		$scope.data.page_index = $scope.data.p - 1;
+		$scope.data.window_start = $scope.data.page_index * $scope.data.window_size;
+		$scope.data.window_end = ($scope.data.page_index + 1) * $scope.data.window_size;
+		//getData(true);
+	}
+	$scope.getNumber = function(num) {
+		return new Array(num);
+	}
+
+	$scope.mathMin = function(v1,v2) {
+		return Math.min(v1,v2);
+	}
+	//end pagination
+	
+	console.log('bene-list');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.empty-state-content {
+  color: $danger;
+  text-align: center;
+  margin-bottom:0;
+}
+
+.list-group-item:hover {
+  background-color: $color-row-hover;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+}
+
+.action {
+  //margin-left: auto;
+  //same width as "add beneficiary" button
+  //width: 152.55px;
+  width: auto;
+  text-align: center;
+}
+
+.begin {
+  color: $color-dark;
+}
+
+.success {
+  color: $success;
+}
+
+.warning {
+  color: $warning;
+}
+
+.delete {
+	color: $overdue;
+}
+
+.delete:hover {
+    font-weight:bold;
+}
+
+.table {
+  display: table;
+  padding:10px;
+}
+
+.table-header {
+  font-weight: bold;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell, .table-header {
+  display: table-cell;
+  padding: 10px;
+}
+
+.table-row:nth-child(even) {
+  background: $color-lighter;
+}
+
+//animated plus/minus sign for expand/collapse details
+.accordion-toggle {
+  position: relative;
+}
+
+.accordion-toggle::before,
+.accordion-toggle::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background-color: $color-darkest;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.accordion-toggle::before {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.accordion-toggle.collapsed::before {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+.accordion-toggle.collapsed::after {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.accordion-toggle &gt; span {
+  margin-left: 20px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>my-beneficiaries-v2</id>
+        <internal>false</internal>
+        <link/>
+        <name>My Beneficiaries v2</name>
+        <option_schema>[{"name":"title","section":"Presentation","label":"Title","type":"string"},{"name":"glyph","section":"Presentation","label":"Glyph Icon","type":"glyphicon"},{"displayValue":"Color Definition","hint":"","name":"color","display_value_list":[],"section":"Presentation","label":"Bootstrap Heading Color","type":"choice","choices":[{"label":"default","value":"default"},{"label":"primary","value":"primary"},{"label":"success","value":"success"},{"label":"info","value":"info"},{"label":"warning","value":"warning"},{"label":"danger","value":"danger"}],"value":"sys_report_color","ed":{"reference":"sys_report_color"}}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' variable with catalog item, variables, and variable view
+(function() {
+
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//tables
+	var beneficiariesTable = 'sn_hr_core_beneficiary';
+	var benefit_type = 'sn_hr_core_benefit_type';
+	var contactTable = 'sn_hr_core_contact';
+
+	var me = gs.getUserID();
+
+	//After page initially loads get data
+	if (input && input.action == 'get_benes') {
+
+		//pagination
+		data.table = 'sn_hr_core_benefit_type';
+		data.table = data.table || $sp.getValue('table');
+		data.filter = data.filter || $sp.getValue('filter');
+		data.keywords = data.keywords || $sp.getValue('keywords');
+		data.p = data.p || $sp.getValue('p') || 1;
+		data.p = parseInt(data.p);
+		data.o = data.o || $sp.getValue('o') || $sp.getValue('order_by');
+		data.d = data.d || $sp.getValue('d') || $sp.getValue('order_direction');
+		data.window_size = data.window_size || $sp.getValue('maximum_entries') || 10;
+		data.page_index = data.p - 1;
+
+		data.window_start = data.page_index * data.window_size;
+		data.window_end = (data.page_index + 1) * data.window_size;
+		//end pagination
+
+		data.list = [];
+		data.benefit_type = [];
+
+		var bene_type = new GlideRecord(benefit_type);
+		bene_type.addQuery('requires_beneficiaries', true);
+		bene_type.addQuery('active','true');
+		//bene_type.addQuery('u_requires_dependents', false);
+		bene_type.query();
+		//pagination
+		data.row_count =bene_type.getRowCount();
+		data.num_pages = Math.ceil(data.row_count / data.window_size);
+		//end pagination
+		while(bene_type.next()){
+			data.benefit_type.push({
+				benefit_type_name: bene_type.getDisplayValue('name'),
+				benefit_type_sysID: bene_type.getValue('sys_id'),
+				benefit_class: bene_type.getDisplayValue('benefit_class'),
+				benefit_class_sysID: bene_type.getValue('benefit_class'),
+				beneficiaries: [],
+				primary: false,
+				contingent: false,
+				percent_total_primary: '',
+				percent_total_contingent: ''				
+			});
+		}
+
+		var bene = new GlideRecord(beneficiariesTable);
+		bene.addQuery('employee', me);
+		bene.query();
+		while(bene.next()){
+			var record = {};
+			record.beneficiary_name = bene.getDisplayValue('beneficiary_name');
+			record.beneficiary_type = bene.getDisplayValue('beneficiary_type');
+			record.benefit_type = bene.getDisplayValue('benefit_type');
+			record.benefit_type_sysID = bene.getValue('benefit_type');
+			record.percentage = bene.getDisplayValue('percentage');
+			record.relation = bene.getDisplayValue('contact.relation_to_employee');
+			record.bene_sys_id = bene.getValue('sys_id');
+			record.contact_sys_id = bene.getValue('contact');
+
+			data.list.push(record);
+		}
+
+		for(var x=0; x<data.list.length; x++) {
+			for(var y=0; y<data.benefit_type.length; y++) {
+				if(data.list[x].benefit_type_sysID == data.benefit_type[y].benefit_type_sysID){
+					data.benefit_type[y].beneficiaries.push(data.list[x]);
+				}
+			}
+		}
+
+		for(var i = 0; i < data.benefit_type.length; i++){
+			var primary = 0;
+			var contingent = 0;
+			var stage = data.benefit_type[i].beneficiaries;
+			for(var j = 0; j < stage.length; j++) {
+				if(stage[j].beneficiary_type=='Primary') {
+					primary += parseInt(stage[j].percentage);
+					data.benefit_type[i].percent_total_primary = primary;
+					data.benefit_type[i].primary = true;
+				}
+				if(stage[j].beneficiary_type=='Contingent') {
+					contingent += parseInt(stage[j].percentage);
+					data.benefit_type[i].percent_total_contingent = contingent;
+					data.benefit_type[i].contingent = true;
+				}
+			}	
+		}
+	}
+
+	if (input.action == "delete-beneficiary"){
+		var deleteBeneficiary = new GlideRecord(beneficiariesTable);
+		deleteBeneficiary.addQuery('sys_id', input.beneficiary_sysID);
+		deleteBeneficiary.query();
+		if (deleteBeneficiary.next()) {
+			deleteBeneficiary.deleteRecord();
+			gs.addInfoMessage('Your beneficiary has been deleted');
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-13 16:19:56</sys_created_on>
+        <sys_id>aaa44b2fdb629b0021eed90d689619f7</sys_id>
+        <sys_mod_count>95</sys_mod_count>
+        <sys_name>My Beneficiaries v2</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_aaa44b2fdb629b0021eed90d689619f7</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-17 20:45:48</sys_updated_on>
+        <template><![CDATA[<head>
+  <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+</head>
+
+<div class="panel panel-{{::c.options.color}} b">
+  <div class="panel-heading flex">
+    <h1 class="h4 panel-title"><i class="fa fa-{{c.glyph}} m-r-xs" aria-hidden="true"></i>{{c.title}}</h1>
+    <!--<button type="button" class="btn btn-primary text-uppercase" style="margin-left:auto;" ng-click="c.newEntry(-1, 'sn_hr_core_beneficiary','newBene','FED_ESS')">Add Beneficiary</button>-->
+  </div>
+
+  <div class="panel-body" ng-if="c.data.loading">
+    <span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+      <span class="sr-only">Loading...</span>
+    </span>
+  </div>
+
+  <div ng-if="!c.data.loading && c.benefit_type.length==0" class="empty-state-content panel-body">
+    <p>${You have no beneficiaries}</p>
+  </div>
+
+  <div ng-if="!c.data.loading && c.benefit_type.length>0" class="list-group" style="max-height: none; overflow-y: auto;">
+    <div ng-repeat="item in c.benefit_type | orderBy:'benefit_type_name' track by $index" class="list-group-item" ng-if="$index >= data.window_start && $index < data.window_end">
+      <div class="flex">
+        <span class="flex collapsed" ng-class="{'accordion-toggle collapsed':item.beneficiaries.length>0}" ng-if="item.beneficiaries.length>0" data-toggle="collapse" href="#{{item.benefit_type_sysID}}" role="button" aria-expanded="false" aria-controls="collapseDetails">
+          <span class="h4" style="margin-right: 5px;">{{item.benefit_type_name}}</span>
+          <i title="Primary and Contingent Beneficiaries total 100%" class="fa-2x fa fa-check-circle success" aria-hidden="true" ng-if="item.beneficiaries.length>0 && ((!item.contingent && item.percent_total_primary==100) || (!item.primary && item.percent_total_contingent==100) || (item.primary && item.contingent && item.percent_total_primary==100 && item.percent_total_contingent==100))"></i>    
+          <i title="Primary and Contingent Beneficiaries do NOT total 100%" class="fa-2x fa fa-exclamation-circle warning" aria-hidden="true" ng-if="item.beneficiaries.length>0 && ((item.primary && item.percent_total_primary<100) || (item.contingent && item.percent_total_contingent<100))"></i>
+        </span>
+        <h1 class="h4 flex collapsed" ng-if="item.beneficiaries.length==0">
+          {{item.benefit_type_name}}
+        </h1>
+        <div class="action">
+          <button type="button" class="btn btn-primary text-uppercase" style="margin-left:auto;" ng-click="c.newEntry(-1, 'sn_hr_core_beneficiary','newBene','FED_ESS',item.benefit_type_sysID,item.benefit_type_name)">
+            <i class="fa fa-plus m-r-xs"></i>Add Beneficiary
+          </button>
+        </div>
+      </div>
+      <div ng-if="item.beneficiaries.length>0" class="collapse" id="{{item.benefit_type_sysID}}">
+        <div class="table">
+          <div class="table-row">
+            <div class="table-header">
+              Edit
+            </div>
+            <div class="table-header">
+              Beneficiary Name
+            </div>
+            <div class="table-header">
+              Relationship
+            </div>
+            <div class="table-header">
+              Beneficiary Type
+            </div>
+            <div class="table-header">
+              Percentage
+            </div>
+          </div>
+          <div class="table-row" ng-repeat="x in item.beneficiaries | orderBy: '-percentage' track by $index">
+            <div class="table-cell">
+              <a href="javascript:void(0)" title="Edit Beneficiary" ng-click="c.newEntry(x.bene_sys_id,'sn_hr_core_beneficiary','newBene','FED_ESS');">Edit</a>
+            </div>
+            <div class="table-cell">
+              {{x.beneficiary_name}}
+              <a href="javascript:void(0)">
+                <i class="fa fa-edit m-l-xs" title="Edit Contact" ng-click="c.newEntry(x.contact_sys_id,'sn_hr_core_contact','newContact','gateway_hr');"></i>
+              </a>
+            </div>
+            <div class="table-cell">
+              {{x.relation}}
+            </div>
+            <div class="table-cell">
+              {{x.beneficiary_type}}
+            </div>
+            <div class="table-cell">
+              {{x.percentage}}%
+            </div>
+            <div class="table-cell">
+              <a href="javascript:void(0)" title="Delete Beneficiary">
+                <i class="fa fa-trash-o delete" ng-click="c.deleteEntry(x.bene_sys_id)"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--pagination -->
+  <div class="panel-footer" ng-hide="options.hide_footer" ng-if="data.row_count">
+    <div class="btn-toolbar m-r pull-left">
+      <div class="btn-group">
+        <a ng-disabled="data.p == 1" href="javascript:void(0)" ng-click="setPageNum(data.p - 1)" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+      </div>
+      <div ng-if="data.num_pages > 1 && data.num_pages < 20" class="btn-group">
+        <a ng-repeat="i in getNumber(data.num_pages) track by $index" ng-click="setPageNum($index + 1)" href="javascript:void(0)" ng-class="{active: ($index + 1) == data.p}" type="button" class="btn btn-default">{{$index + 1}}</a>
+      </div>
+      <div class="btn-group">
+        <a ng-disabled="data.p == data.num_pages" href="javascript:void(0)" ng-click="setPageNum(data.p + 1)" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="m-t-xs panel-title" style="color: #000000">${Rows {{data.window_start + 1}} - {{ mathMin(data.window_end,data.row_count) }} of {{data.row_count}}}</div>
+    <span class="clearfix"></span>
+  </div>
+</div>
+<!-- end pagination -->
+
+<!-- took button out of header <button style="margin:8px 15px;" type="button" class="btn btn-sm btn-primary pull-right text-uppercase" ng-click="c.newEntry(-1, 'sn_hr_core_contact', 'newContact','gateway_hr')">Add A New Contact</button>-->
+<script type="text/ng-template" id="newBene">
+	<div>
+		<sp-widget widget="c.newBene"></sp-widget>
+  </div>
+</script>
+
+<script type="text/ng-template" id="newContact">
+	<div>
+		<sp-widget widget="c.newContact"></sp-widget>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

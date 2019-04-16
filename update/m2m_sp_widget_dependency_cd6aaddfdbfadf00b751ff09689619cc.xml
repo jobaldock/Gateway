@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="Animate css">e8bb4d5fdb6ed700b751ff0968961928</sp_dependency>
+        <sp_widget display_value="Onboarding Instructions Vertical Dlu">856aaddfdbfadf00b751ff09689619ca</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-25 01:22:45</sys_created_on>
+        <sys_id>cd6aaddfdbfadf00b751ff09689619cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Animate css.Copy of Onboarding Instructions Vertical</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_cd6aaddfdbfadf00b751ff09689619cc</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-06-25 01:22:45</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>

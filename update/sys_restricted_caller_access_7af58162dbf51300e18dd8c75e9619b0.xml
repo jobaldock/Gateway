@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_restricted_caller_access">
+    <sys_restricted_caller_access action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source>e158e26d537322003585c3c606dc340a</source>
+        <source_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</source_scope>
+        <source_table>sp_widget</source_table>
+        <source_type>6</source_type>
+        <status>0</status>
+        <sys_class_name>sys_restricted_caller_access</sys_class_name>
+        <sys_created_by>kurt.bell</sys_created_by>
+        <sys_created_on>2018-05-03 21:45:26</sys_created_on>
+        <sys_id>7af58162dbf51300e18dd8c75e9619b0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>532da270dad21200a4656ede91f9331e</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_restricted_caller_access_7af58162dbf51300e18dd8c75e9619b0</sys_update_name>
+        <sys_updated_by>kurt.bell</sys_updated_by>
+        <sys_updated_on>2018-05-03 21:45:26</sys_updated_on>
+        <target name="sn_hr_le_activity_set_context" target_table="sys_db_object">7b8879f1dbe8d300af88f5861d961936</target>
+        <target_scope display_value="Human Resources: Lifecycle Events">532da270dad21200a4656ede91f9331e</target_scope>
+        <target_table>sys_db_object</target_table>
+        <target_type>1</target_type>
+    </sys_restricted_caller_access>
+</record_update>

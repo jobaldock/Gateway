@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="fehb_plan" label="FEHB Plan You Are Enrolling In or Changing To" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>fehb_plan</element>
+            <help/>
+            <hint/>
+            <label>FEHB Plan You Are Enrolling In or Changing To</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>FEHB Plan You Are Enrolling In or Changing Tos</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 15:55:36</sys_created_on>
+            <sys_id>2243da8cdb301b00af88f5861d9619f1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>FEHB Plan You Are Enrolling In or Changing To</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_fehb_plan_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 15:55:36</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

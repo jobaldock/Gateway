@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>Info Cards Instance</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Info Cards Instance</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Application File" name="Application File">ef46e954dbe01300af88f5861d961940</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-23 19:20:47</sys_created_on>
+        <sys_id>26ef974adbd1e34021eed90d68961945</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Info Cards Instance</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_wizard_answer_26ef974adbd1e34021eed90d68961945</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-23 19:20:47</sys_updated_on>
+        <table/>
+        <target_url>x_dnf_gw_obf_info_cards_instance.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>

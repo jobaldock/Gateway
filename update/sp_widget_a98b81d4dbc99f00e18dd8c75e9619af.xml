@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(spModal, $scope, $uibModal, $uibModalStack, spUtil, $rootScope) {
+	/* widget controller */
+	var c = this;
+
+	c.title = c.options.title;
+	c.get_started_tagline = c.options.get_started_tagline || "Get Started Now!";
+	c.existing_tagline = c.options.existing_tagline || "View/Edit Your Questionnaire";
+
+	console.log('Options');
+	console.log(c.options);
+
+	//Set value to show loading spinner
+	c.data.loading = true;
+
+	//After page initially loads re-call server script to load data
+	c.runServer = function() {
+		c.server.get({
+			name: 'onboardingQ'
+		}).then(function(response) {
+
+			//Set value to hide loading spinner
+			c.data.loading = false;
+
+			c.list = response.data.list;
+		});
+	};
+	c.runServer();
+
+	c.newEntry = function() {
+		c.modalInstance = $uibModal.open({
+			templateUrl: 'newQuestionnaire',
+			scope: $scope,
+			size: 'lg'
+		});
+		spUtil.get("widget-form-scoped", {
+			sys_id: -1,
+			view: 'FED_ESS',
+			table: 'x_dnf_gw_obf_federal_onboarding_questionnaire'
+		}).then(function(response) {
+			c.newQuestionnaire = response;
+		});
+	};
+
+	c.questionnaire = function(x) {
+		c.modalInstance = $uibModal.open({
+			templateUrl: 'existingQuestionnaire',
+			scope: $scope,
+			size: 'lg'
+		});
+		spUtil.get("widget-form-scoped", {
+			sys_id: x.sys_id,
+			view: 'FED_ESS',
+			table: x.table
+		}).then(function(response) {
+			c.existingQuestionnaire = response;
+		});
+		/*spUtil.get("form-percent-complete", {
+		}).then(function(response) {
+			c.percent_complete = response;
+		});*/
+	};
+
+	c.closeModal = function() {
+		c.modalInstance.close();
+	}
+
+	//receiving $broadcast closeModal from Appt Scheduler widget so window closes automatically onSubmit
+	$rootScope.$on('closeModal', function() {
+		if(c.modalInstance) {
+			c.modalInstance.close();
+		}
+		//c.runServer();
+	});
+
+	spUtil.recordWatch($scope, 'x_dnf_gw_obf_federal_onboarding_questionnaire', "",function(event,data){
+		c.runServer();	
+	});
+
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.completedQ, .startnow {
+  color: $color-lightest;
+  text-transform: uppercase;
+  letter-spacing: 1.9px;
+}
+
+.completedQ:focus, .startnow:focus {
+ border-color:transparent!important;
+ outline:none;
+}
+
+.completedQ {
+  background-color: $success;
+}
+
+.completedQ:hover {
+  background-color: darken($success, 10%);
+}
+
+.startnow {
+  background-color: $error;
+}
+
+.startnow:hover {
+  background-color: lighten($error, 10%);
+}
+
+.text-large {
+  font-size: 2em;
+}
+
+.social-button {
+  display: inline-block;
+  border-radius: 50%;
+  //background-color: #8c8c8c;
+  //background-color: rgba(140,140,140,0.75);
+  //color: $color-lightest;
+  border: 0 none;
+  padding: 0;
+  text-align: center;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title</field_list>
+        <has_preview>true</has_preview>
+        <id>onboarding-questionnaire</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Questionnaire</name>
+        <option_schema>[{"name":"get_started_tagline","section":"other","default_value":"","label":"Get Started Tagline","type":"string"},{"name":"existing_tagline","section":"other","default_value":"","label":"Existing Tagline","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles>sn_hr_sp.hrsp_new_hire</roles>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//After page initially loads get data
+	if (input && input.name == 'onboardingQ') {
+		var me = gs.getUserID();
+		data.list = [];
+
+		var questionnaire = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+		questionnaire.addQuery('user', me);
+		questionnaire.query();
+		if(questionnaire.next()) {
+
+			var sys_id = questionnaire.getValue('sys_id');
+			if(!sys_id) {
+				sys_id = -1;
+			}
+
+			var obj = {
+				table: questionnaire.getTableName(),
+				sys_id: sys_id,
+				name: questionnaire.getDisplayValue('user')
+			};	
+			data.list.push(obj);	
+			//gs.addInfoMessage(data.list[0].sys_id);
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-20 15:36:36</sys_created_on>
+        <sys_id>a98b81d4dbc99f00e18dd8c75e9619af</sys_id>
+        <sys_mod_count>277</sys_mod_count>
+        <sys_name>Onboarding Questionnaire</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_a98b81d4dbc99f00e18dd8c75e9619af</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-07-20 21:29:14</sys_updated_on>
+        <template><![CDATA[<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<div ng-if="c.data.loading">
+  <span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+    <span class="sr-only">Loading...</span>
+  </span>
+</div>
+
+<div ng-if="!c.data.loading" class="text-center m-b-xl">
+  <div ng-if="!c.list[0]"> 
+    <p class="h3">{{c.title}}</p>
+    <!--<div class="text-center text-large">
+      <a href="#" class="social-button startnow" ng-click="c.newEntry()">
+        <span class="fa fa-lg fa-file-text-o"></span>
+      </a>
+    </div>-->
+    <button class="startnow btn btn-lg" type="button" ng-click="c.newEntry()">{{c.get_started_tagline}}</button>
+  </div>
+
+  <div ng-if="c.list[0]"> 
+    <!--<div class="text-center text-large">
+      <a href="#" class="social-button completedQ" ng-click="c.questionnaire(c.list[0])">
+        <span class="fa fa-lg fa-check"></span>
+      </a>
+    </div>-->
+    <button class="completedQ btn btn-lg" type="button" ng-click="c.questionnaire(c.list[0])">{{c.existing_tagline}}</button>
+  </div>
+</div>
+
+<script type="text/ng-template" id="existingQuestionnaire">
+	<!--<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<h4 class="panel-title pull-left">View/Edit {{c.list[0].name}}'s Onboarding Questionnaire</h4>
+      <span ng-click="c.closeModal()"><i class="fas fa-times pull-right"></i></span>
+  </div>-->
+  <div>
+		<sp-widget widget="c.existingQuestionnaire"></sp-widget>
+  	<!--<sp-widget widget="c.percent_complete"></sp-widget>-->
+  </div>
+</script>
+<script type="text/ng-template" id="newQuestionnaire">
+	<div>
+		<sp-widget widget="c.newQuestionnaire"></sp-widget>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

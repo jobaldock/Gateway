@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>custom-template-tabbed-form-scoped.xml</id>
+        <sp_widget display_value="Form Scoped">43338788dbb01b00af88f5861d9619c5</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-15 20:14:07</sys_created_on>
+        <sys_id>ae1b9c32dbf05f00af88f5861d961993</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>custom-template-tabbed-form-scoped.xml</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_ng_template_ae1b9c32dbf05f00af88f5861d961993</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-03-15 20:14:07</sys_updated_on>
+        <template><![CDATA[<div>
+  <div ng-if="::formModel._sections == null || formModel._sections.length == 0" ng-init="execItemScripts()"></div>
+
+  <!--<div> {{formModel}} </div>-->
+
+  <!-- Had to add in angular plug-in for scrollable tabs -->
+  <!-- https://www.npmjs.com/package/angular-ui-tab-scroll -->
+  <scrollable-tabset auto-recalculate='true'>
+    <uib-tabset active="active" justified="true">
+      <!--<uib-tab index="$index+1" ng-repeat="container in containers" ng-show="paintForm(container)" ng-init="$last ? execItemScripts() : null" heading="{{$index+1}}. {{container.captionDisplay || container.caption}}"> -->
+      <uib-tab index="$index+1" ng-repeat="titleContainer in containers | titledFormSectionFilter" heading="{{$index+1}}. {{titleContainer.captionDisplay}}">
+        <!--<fieldset style="margin-top: 20px;"> -->
+        <fieldset style="margin-top: 20px;" ng-repeat="container in containers | currentFormSectionFilter : titleContainer.captionDisplay" ng-show="paintForm(container)" ng-init="$last ? execItemScripts() : null">
+          <!-- <legend class="h4" ng-if="(container.caption || container.captionDisplay)">{{container.captionDisplay || container.caption}}</legend>
+<div class="row"> -->
+          <div ng-repeat="column in container.columns" class="col-md-{{::12 / container.columns.length }}">
+            <div ng-switch="::f.type" ng-repeat="f in ::column.fields" id="{{::getVarID(f)}}" ng-class="::{'form-inline': isInlineForm === true }">
+              <div ng-switch-when="label" ng-if="formModel._fields[f.name]" ng-show="formModel._fields[f.name].isVisible()">
+                <label ng-bind-html="f.label"></label>
+                <span ng-if="formModel._fields[f.name].instructions" ng-bind-html="formModel._fields[f.name].instructions"></span>
+                <p ng-if="formModel._fields[f.name].help_text" title="{{formModel._fields[f.name].help_tag}}"
+                   class="help-block" ng-bind-html="formModel._fields[f.name].help_text"></p>
+                <hr class="sp_label_hr"/>
+              </div>
+              <sp-form-field ng-switch-when="field" ng-if="formModel._fields[f.name]" form-model="formModel" field="formModel._fields[f.name]" glide-form="getGlideForm()" ng-show="formModel._fields[f.name].isVisible()"></sp-form-field>
+              <sp-variable-layout ng-switch-when="container" ng-init="containers=[f]"></sp-variable-layout>
+              <sp-variable-layout ng-switch-when="checkbox_container" ng-init="containers=f.containers" class="checkbox-container"></sp-variable-layout>
+              <sp-widget ng-switch-when="formatter" ng-if="formModel._formatters[f.id].widgetInstance" widget="formModel._formatters[f.id].widgetInstance" page="{g_form: getGlideForm()}"></sp-widget>
+              <hr ng-switch-when="break"/>
+            </div>
+          </div>
+          <!-- </div> -->
+        </fieldset>
+      </uib-tab>
+    </uib-tabset>
+  </scrollable-tabset>
+</div>
+]]></template>
+    </sp_ng_template>
+</record_update>

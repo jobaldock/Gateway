@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Employee" section_id="a55e3a05db02ab00b751ff09689619cf" sys_domain="global" table="sn_hr_core_beneficiary" version="3" view="">
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Employee</caption>
+            <header>false</header>
+            <name>sn_hr_core_beneficiary</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-11-26 21:07:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a55e3a05db02ab00b751ff09689619cf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Employee</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_ui_section_a55e3a05db02ab00b751ff09689619cf</sys_update_name>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-11-26 21:07:14</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

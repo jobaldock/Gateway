@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spUtil, $rootScope) {
+
+	var c = this;
+	console.log($scope);
+
+	//Used to switch content being displayed
+	c.currentSwitch = 'task';
+
+	c.generateForms = function (){
+		c.data.action = "generateForms";
+		c.server.update().then(function(response){
+			//spUtil.update($scope);	
+			c.data.action = undefined;
+		})
+	}
+	//function to switch display based on value of currentSwitch
+	c.setSwitch = function (curSwitch){
+		c.currentSwitch = curSwitch;
+	}
+
+	$rootScope.$on('scheduled', function(event, status) {
+		if(status==true) {
+			c.data.appointments = true;
+		} else {
+			c.data.appointments = false;
+		}
+
+	});
+	
+	$rootScope.$on('onboardingTaskCount', function(event, obj) {
+			$scope.data.task_cnt = obj;
+	});
+
+	$rootScope.$on('onboardingSignTaskCount', function(event, obj) {
+			$scope.data.sign_doc_cnt = obj;
+	});
+
+	c.submitWorkHistory = function(){
+		c.data.action = "submitWorkHistory";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'beneficiaries';
+			c.data.work_history = true;
+		})	
+	}
+	c.submitBeneficiaries = function(){
+		c.data.action = "submitBeneficiaries";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'dependents';
+			c.data.beneficiaries = true;
+		})	
+	}
+	c.submitDependents = function(){
+		c.data.action = "submitDependents";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'questionnaire';
+			c.data.dependents = true;
+		})	
+	}
+	
+	$rootScope.$on('onboardingTaskCount', function(event, obj) {
+		$scope.data.task_cnt = obj;
+	});
+
+	$rootScope.$on('onboardingCompletedTasks', function(event, obj) {
+		$scope.data.completedTasks = obj;
+		//$scope.data.signedDocs = obj.signedDocs;
+	});
+
+	console.log('onboarding-zap');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.outer {
+  //margin: 1em 0;
+}
+
+.title {
+  h1, h4 {
+    margin: 0;
+  }
+
+  h1{
+    padding: 20px 0 10px 0;
+  }
+
+  h4{
+    padding: 10px 0;
+  }
+}
+
+.top, .detail, .action-buttons{
+  padding: 2em 4em;
+}
+
+.submitBtn {
+  margin-bottom: 15px;
+}
+
+.title, .wrap, .action-buttons, .top {
+  background: $color-darkest;
+  //background-image: url("light_pattern_background.png");
+  //background-color:$color-lighter;
+}
+
+.title, .form-title, .button, .sub-title {
+  text-align: center;
+}
+
+.title h1 { 
+  letter-spacing: 10px;
+  text-indent: 10px;
+
+  &gt; div {
+    position: relative;
+    display: inline-block;
+    + div {
+      display: block;
+    }
+  }
+  span {
+    text-indent: 0px;
+    letter-spacing: normal;
+    display: block;
+    margin-bottom: 10px;
+    font-size: .5em;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+    &amp;:before, &amp;:after {
+      content: "";
+      width: 35%;
+      height: 3px;
+      border-radius: 5px;
+      background: $due-today;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      top: .5em;
+    }
+    &amp;:after {
+      left: 0;
+    }
+  }
+}
+h4 {
+  //text-transform: uppercase;
+  //letter-spacing: 5px;
+  line-height:1.2em;
+}
+
+.wrap {
+  flex-wrap:wrap;
+  display:flex;
+  justify-content:space-evenly;
+  //width:100%; 
+  align-items:center;
+  //background: url(https://www.noupe.com/wp-content/uploads/2009/10/pattern-13.jpg);
+}
+
+.hr-line, .hr-line-dark {
+  //height: 2px;
+  flex: 1;
+  margin: 0 10px;
+  font-size: 3em;
+  text-align:center;
+}
+
+.hr-last {
+  -webkit-animation: flash infinite; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 6s; /* Safari 4.0 - 8.0 */
+  animation: flash infinite;
+  animation-duration: 6s;
+}
+
+.hr-line-dark {
+  color: $color-darkest;
+}
+
+.child {
+  //flex:1;
+  padding-top:1em;
+  cursor: pointer;
+}
+
+.child, .child a {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  color: $color-accent;
+}
+
+.child a h4, h4, h2, h1, .hr-line, .hr-last {
+  //color: $color-darkest;
+  color: $color-lightest;
+}
+
+.child i {
+  border: 3px solid $color-accent;
+  border-radius: 25px;
+  padding: 0.5em  
+}
+
+.child i, .child h4 {
+  transition: all 0.5s linear;
+}
+
+.child a:hover {
+  i {
+    background: $color-accent;
+    color: $color-lightest;
+    //box-shadow: 0 0 0 0 $overdue;
+    -webkit-animation: rubberBand 1s;
+    animation: rubberBand 1s;
+  }
+  /*h4 {
+  color: $color-lightest;
+}*/
+}
+
+.fa-fw {
+  position:relative;
+  width: 2.3em;
+}
+
+.started {
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  color: $success;
+  background: $color-lightest;
+  border-radius: 50%;
+  width: 1em;
+}
+
+.detail {
+  //padding:1em 50.4px;
+  //display:none;
+  height:auto;
+
+  h1, h2, h4 {
+    color: $color-darkest;
+  }
+}
+
+.form-title {
+  margin-top:0;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.form-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80px;
+  height: 4px;
+  background: $due-today;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -otransform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.action-buttons {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-evenly;
+  //margin-top: 2em;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  flex: 1;
+  max-width: 275px;
+  padding: 10px;
+  //color: $color-darkest;
+  color: $color-lightest;
+  font-size: 18px;
+  text-decoration: none;
+  //border: 3px solid $color-darkest;
+  border: 3px solid $color-lightest;
+  //overflow: hidden;
+  transition: color 100ms ease-in-out 100ms, 
+    border-color 200ms ease-out, box-shadow 200ms ease-in-out;
+  z-index: 1;
+}
+.button.center {
+  //margin: 0 auto;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  //background-color: $color-darkest;
+  background-color: $color-lightest;
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 200ms ease-out 100ms;
+  transition: transform 200ms ease-out 100ms;
+  transition: transform 200ms ease-out 100ms, 
+    -webkit-transform 200ms ease-out 100ms;
+}
+.button:hover {
+  //color: $color-lightest;
+  //border-color: $color-darkest;
+  color: $color-darkest;
+  border-color: $color-lightest;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+}
+.button:hover:after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transition: -webkit-transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, 
+    -webkit-transform 200ms ease-out;
+}
+
+.button__badge {
+  position: absolute;
+  top:-15px;
+  right: -15px;
+  padding: 3px 9px;
+  border: 2px solid white;
+  border-radius:100px;
+  background-color: $overdue;
+  font:bold 16px/20px "Helvetica Neue", sans-serif; 
+  color: white;
+}
+
+/*.badge-pill {
+  background-color: $overdue;
+  font-size: 15px;
+}*/
+
+//new
+.animate-switch-container {
+  position:relative;
+  background:white;
+  border:1px solid black;
+  height:40px;
+  overflow:hidden;
+}
+
+
+.animate-switch.ng-animate {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.animate-switch.ng-leave.ng-leave-active,
+.animate-switch.ng-enter {
+  top:-50px;
+}
+.animate-switch.ng-leave,
+.animate-switch.ng-enter.ng-enter-active {
+  top:0;
+}
+
+.disabledClick{
+  color: gray !important;
+}
+
+.child &gt; .disabledClick &gt; i{
+  border: 3px solid gray !important;
+  color: gray !important;
+}
+
+.child &gt; .disabledClick:hover &gt; i{
+  border: 3px solid gray !important;
+  color: gray !important;
+  background: none;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.disabledClick:hover{
+  cursor: not-allowed;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+//************************************MEDIA QUERIES************************************//
+
+@media screen and (max-width: 768px) {
+  .action-buttons  {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .button.center {
+    width:100%;
+    //margin: 0 auto;
+  }
+
+  .button.center:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  .wrap {
+    flex-direction: column;
+  }
+
+  .child, .fa-long-arrow-alt-down {
+    margin: 0.75%;
+  }  
+
+  .child:first-of-type {
+    margin-top: 0;
+  }
+
+  .child:last-of-type {
+    margin-bottom: 0;
+  }
+
+
+  .fa-long-arrow-alt-right{
+    display:none;
+  }
+
+  .fa-long-arrow-alt-down{
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) { 
+  .child {
+    width: 20%;
+  }
+
+  .child, .fa-long-arrow-alt-right {
+    margin: 1%;
+  }  
+
+  .fa-long-arrow-alt-right{
+    display:inline-block;
+  }
+
+  .fa-long-arrow-alt-down{
+    display: none;
+  }
+}
+
+//@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1025px) {
+  .child {
+    width: 10%;
+  }
+
+  .child, .fa-long-arrow-alt-right {
+    margin: 0.75%;
+  }  
+
+  .child:first-of-type {
+    margin-left: 0;
+  }
+
+  .child:last-of-type {
+    margin-right: 0;
+  }
+
+  .fa-long-arrow-alt-right{
+    display:inline-block;
+    width: 5%;
+  }
+
+  .fa-long-arrow-alt-down{
+    display: none;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding_manager_view</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Manager View</name>
+        <option_schema>[{"name":"intro","section":"Presentation","default_value":"Take a moment to fill out the necessary information in each section to expedite your onboarding process. When you have finished, use the buttons below to generate, sign and view your forms.","label":"Intro Text","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.questionnaire = false;
+	data.work_history = false;
+	data.beneficiaries = false;
+	data.tax = false;
+	data.appointments = false;
+	data.dependents = false;
+	var me = gs.getUserID();
+
+	//Get flags on HR profile
+	var hr_profile = new GlideRecord('sn_hr_core_profile');
+	hr_profile.addQuery('user',me);
+	hr_profile.query();
+	if(hr_profile.next()){
+
+		data.work_history = hr_profile.getValue('x_dnf_gw_obf_work_history');
+		data.beneficiaries = hr_profile.getValue('x_dnf_gw_obf_beneficiaries');
+		data.dependents = hr_profile.getValue('x_dnf_gw_obf_dependents');
+	}
+	//Check is user hax tax forms
+	var gr6 = new GlideRecord('x_dnf_gw_symmetry_tax_withholding_forms');
+	gr6.addQuery('subject_employee',me);
+	gr6.query();
+	if(gr6.next()){
+		data.tax = true;
+	}
+
+	/*var sys_id = -1;
+	var gr2 = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+	gr2.addQuery('user',me);
+	gr2.query();
+	if(gr2.next()){
+		sys_id = gr2.getValue('sys_id');
+		//data.questionnaire = true;
+	}*/
+	//Check if logged in user's questionnaire task is complete
+	var gr3 = new GlideRecord('sn_hr_core_task');
+	gr3.addQuery('assigned_to', me);
+	gr3.addQuery('hr_task_type','questionnaire');
+	gr3.addQuery('short_description','Onboarding Questionnaire');
+	gr3.addQuery('state','3');
+	gr3.query();
+	if(gr3.next()){
+		data.questionnaire = true;
+	}
+
+	var qTask = new GlideRecord('sn_hr_core_task');
+	qTask.addQuery('assigned_to', me);
+	qTask.addQuery('short_description', 'Onboarding Questionnaire');
+	qTask.query();
+	if(qTask.next()) {
+		data.task_id = qTask.getValue('sys_id');
+	}
+	/*
+	var sys_id = -1;
+	var me = gs.getUserID();
+	var gr2 = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+	gr2.addQuery('user',me);
+	gr2.query();
+	if(gr2.next()){
+		sys_id = gr2.getValue('sys_id');
+
+		data.questionnaire = true;
+
+	}
+	data.formOptions = {"sys_id": sys_id,
+											"view": "FED_ESS",
+											"table":"x_dnf_gw_obf_federal_onboarding_questionnaire"
+										 };
+
+	//Check if user has work history
+	var gr3 = new GlideRecord('x_dnf_gw_found_work_history');
+	gr3.addQuery('user',me);
+	gr3.query();
+	if(gr3.next()){
+		data.work_history = true;
+	}
+	//Check if user has beneficiaries
+	var gr4 = new GlideRecord('sn_hr_core_beneficiary');
+	gr4.addQuery('employee',me);
+	gr4.query();
+	if(gr4.next()){
+		data.beneficiaries = true;
+	}
+*/
+	/*var gr5 = new GlideRecord('x_dnf_appt_sch_appointment_enrollments');
+	gr5.addQuery('user',me);
+	gr5.query();
+	if(gr5.next()){
+		data.appointments = true;
+	}*/
+	/*
+	//Check is user hax tax forms
+	var gr6 = new GlideRecord('x_dnf_gw_symmetry_tax_withholding_forms');
+	gr6.addQuery('subject_employee',me);
+	gr6.query();
+	if(gr6.next()){
+		data.tax = true;
+	}
+	//Check if user has dependents
+	//To do - what if user has no dependents
+	var gr7 = new GlideRecord('x_dnf_gw_found_hr_dependent');
+	gr7.addQuery('employee',me);
+	gr7.query();
+	if(gr7.next()){
+		data.dependents = true;
+	}
+	*/
+
+	//get task counts
+	data.task_list = [];
+	var gr8 = new GlideRecord('sn_hr_core_task');
+	gr8.addQuery('assigned_to', me);
+	//gr8.addQuery('hr_task_type', 'sign_document');
+	gr8.addQuery('state', '10');
+	gr8.query();
+	while(gr8.next()) {
+		data.task_list.push({
+			task_type: gr8.getValue('hr_task_type')
+		})
+	}
+	
+	data.sign_doc_cnt=0;
+	data.task_cnt=0;
+	for(var i=0; i<data.task_list.length; i++){
+		if(data.task_list[i].task_type=='sign_document'){
+			data.sign_doc_cnt++;
+		} else if(data.task_list[i].task_type!='sign_document'){
+			data.task_cnt++;
+		}
+	}
+
+	if(input){
+		//Only used if there is generate forms button
+		if(input.action == 'generateForms'){
+
+			var gr = new GlideRecord('sn_hr_le_case');
+			gr.initialize(); 
+			gr.hr_service = '92481164dbd99740e18dd8c75e96191d';
+			gr.opened_for = me;
+			gr.state = '10';
+			gr.insert();
+		}
+		if(input.action =='submitWorkHistory'){
+			var hr_profile2 = new GlideRecord('sn_hr_core_profile');
+			hr_profile2.addQuery('user',me);
+			hr_profile2.query();
+			if(hr_profile2.next()){
+				hr_profile2.x_dnf_gw_obf_work_history = true;
+				hr_profile2.update();
+			}
+		}
+		if(input.action =='submitBeneficiaries'){
+			var hr_profile3 = new GlideRecord('sn_hr_core_profile');
+			hr_profile3.addQuery('user',me);
+			hr_profile3.query();
+			if(hr_profile3.next()){
+				hr_profile3.x_dnf_gw_obf_beneficiaries = true;
+				hr_profile3.update();
+			}
+		}
+		if(input.action =='submitDependents'){
+			var hr_profile4 = new GlideRecord('sn_hr_core_profile');
+			hr_profile4.addQuery('user',me);
+			hr_profile4.query();
+			if(hr_profile4.next()){
+				hr_profile4.x_dnf_gw_obf_dependents = true;
+				hr_profile4.update();
+			}
+		}
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-08 15:31:03</sys_created_on>
+        <sys_id>c8cd4ffedbfa6300b751ff096896196e</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>Onboarding Manager View</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_c8cd4ffedbfa6300b751ff096896196e</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-02-07 14:57:17</sys_updated_on>
+        <template><![CDATA[<head>
+  <!-- SN comes with font awesome v.4.7.  Loaded in the newest version first in order to use new icons, but default to 4.7 otherwise -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<div class="outer">
+  <div class="top">
+    <div class="title">
+      <h1>
+        <div>
+          ONBOARDING
+          <span>manager</span>
+        </div>
+        <div>VIEW</div>
+      </h1>
+      <h4>{{c.options.intro}}</h4>
+    </div>
+  </div>
+  <!--<div class="action-buttons">-->
+    <!--<a ng-click="c.setSwitch('sign')" class="center button click" data-wipe="Sign Forms">
+      <span>Sign Forms</span>
+      <span ng-if="data.sign_doc_cnt > 0" class="badge badge-pill m-l-sm">{{data.sign_doc_cnt}}</span> 
+    </a>-->
+    <!--<a ng-click="c.setSwitch('task')" class="center button click" data-wipe="Your Onboarding Tasks">
+      <span>Complete Onboarding Tasks</span>
+      <span ng-if="data.task_cnt > 0" class="button__badge">{{data.task_cnt}}</span> 
+    </a>-->
+    <!--<a href="/hrportal_dnf/?id=onboarding_reports" target="_blank" class="center button click" data-wipe="Reports">Reports</a>-->
+   <!-- <a href="#report" class="center button click" data-wipe="Reports">Reports</a>
+  </div>-->
+  <div class="detailContainer"> <!-- ng-switch on="c.currentSwitch" -->
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'task'">
+      <h2 class="form-title">Action Required</h2>
+      <widget id="my_onboarding_tasks"></widget>
+      <h2 class="form-title" style="margin-top:15px; padding-top:15px;" ng-if="data.completedTasks>0">Completed</h2>
+      <widget id="my_onboarding_tasks_completed"></widget>
+    </div>
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'sign'">
+      <h2 class="form-title">Sign Your Required Forms</h2>
+      <widget id="my_onboarding_sign_tasks"></widget>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<select ng-model="selection" ng-options="item for item in items">
+</select>
+<code>selection={{selection}}</code>
+<hr/>
+<div class="animate-switch-container"
+ng-switch on="selection">
+<div class="animate-switch" ng-switch-when="settings|options" ng-switch-when-separator="|">Settings Div</div>
+<div class="animate-switch" ng-switch-when="home">Home Span</div>
+<div class="animate-switch" ng-switch-default>default</div>
+</div>-->]]></template>
+    </sp_widget>
+</record_update>

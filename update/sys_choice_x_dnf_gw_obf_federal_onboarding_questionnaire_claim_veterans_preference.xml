@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="claim_veterans_preference" table="x_dnf_gw_obf_federal_onboarding_questionnaire" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>claim_veterans_preference</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Yes</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>0</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:07:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0e061a00db701b00af88f5861d96196e</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:07:43</sys_updated_on>
+            <value>yes</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>claim_veterans_preference</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>1</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:07:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cf061a00db701b00af88f5861d96196f</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:07:48</sys_updated_on>
+            <value>no</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>claim_veterans_preference</element>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:07:39</sys_created_on>
+            <sys_id>3e069a00db701b00af88f5861d961941</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>claim_veterans_preference</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_choice_x_dnf_gw_obf_federal_onboarding_questionnaire_claim_veterans_preference</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:07:39</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

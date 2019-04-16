@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>traditional_pretax_contributions_percent</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>onChange Traditional Percent</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+	
+	var a = g_form.getValue('traditional_pretax_contributions_percent');
+	var b = g_form.getValue('roth_after_tax_contributions_percent');
+	var c = parseInt(a)+parseInt(b);
+
+	if(a > 100 || b > 100 || c > 100) {
+		alert('Traditional and Roth contribution total cannot exceed 100%.');
+		g_form.setValue('traditional_pretax_contributions_percent', '');
+		g_form.setValue('roth_after_tax_contributions_percent', '');
+		return false;
+	} else {
+		return true;
+	}
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-07-11 18:35:06</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b25f6fecdbd79b40b751ff09689619dd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>onChange Traditional Percent</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_script_client_b25f6fecdbd79b40b751ff09689619dd</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-07-11 18:35:06</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

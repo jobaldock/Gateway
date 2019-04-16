@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>body .padding-top {
+  padding-top:0;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>hrj_dashboard_dnf_manager</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-08 15:27:49</sys_created_on>
+        <sys_id>340d4bfedbfa6300b751ff09689619d1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>hrj_dashboard_dnf_manager</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_page_340d4bfedbfa6300b751ff09689619d1</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-08 16:13:11</sys_updated_on>
+        <title>hrj_dashboard_dnf_manager</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=340d4bfedbfa6300b751ff09689619d1"/>
+</record_update>

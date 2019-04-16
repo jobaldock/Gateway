@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.parent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+	display: flex;
+  //margin-bottom: 20px;
+}
+
+.parent .col-md-4, .parent .col-md-4 &gt; div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+	//need these three lines in order to work in IE
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  //flex:1;
+  //-ms-flex: 1;
+  //-webkit-flex: 1;
+}
+
+.panel {
+	margin-bottom: 0;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>my-info-row</id>
+        <internal>false</internal>
+        <link/>
+        <name>My Info Row</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-10-05 20:25:30</sys_created_on>
+        <sys_id>80d10790db812b0021eed90d68961935</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>My Info Row</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_80d10790db812b0021eed90d68961935</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-10-10 13:27:09</sys_updated_on>
+        <template><![CDATA[<div class="parent" id="myInfoRow">
+  <div class = "col-md-4">
+    <widget id="employee-info-card"></widget>
+  </div>
+  <div class = "col-md-4">
+    <widget id="my-team-card"></widget>
+  </div>   
+  <div class = "col-md-4">
+    <widget id="first-day-card"></widget>
+  </div>   
+</div>]]></template>
+    </sp_widget>
+</record_update>

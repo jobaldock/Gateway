@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="insurance" table="x_dnf_gw_obf_federal_onboarding_questionnaire" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>insurance</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>A</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>0</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-19 20:01:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d09eb8c4dbc19f00e18dd8c75e9619bc</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-19 20:01:18</sys_updated_on>
+            <value>a</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>insurance</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>B</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>1</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-19 20:01:20</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b59eb8c4dbc19f00e18dd8c75e9619bd</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-19 20:01:22</sys_updated_on>
+            <value>b</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>insurance</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>C</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>2</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-19 20:01:25</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>539e7cc4dbc19f00e18dd8c75e961964</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-19 20:01:29</sys_updated_on>
+            <value>c</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>insurance</element>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-19 20:01:14</sys_created_on>
+            <sys_id>b99ef8c4dbc19f00e18dd8c75e961937</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>insurance</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_choice_x_dnf_gw_obf_federal_onboarding_questionnaire_insurance</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-19 20:01:14</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

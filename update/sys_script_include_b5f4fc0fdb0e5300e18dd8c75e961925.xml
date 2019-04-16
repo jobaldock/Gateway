@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_dnf_gw_obf.PDFFieldMapping</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>PDFFieldMapping</name>
+        <script><![CDATA[var PDFFieldMapping = Class.create();
+PDFFieldMapping.prototype = {
+	initialize: function() {
+	},
+
+	newMapping :function(casegr, mapping){
+		//Look at HR Case & Onboarding Questionnaire tables
+		//Check that the subject person of the HR Case = the User of the Questionnaire 
+		//Get the values from the Questionnaire 
+		//Set the values from the Questsionnaire to the Template 
+		var newMapping = '';
+		var questionnaire = '';
+		//var mapping2 = mapping.toString();
+
+		//Query the questionnaire table looking at relevant subject person, and grab mapping field that is passed
+		questionnaire = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+		questionnaire.addQuery('user', casegr.subject_person);
+		questionnaire.query();
+		if(questionnaire.next()){
+			newMapping = questionnaire.getDisplayValue(mapping);
+		}
+
+		if(newMapping){
+			return newMapping;
+		}
+		else{
+			return '';
+		}
+
+	},
+	newMappingDependent :function(casegr5, mapping5, number5){
+		var newMapping5 = '';
+		var dependent = '';
+		var list5 = [];
+
+		//Sort by from contact name
+		function compare5(a,b) {
+			if (a.contact < b.contact)
+				return -1;
+			if (a.contact > b.contact)
+				return 1;
+			return 0;
+		}
+		dependent = new GlideRecord('x_dnf_gw_found_hr_dependent');
+		dependent.addQuery('employee', casegr5.subject_person);
+		dependent.query();
+		while(dependent.next()){
+			var record = {};
+			record.contact = dependent.getValue('contact');
+			record.map = dependent.getDisplayValue(mapping5);
+			list5.push(record);
+		}
+
+		if(list5){
+			list5.sort(compare5);
+		}
+		if (list5.length >= number5){
+			return list5[number5 - 1].map;
+		} else{
+			return '';
+		}
+	},
+	newMappingBeneficiary :function(casegr2, mapping2, number, benefitType){
+		var primaryList = [];
+		var contingentList = [];
+		var addText = '';
+
+		//Sort by name
+		function compare(a,b) {
+			if (a.name < b.name)
+				return -1;
+			if (a.name > b.name)
+				return 1;
+			return 0;
+		}
+		//Query the beneficiary table looking at relevant subject person, and grab mapping field that is passed
+		//Pushing all primary and contingent beneficiaries and sorting based on name
+		var gr = new GlideRecord('sn_hr_core_beneficiary');
+		gr.addQuery('employee', casegr2.subject_person);
+		gr.addQuery('benefit_type', benefitType);
+		gr.query();
+		while(gr.next()){
+			var record = {};
+			record.name = gr.getDisplayValue('beneficiary_name');
+			record.map = '';
+			record.isTrust = gr.getValue('is_trust');
+			if(gr.getDisplayValue(mapping2)){
+				record.map = gr.getDisplayValue(mapping2);
+			}
+			if (gr.getValue('beneficiary_type') == 'primary'){
+				if(record.map != ''){
+					primaryList.push(record);
+				} else if(gr.getValue('is_trust') == true && mapping2 == 'contact.relation_to_employee'){
+					record.map = 'Trustee';
+					primaryList.push(record);
+				} else if(gr.getValue('is_trust') == true && mapping2 == 'contact.address'){
+					record.map = 'n/a';
+					primaryList.push(record);
+				}
+			}
+			if (gr.getValue('beneficiary_type') == 'contingent'){
+				if(record.map != ''){
+					contingentList.push(record);
+				} else if(gr.getValue('is_trust') == true && mapping2 == 'contact.relation_to_employee'){
+					record.map = 'Trustee';
+					contingentList.push(record);
+				} else if(gr.getValue('is_trust') == true && mapping2 == 'contact.address'){
+					record.map = 'n/a';
+					contingentList.push(record);
+				}
+			}
+
+		}
+		if(primaryList){
+			primaryList.sort(compare);
+		}
+		if(contingentList){
+			contingentList.sort(compare);
+		}
+		//return primary first then contingent in order by name
+		if (primaryList.length >= number){
+			if (contingentList.length >= 1 && mapping2 == 'beneficiary_name' && primaryList[number - 1].isTrust == false){
+				addText = ', if living';
+			}
+			return primaryList[number - 1].map + addText;
+		} else if (contingentList.length >= number - primaryList.length){
+			if (mapping2 == 'beneficiary_name'){
+				addText = 'Otherwise to: ';
+			}
+			return addText + contingentList[number - primaryList.length - 1].map;
+		}
+		else{
+			return '';
+		}
+
+	},
+
+	newMappingWorkHistory :function(casegr3, mapping3, number2, workType){
+		var list = [];
+		//Sort by from date
+		function compare2(a,b) {
+			if (a.from < b.from)
+				return -1;
+			if (a.from > b.from)
+				return 1;
+			return 0;
+		}
+		//Query the work history table looking at relevant subject person, and grab mapping field that is passed
+		var gr2 = new GlideRecord('x_dnf_gw_found_work_history');
+		gr2.addQuery('user', casegr3.subject_person);
+		gr2.addQuery('work_history_type', workType);
+		gr2.query();
+		while(gr2.next()){
+			var record = {};
+			record.from = gr2.getValue('from');
+			record.map = gr2.getDisplayValue(mapping3);
+			list.push(record);
+		}
+		if(list){
+			list.sort(compare2);
+		}
+		if (list.length >= number2){
+			return list[number2 - 1].map;
+		} else{
+			return '';
+		}
+	},
+
+	newMappingNonwartimeCampaigns :function(casegr4, mapping4, number3){
+		var campaigns = [];
+		//Sort by from date
+		function compare3(a,b) {
+			if (a.from < b.from)
+				return -1;
+			if (a.from > b.from)
+				return 1;
+			return 0;
+		}
+		var recentBranches = [];
+
+		var gr4 = new GlideRecord('x_dnf_gw_found_work_history');
+		gr4.addQuery('user', casegr4.subject_person);
+		gr4.addQuery('work_history_type', '73003f4ddb529700e18dd8c75e96194a');
+		gr4.addQuery('retired', true);
+		gr4.orderByDesc('to');
+		gr4.query();
+		while(gr4.next()){
+			recentBranches.push(gr4.getValue('sys_id'));
+		}
+
+		//Query the work history table looking at relevant subject person, and grab mapping field that is passed
+		var gr3 = new GlideRecord('x_dnf_gw_found_nonwartime_campaigns_and_expeditions');
+		gr3.addQuery('user', casegr4.subject_person);
+		gr3.addQuery('uniformed_work_history', recentBranches[0]);
+		gr3.query();
+		while(gr3.next()){
+			var campaign = {};
+			campaign.from = gr3.getValue('from');
+			campaign.map = gr3.getDisplayValue(mapping4);
+			campaigns.push(campaign);
+		}
+		if(campaigns.length == 0){
+			var gr5 = new GlideRecord('x_dnf_gw_found_nonwartime_campaigns_and_expeditions');
+			gr5.addQuery('user', casegr4.subject_person);
+			gr5.addQuery('uniformed_work_history', recentBranches[1]);
+			gr5.query();
+			while(gr5.next()){
+				var campaign2 = {};
+				campaign2.from = gr5.getValue('from');
+				campaign2.map = gr5.getDisplayValue(mapping4);
+				campaigns.push(campaign2);
+			}
+		}
+		if(campaigns.length == 0){
+			var gr6 = new GlideRecord('x_dnf_gw_found_nonwartime_campaigns_and_expeditions');
+			gr6.addQuery('user', casegr4.subject_person);
+			gr6.addQuery('uniformed_work_history', recentBranches[2]);
+			gr6.query();
+			while(gr6.next()){
+				var campaign3 = {};
+				campaign3.from = gr6.getValue('from');
+				campaign3.map = gr6.getDisplayValue(mapping4);
+				campaigns.push(campaign3);
+			}
+		}	
+		
+		if(campaigns){
+			campaigns.sort(compare3);
+		}
+		
+		if (campaigns.length >= number3){
+			return campaigns[number3 - 1].map;
+		} else{
+			return '';
+		}
+	},
+
+	type: 'PDFFieldMapping'
+};
+
+
+
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-05-17 20:04:19</sys_created_on>
+        <sys_id>b5f4fc0fdb0e5300e18dd8c75e961925</sys_id>
+        <sys_mod_count>82</sys_mod_count>
+        <sys_name>PDFFieldMapping</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_script_include_b5f4fc0fdb0e5300e18dd8c75e961925</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-04-01 13:26:42</sys_updated_on>
+    </sys_script_include>
+</record_update>

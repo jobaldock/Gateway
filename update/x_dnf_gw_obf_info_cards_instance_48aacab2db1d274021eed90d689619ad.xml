@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_dnf_gw_obf_info_cards_instance">
+    <x_dnf_gw_obf_info_cards_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button_title/>
+        <button_url/>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field/>
+        <expandable_id/>
+        <field_list>employment_start_date</field_list>
+        <filter table="sn_hr_core_profile">userDYNAMICgs.getUserID();<item endquery="false" field="user" goto="false" newquery="false" operator="DYNAMIC" or="false" value="gs.getUserID();"/>
+        </filter>
+        <glyph/>
+        <header_field/>
+        <icon>briefcase</icon>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <show_button>false</show_button>
+        <size>md</size>
+        <sp_column display_value="3">d0b9dc2adb9de34021eed90d689619c3</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Onboarding: Employee Info v3">41238172db59274021eed90d68961931</sp_widget>
+        <subheader_field/>
+        <sys_class_name>x_dnf_gw_obf_info_cards_instance</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-25 21:03:36</sys_created_on>
+        <sys_id>48aacab2db1d274021eed90d689619ad</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>My First Day</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>x_dnf_gw_obf_info_cards_instance_48aacab2db1d274021eed90d689619ad</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-25 22:22:51</sys_updated_on>
+        <table>sn_hr_core_profile</table>
+        <title>My First Day</title>
+        <url/>
+        <widget_parameters/>
+    </x_dnf_gw_obf_info_cards_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=48aacab2db1d274021eed90d689619ad"/>
+</record_update>

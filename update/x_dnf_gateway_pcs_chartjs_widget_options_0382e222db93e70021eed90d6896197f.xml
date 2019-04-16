@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_dnf_gateway_pcs_chartjs_widget_options">
+    <x_dnf_gateway_pcs_chartjs_widget_options action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <background_color>#f2f2f2</background_color>
+        <chart_type>bar</chart_type>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <field_list>state,number</field_list>
+        <fifth_color/>
+        <filter/>
+        <first_color>#fc8a3d</first_color>
+        <fourth_color/>
+        <glyph/>
+        <group_by>state</group_by>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <second_color>#6d79eb</second_color>
+        <short_description/>
+        <show_legend>false</show_legend>
+        <sixth_color/>
+        <size>md</size>
+        <sp_column display_value="1">85426222db93e70021eed90d689619ff</sp_column>
+        <sp_widget display_value="chartjs widget">06054284dbbf530021eed90d68961988</sp_widget>
+        <stacked_by/>
+        <sys_class_name>x_dnf_gateway_pcs_chartjs_widget_options</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-02-01 14:15:12</sys_created_on>
+        <sys_id>0382e222db93e70021eed90d6896197f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>All HR Tasks by state</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>x_dnf_gateway_pcs_chartjs_widget_options_0382e222db93e70021eed90d6896197f</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-02-01 14:18:01</sys_updated_on>
+        <table>sn_hr_core_task</table>
+        <table_view_type>separate</table_view_type>
+        <third_color>#fc8a3d</third_color>
+        <title>All HR Tasks by state</title>
+        <url/>
+        <widget_parameters/>
+        <x_axis_label/>
+        <y_axis_label/>
+    </x_dnf_gateway_pcs_chartjs_widget_options>
+    <sys_translated_text action="delete_multiple" query="documentkey=0382e222db93e70021eed90d6896197f"/>
+</record_update>

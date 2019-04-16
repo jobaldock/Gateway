@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="PDF Completion" max_length="40" name="x_dnf_gw_obf_pdf_completion" type="collection">
+        <element label="Owner" max_length="40" name="owner" reference="sn_hr_core_profile" type="reference"/>
+        <element label="PDF Name" max_length="40" name="pdf_name" type="string"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Not Started" sequence="1" value="1"/>
+                <element inactive_on_update="false" label="Document &amp; Template Creation" sequence="2" value="2"/>
+                <element inactive_on_update="false" label="Field Mapping" sequence="3" value="3"/>
+                <element inactive_on_update="false" label="Complete" sequence="4" value="4"/>
+            </choice>
+        </element>
+    </element>
+</database>

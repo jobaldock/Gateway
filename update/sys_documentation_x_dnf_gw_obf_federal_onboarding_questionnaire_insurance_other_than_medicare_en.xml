@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="insurance_other_than_medicare" label="Are you covered by insurance other than Medicare?" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>insurance_other_than_medicare</element>
+            <help/>
+            <hint/>
+            <label>Are you covered by insurance other than Medicare?</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>Are you covered by insurance other than Medicare?s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:00:44</sys_created_on>
+            <sys_id>f5741accdb301b00af88f5861d9619ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Are you covered by insurance other than Medicare?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_insurance_other_than_medicare_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:00:44</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

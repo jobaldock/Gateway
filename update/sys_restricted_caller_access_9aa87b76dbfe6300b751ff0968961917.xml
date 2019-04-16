@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_restricted_caller_access">
+    <sys_restricted_caller_access action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source>bb8d9401db77d300b751ff09689619a3</source>
+        <source_scope display_value="Gateway: PCS">7aeb1271db6f574021eed90d6896191c</source_scope>
+        <source_table>sp_widget</source_table>
+        <source_type>6</source_type>
+        <status>0</status>
+        <sys_class_name>sys_restricted_caller_access</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-08 18:38:32</sys_created_on>
+        <sys_id>9aa87b76dbfe6300b751ff0968961917</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>d4ac3fff5b311200a4656ede91f91af2</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_restricted_caller_access_9aa87b76dbfe6300b751ff0968961917</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-08 18:38:32</sys_updated_on>
+        <target name="sn_hr_core_profile" target_table="sys_db_object">b08875f1dbe8d300af88f5861d9619f6</target>
+        <target_scope display_value="Human Resources: Core">d4ac3fff5b311200a4656ede91f91af2</target_scope>
+        <target_table>sys_db_object</target_table>
+        <target_type>1</target_type>
+    </sys_restricted_caller_access>
+</record_update>

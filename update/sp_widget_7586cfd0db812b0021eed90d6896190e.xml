@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {  /* widget controller */  
+	var c = this;
+
+//Get option values
+	c.title = c.options.title || 'My Information';
+	c.glyph = c.options.glyph || '';
+	
+	console.log('Options');
+	console.log(c.options);
+	
+	//Set value to show loading spinner
+	c.data.loading = true;
+	
+	//After page initially loads re-call server script to load data
+	c.server.get({
+		action: 'retrieve_data'
+	}).then(function(response) {
+		
+		//Set value to hide loading spinner
+		c.data.loading = false;
+		
+		console.log('Response');
+		console.log(response);
+		
+		//Get link data
+		c.department = response.data.department;
+		c.location = response.data.location;
+		c.user_name = response.data.user_name;
+		c.position_name = response.data.position_name;
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,glyph</field_list>
+        <has_preview>false</has_preview>
+        <id>employee-info-card</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding: Employee Info</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	var me = gs.getUserID();
+
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//After page initially loads get data
+	if (input && input.action == 'retrieve_data') {
+
+		var gr = new GlideRecord('sn_hr_core_profile');
+				gr.addQuery('user', me);
+				gr.query();
+				if(gr.next())
+				{
+					var user = gr.user.getRefRecord();
+					
+					var name = '';
+					if(!user.middle_name) {
+						name = user.first_name + " " + user.last_name
+					} else {
+						name = user.first_name + " " + user.middle_name + " " + user.last_name;
+					}
+					
+					data.user_name = name;
+					data.position_name = gr.getDisplayValue('position');
+					data.department = user.getDisplayValue('department');
+					data.location = user.getDisplayValue('location');
+				}
+
+  //gs.addInfoMessage(loc);
+  //gs.addInfoMessage(occ);
+
+		}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-10-05 20:47:41</sys_created_on>
+        <sys_id>7586cfd0db812b0021eed90d6896190e</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Onboarding: Employee Info</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_7586cfd0db812b0021eed90d6896190e</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-09 21:03:11</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default" id='myInfo'>
+
+  <div class="panel-heading">
+    <span class="panel-title"><i class="fa fa-{{c.glyph}}" aria-hidden="true"></i>&nbsp; {{c.title}}</span>
+  </div>
+
+  <div class="panel-body" ng-if="c.data.loading">
+    <span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+      <span class="sr-only">Loading...</span>
+    </span>
+  </div>    
+
+  <div class="wrap">
+    <img class="wrap-img-top" src="my_info.png" width="100%" alt="wrap image cap">
+    <div class="wrap-block">
+      <h4 class="wrap-title"> &nbsp;{{c.user_name}}</h4>
+      <h5 class="wrap-title"> &nbsp;{{c.position_name}}</h5>
+      <div class = "wrap-text">
+        <p> &nbsp;<strong class="pad-right"><i class="fa fa-calendar navy"></i>&nbsp;  ${Department:}</strong> {{c.department}}</p>
+        <p> &nbsp;<strong class="pad-right"><i class="fa fa-check-square navy"></i>&nbsp; &nbsp;${My Location:}</strong>{{c.location}}</p>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

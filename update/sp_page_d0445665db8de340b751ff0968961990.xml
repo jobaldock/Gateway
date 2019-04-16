@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>//centering custom HTML wording in Manage Content&#13;
+#widget-banner&gt;div&gt;div&gt;div&gt;div&gt;div, #widget-banner &gt;div&gt;div&gt;div&gt;div&gt;div&gt;p, .mainDiv{&#13;
+  height:100%;&#13;
+}&#13;
+&#13;
+//flexbox informational boxes&#13;
+.wrap-block {&#13;
+  margin-left: 15px;&#13;
+  margin-right: 15px;&#13;
+}&#13;
+&#13;
+.some-space{&#13;
+  margin: 1em 0;&#13;
+}&#13;
+&#13;
+/*body .panel-default &gt; .panel-heading, .panel-heading {&#13;
+  background-color: $color-accent;&#13;
+  color: $color-lightest;&#13;
+}*/&#13;
+&#13;
+//flexbox same height for info boxes&#13;
+.wrap-deck {&#13;
+  display: -webkit-box;&#13;
+  display: -webkit-flex;&#13;
+  display: -ms-flexbox;&#13;
+  display: flex;&#13;
+  //-webkit-flex-flow: row nowrap;&#13;
+  //-ms-flex-flow: row nowrap;&#13;
+  //flex-flow: row nowrap&#13;
+    -webkit-flex-flow: row wrap;&#13;
+  -ms-flex-flow: row wrap;&#13;
+  flex-flow: row wrap&#13;
+}&#13;
+.wrap-deck .panel {&#13;
+  display: -webkit-box;&#13;
+  display: -webkit-flex;&#13;
+  display: -ms-flexbox;&#13;
+  display: flex;&#13;
+  -webkit-box-flex: 1;&#13;
+  -webkit-flex: 1 0 0%;&#13;
+  -ms-flex: 1 0 0%;&#13;
+  //original code: flex: 1 0 0%;&#13;
+  flex-grow: 1;&#13;
+  flex-shrink: 0;&#13;
+  flex-basis: auto;&#13;
+  -webkit-box-orient: vertical;&#13;
+  -webkit-box-direction: normal;&#13;
+  -webkit-flex-direction: column;&#13;
+  -ms-flex-direction: column;&#13;
+  flex-direction: column;&#13;
+  margin: 0;&#13;
+}&#13;
+&#13;
+.panel, .panel &gt; span, .panel &gt; span &gt; div {&#13;
+  display: -webkit-box;&#13;
+  display: -ms-flexbox;&#13;
+  display: -webkit-flex;&#13;
+  display: flex;&#13;
+  -webkit-box-flex: 1;&#13;
+  -ms-flex: 1 1 0%;&#13;
+  -webkit-flex: 1 0 0%;&#13;
+  //flex: 1 0 0%;&#13;
+  flex-grow: 1;&#13;
+  flex-shrink: 0;&#13;
+  flex-basis: auto;&#13;
+  -webkit-box-orient: vertical;&#13;
+  -webkit-box-direction: normal;&#13;
+  -webkit-flex-direction: column;&#13;
+  -ms-flex-direction: column;&#13;
+  flex-direction: column &#13;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>hrj_dashboard_dnf_v4</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles>sn_hr_sp.hrsp_alumni,sn_hr_sp.hrsp_contingent,sn_hr_sp.hrsp_contractor,sn_hr_sp.hrsp_employee,sn_hr_sp.hrsp_new_hire</roles>
+        <short_description>HRJ  Dashboard</short_description>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-09 14:17:33</sys_created_on>
+        <sys_id>d0445665db8de340b751ff0968961990</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>hrj_dashboard_dnf_v4</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_page_d0445665db8de340b751ff0968961990</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-09 21:43:22</sys_updated_on>
+        <title>HRJ Dashboard dnf v4</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=d0445665db8de340b751ff0968961990"/>
+</record_update>

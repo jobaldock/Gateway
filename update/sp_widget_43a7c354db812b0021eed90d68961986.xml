@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {  /* widget controller */  
+	var c = this;
+
+//Get option values
+	c.title = c.options.title || 'My First Day';
+	c.glyph = c.options.glyph || '';
+	
+	console.log('Options');
+	console.log(c.options);
+	
+	//Set value to show loading spinner
+	c.data.loading = true;
+	
+	//After page initially loads re-call server script to load data
+	c.server.get({
+		action: 'retrieve_data'
+	}).then(function(response) {
+		
+		//Set value to hide loading spinner
+		c.data.loading = false;
+		
+		console.log('Response');
+		console.log(response);
+		
+		//Get link data
+		c.hr_contact = response.data.hr_contact;
+		c.hr_phone = response.data.hr_phone;
+		c.hr_email = response.data.hr_email;
+		c.eod = response.data.eod;
+		c.article = response.data.article;
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,glyph</field_list>
+        <has_preview>false</has_preview>
+        <id>first-day-card</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding: First Day</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var user = gs.getUserID();
+	var occ="";
+	var loc="";
+
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//After page initially loads get data
+	if (input && input.action == 'retrieve_data') {
+
+		var gr = new GlideRecord('sn_hr_core_profile');
+		gr.addQuery('user', user);
+		gr.query();
+		if(gr.next())
+		{
+			occ = gr.x_dnf_gw_found_occupational_series;
+			loc = gr.user.location;
+
+			data.hr_contact = gr.user.manager.getHTMLValue();
+			data.hr_phone = gr.user.manager.phone.getHTMLValue();
+			data.hr_email = gr.user.manager.email.getHTMLValue();
+			data.eod = gr.employment_start_date.getHTMLValue();
+
+		}
+
+		var ka = new GlideRecord('kb_knowledge');
+		ka.addQuery('short_description', 'What to Expect');
+	//	ka.addQuery('workflow_state', 'Published');
+	//	ka.addQuery('kb_category.label', 'Onboarding');
+	//	ka.addQuery('federal_occ_series', 'CONTAINS', occ);	
+	//	ka.addQuery('location', 'CONTAINS', loc);
+	//	ka.orderByDesc('sys_updated_on');
+		ka.query();
+		if(ka.next()) {
+			data.article = ka.getDisplayValue('short_description');
+		} 
+// 		else {
+// 			//unquery, resetting ka back to before the previous query
+// 			ka = new GlideRecord('x_dnf_federal_hr_c_federal_knowledge');
+// 			ka.addQuery('workflow_state', 'Published');
+// 			ka.addQuery('kb_category.label', 'Onboarding');
+// 			ka.addQuery('federal_occ_series', 'CONTAINS', occ);	
+// 			ka.addNullQuery('location');
+// 			ka.orderByDesc('sys_updated_on');
+// 			ka.query();
+// 			if(ka.next()) { 
+// 				data.article = ka.getDisplayValue('number');
+// 			} else {
+// 				ka = new GlideRecord('x_dnf_federal_hr_c_federal_knowledge');
+// 				ka.addQuery('workflow_state', 'Published');
+// 				ka.addQuery('kb_category.label', 'Onboarding');
+// 				ka.addQuery('location', 'CONTAINS', loc);	
+// 				ka.addNullQuery('federal_occ_series');
+// 				ka.orderByDesc('sys_updated_on');
+// 				ka.query();
+// 				if(ka.next()) { 
+// 					data.article = ka.getDisplayValue('number');
+// 				} else {
+// 					ka = new GlideRecord('x_dnf_federal_hr_c_federal_knowledge');
+// 					ka.addQuery('workflow_state', 'Published');
+// 					ka.addQuery('kb_category.label', 'Onboarding');
+// 					ka.addNullQuery('location');	
+// 					ka.addNullQuery('federal_occ_series');
+// 					ka.orderByDesc('sys_updated_on');
+// 					ka.query();
+// 					if(ka.next()) { 
+// 						data.article = ka.getDisplayValue('number');
+// 					}
+// 				}
+// 			} 
+// 		}	
+		//gs.addInfoMessage(data.article);
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-10-05 20:50:40</sys_created_on>
+        <sys_id>43a7c354db812b0021eed90d68961986</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Onboarding: First Day</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_43a7c354db812b0021eed90d68961986</sys_update_name>
+        <sys_updated_by>mpapacrist</sys_updated_by>
+        <sys_updated_on>2018-10-08 19:33:44</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default" id='myInfo2'>
+
+	<div class="panel-heading">
+		<span class="panel-title"><i class="fa fa-{{c.glyph}}" aria-hidden="true"></i>&nbsp; {{c.title}}</span>
+	</div>
+
+  <div class="panel-body" ng-if="c.data.loading">
+    
+    <span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+      <span class="sr-only">Loading...</span>
+    </span>
+    
+  </div>      
+	<div class="wrap">
+        <img class="wrap-img-top" src="first_day.png" width="100%" alt="wrap image cap">
+        <div class="wrap-block">
+          <h4 class="wrap-title"></h4>
+          <div class = "wrap-text">
+            <p> &nbsp;<strong class="pad-right"><i class="fa fa-calendar navy"></i>&nbsp;  ${Projected Start Date:}</strong> {{c.eod}}</p>
+          	<p> &nbsp;<strong class="pad-right"><i class="fa fa-check-square navy"></i>&nbsp;${Checklist:}</strong><a id="profile_link" href="/kb_view.do?sysparm_article=KB0010030" target="_blank">What to Bring</a></p>
+          	<p> &nbsp;<strong class="pad-right"><i class="fa fa-group navy"></i>&nbsp;  ${Point of Contact:}</strong> {{c.hr_contact}} </p><p>&nbsp;&nbsp; <i class="fa fa-phone navy"></i> {{c.hr_phone}} &nbsp;&nbsp;|&nbsp;&nbsp; <a id="profile_link" href="mailto:{{c.hr_email}}?subject=I%20need%20help!"><i class="fa fa-envelope-o"></i> {{c.hr_email}}</a></p>
+            <p> &nbsp;<strong class="pad-right"><i class="fa fa-info navy"></i>&nbsp; ${First Day Guide:}</strong><a id="profile_link" href="/kb_view.do?sysparm_article={{c.article}}" target="_blank"> What to Expect</a></p>
+           <!-- <p>{{c.article}}{{c.occ}}{{c.newLoc}}</p>-->
+        	</div>
+        </div>
+      </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

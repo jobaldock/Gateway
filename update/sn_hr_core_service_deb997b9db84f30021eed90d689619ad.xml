@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_core_service">
+    <sn_hr_core_service action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <approval_options/>
+        <badge display_value="HR">6439a617c3b00300b599b4ad81d3ae57</badge>
+        <case_creation_service_config/>
+        <case_options/>
+        <description/>
+        <fulfillment_instructions/>
+        <fulfillment_type>lifecycle_event</fulfillment_type>
+        <header_config_opened_for display_value="Default for opened for/approver">86d9872eb3900300f5302ddc16a8dc8b</header_config_opened_for>
+        <header_config_subject_person display_value="Default for subject person/task assigned to">c4e9872eb3900300f5302ddc16a8dc91</header_config_subject_person>
+        <hr_criteria/>
+        <kb_articles/>
+        <le_type display_value="Generate Form Test">90912f45dbddd740e18dd8c75e961917</le_type>
+        <name>SF Form Testing</name>
+        <producer display_value="SF Form Testing">15ec93bddb84f30021eed90d689619cc</producer>
+        <service_table>sn_hr_le_case</service_table>
+        <service_table_fields/>
+        <subject_person_access>true</subject_person_access>
+        <subject_person_related_lists/>
+        <sys_class_name>sn_hr_core_service</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-03-08 17:08:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>deb997b9db84f30021eed90d689619ad</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>SF Form Testing</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sn_hr_core_service_deb997b9db84f30021eed90d689619ad</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-03-08 17:33:58</sys_updated_on>
+        <template display_value="Gateway Onboarding">8a48d124dbd99740e18dd8c75e961914</template>
+        <topic_detail display_value="SF Form Testing">64c8d379db84f30021eed90d68961913</topic_detail>
+        <value>sfform_testing</value>
+        <workflow_detail/>
+    </sn_hr_core_service>
+    <sys_translated_text action="delete_multiple" query="documentkey=deb997b9db84f30021eed90d689619ad"/>
+</record_update>

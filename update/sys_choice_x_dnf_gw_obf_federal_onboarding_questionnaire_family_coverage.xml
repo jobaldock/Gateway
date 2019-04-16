@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="family_coverage" table="x_dnf_gw_obf_federal_onboarding_questionnaire" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>family_coverage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Decline</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>0</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:47:43</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f03fda84db701b00af88f5861d9619ea</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:47:47</sys_updated_on>
+            <value>decline</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>family_coverage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>1x Multiple</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>1</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:48:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>393f5e84db701b00af88f5861d96198f</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:48:05</sys_updated_on>
+            <value>family_1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>family_coverage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>2x Multiple</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>2</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:48:10</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>da4f5e84db701b00af88f5861d9619b4</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:48:14</sys_updated_on>
+            <value>family_2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>family_coverage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>3x Multiple</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>3</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:48:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a85f5e84db701b00af88f5861d9619b6</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:48:24</sys_updated_on>
+            <value>family_3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>family_coverage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>4x Multiple</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>4</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:48:28</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e25f9e84db701b00af88f5861d96195a</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:48:32</sys_updated_on>
+            <value>family_4</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>family_coverage</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>5x Multiple</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>5</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:48:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>496f5e84db701b00af88f5861d9619c5</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:48:41</sys_updated_on>
+            <value>family_5</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>family_coverage</element>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:47:43</sys_created_on>
+            <sys_id>3d3f1e84db701b00af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>family_coverage</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_choice_x_dnf_gw_obf_federal_onboarding_questionnaire_family_coverage</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:47:43</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

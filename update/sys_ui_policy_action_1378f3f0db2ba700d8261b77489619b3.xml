@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>button_title</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-02-08 20:17:09</sys_created_on>
+        <sys_id>1378f3f0db2ba700d8261b77489619b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>button_title</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_ui_policy_action_1378f3f0db2ba700d8261b77489619b3</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-02-08 20:17:09</sys_updated_on>
+        <table>x_dnf_gw_obf_info_cards_instance_v2</table>
+        <ui_policy display_value="Show Fields if Show Button is true">a468b3f0db2ba700d8261b7748961991</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>

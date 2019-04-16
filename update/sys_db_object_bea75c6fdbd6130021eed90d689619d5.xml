@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object">
+    <sys_db_object action="INSERT_OR_UPDATE">
+        <access/>
+        <actions_access>false</actions_access>
+        <alter_access>false</alter_access>
+        <caller_access/>
+        <client_scripts_access>false</client_scripts_access>
+        <configuration_access>false</configuration_access>
+        <create_access>false</create_access>
+        <create_access_controls>false</create_access_controls>
+        <delete_access>false</delete_access>
+        <extension_model/>
+        <is_extendable>false</is_extendable>
+        <label>Imp Tmpl Sn HR Core Pdf Template Mapping</label>
+        <live_feed_enabled>false</live_feed_enabled>
+        <name>u_imp_tmpl_sn_hr_core_pdf_template_mapping</name>
+        <number_ref/>
+        <provider_class/>
+        <read_access>true</read_access>
+        <super_class display_value="Import Set Row" name="sys_import_set_row">129c0954db201300af88f5861d961911</super_class>
+        <sys_class_code/>
+        <sys_class_name>sys_db_object</sys_class_name>
+        <sys_class_path/>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-05-31 17:28:25</sys_created_on>
+        <sys_id>bea75c6fdbd6130021eed90d689619d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Imp Tmpl Sn HR Core Pdf Template Mapping</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_db_object_bea75c6fdbd6130021eed90d689619d5</sys_update_name>
+        <sys_updated_by>mpapacrist</sys_updated_by>
+        <sys_updated_on>2018-05-31 17:28:25</sys_updated_on>
+        <update_access>false</update_access>
+        <user_role/>
+        <ws_access>true</ws_access>
+    </sys_db_object>
+</record_update>

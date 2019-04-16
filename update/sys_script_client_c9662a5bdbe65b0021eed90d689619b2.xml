@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>If other_insurance does not contain 'Other', clear policy_number and name_of_other_insurance</description>
+        <field>other_insurance</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Clear Other Insurance fields</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading) {
+		return;
+	}
+
+	if(g_form.getValue('other_insurance').indexOf("49def010dbc99f00e18dd8c75e9619ed") == -1) {
+		g_form.clearValue('policy_number');
+		g_form.clearValue('name_of_other_insurance');
+	}
+	
+	console.log('other');
+	console.log(g_form.getValue('other_insurance'));
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-12 19:35:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c9662a5bdbe65b0021eed90d689619b2</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Clear Other Insurance fields</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_script_client_c9662a5bdbe65b0021eed90d689619b2</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-11-16 20:00:46</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

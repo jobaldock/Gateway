@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="HR Profile" max_length="40" name="sn_hr_core_profile" text_index="true" type="collection">
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Beneficiaries" max_length="40" name="x_dnf_gw_obf_beneficiaries" type="boolean"/>
+        <element label="Contacts" max_length="40" name="x_dnf_gw_obf_contacts" type="boolean"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Dependents" max_length="40" name="x_dnf_gw_obf_dependents" type="boolean"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Work History" max_length="40" name="x_dnf_gw_obf_work_history" type="boolean"/>
+    </element>
+</database>

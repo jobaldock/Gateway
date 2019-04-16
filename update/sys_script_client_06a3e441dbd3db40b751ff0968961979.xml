@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>citizenship</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>If Noncitizen National, clear fields</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue==='') {
+		return;
+	}
+
+	if(newValue == 'noncitizen_national'){
+		g_form.clearValue('alien_expiration_date');
+		g_form.clearValue('uscis');
+		g_form.clearValue('i94');
+		g_form.clearValue('foreign_passport_number');
+
+	} 
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-07-12 16:59:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>06a3e441dbd3db40b751ff0968961979</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>If Noncitizen National, clear fields</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_script_client_06a3e441dbd3db40b751ff0968961979</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-11-16 19:25:58</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

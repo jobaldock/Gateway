@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-05-25 16:00:37</sys_created_on>
+        <sys_id>d60a012ddb1e9700e18dd8c75e961901</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_dnf_appt_sch_appointments</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_scope_privilege_d60a012ddb1e9700e18dd8c75e961901</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-05-25 16:00:37</sys_updated_on>
+        <target_name>x_dnf_appt_sch_appointments</target_name>
+        <target_scope display_value="Gateway: Appointment Scheduling">ba2bd4b5db115b40e18dd8c75e9619b4</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>

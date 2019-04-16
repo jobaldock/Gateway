@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {  /* widget controller */  var c = this;}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.42857;
+  vertical-align:top;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding_instructions</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Instructions</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+data.my_beneficiaries = $sp.getWidget('my_beneficiaries');
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-06-11 13:47:37</sys_created_on>
+        <sys_id>fb9e0cc3db26d700b751ff096896196a</sys_id>
+        <sys_mod_count>85</sys_mod_count>
+        <sys_name>Onboarding Instructions</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_fb9e0cc3db26d700b751ff096896196a</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-06-12 12:45:27</sys_updated_on>
+        <template><![CDATA[<!--<sp-widget widget="data.my_beneficiaries"></sp-widget>-->
+
+<div class="container-fluid">
+  <center> 
+    <h2>Employee Service Center</h2>
+    <p>Welcome to the single destination for all your HR service needs</p>
+  </center>
+  <div class="row">
+    <div class="col-md-3">
+      <button type="button" class="pull-left btn btn-default btn-circle btn-xl">1
+      </button>
+      <h2 class="pull-left"> Onboarding Questionnaire</h2>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <button type="button" class="pull-left btn btn-default btn-circle btn-xl">3
+      </button>
+      <h2 class="pull-left"> Work History</h2>  
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <button type="button" class="pull-left btn btn-default btn-circle btn-xl">2
+      </button>
+      <h2 class="pull-left"> Beneficiaries</h2>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <button type="button" class="pull-left btn btn-default btn-circle btn-xl">4
+      </button>
+      <h2 class="pull-left"> Generate Forms!</h2>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="row">
+<div class="col">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">1
+</button>
+</div>
+<div class="col">
+<h2 class="pull-left"> Onboarding Questionnaire</h2>
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+
+</div>
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">2
+</button>
+<h2 class="pull-left"> Beneficiaries</h2>
+</div>
+
+<div class="row">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">3
+</button>
+<h2 class="pull-left"> Work History</h2>
+</div>
+
+<div class="row">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">4
+</button>
+<h2 class="pull-left"> Generate Forms!</h2>
+</div>-->
+
+
+
+<!--
+<div class="container">
+<div class="row">
+<div class="col">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">1
+</button>
+</div>
+<div class="col">
+<h2 class="pull-left"> Onboarding Questionnaire</h2>
+</div>
+</div>
+
+<div class="row">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">2
+</button>
+<h2 class="pull-left"> Beneficiaries</h2>
+</div>
+
+<div class="row">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">3
+</button>
+<h2 class="pull-left"> Work History</h2>
+</div>
+
+<div class="row">
+<button type="button" class="pull-left btn btn-default btn-circle btn-xl">4
+</button>
+<h2 class="pull-left"> Generate Forms!</h2>
+</div>
+</div>-->
+
+
+
+
+<div>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="544px" viewBox="0 0 50 544" version="1.1" class="discover-line">
+    <defs>
+      <polygon id="path-1" points="33.86 34 33.86 0.14 0 0.14 0 34"></polygon>
+      <polygon id="path-3" points="33.86 34 33.86 0.14 0 0.14 0 34"></polygon>
+      <polygon id="path-5" points="33.86 34 33.86 0.14 0 0.14 0 34"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="Line">
+        <path d="M39,0 C39,39.227 15,39.227 15,78.456 C15,117.684 39,117.684 39,156.911 C39,196.138 15,196.138 15,235.363 C15,274.593 39,274.593 39,313.819 C39,353.049 15,353.049 15,392.277 C15,431.507 39,431.507 39,470.739 C39,509.971 15,509.971 15,549.201" id="template" stroke="#b1b5bd" stroke-width="2" stroke-linecap="round" stroke-dashoffset="300" stroke-dasharray="0,8"></path>
+        <path d="M39,0 C39,39.227 15,39.227 15,78.456 C15,117.684 39,117.684 39,156.911 C39,196.138 15,196.138 15,235.363 C15,274.593 39,274.593 39,313.819 C39,353.049 15,353.049 15,392.277 C15,431.507 39,431.507 39,470.739 C39,509.971 15,509.971 15,549.201" id="dotted-line" stroke="#0F346C" stroke-width="2" stroke-dasharray="0,8"></path>
+        <g id="3-grey" transform="translate(16.000000, 432.000000)">
+          <path class="svg-bg" d="M0.5,17.93 C0.5,8.856 7.856,1.5 16.93,1.5 C26.004,1.5 33.36,8.856 33.36,17.93 C33.36,27.004 26.004,34.36 16.93,34.36 C7.856,34.36 0.5,27.003 0.5,17.93" id="Fill-1" fill="#FFFFFF"></path>
+          <g id="Group-5" transform="translate(0.000000, 0.860000)">
+            <g id="Fill-3-Clipped">
+              <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+              </mask>
+              <g id="path-1"></g>
+              <path d="M16.93,1.14 C8.147,1.14 1,8.288 1,17.07 C1,25.855 8.147,33 16.93,33 C25.713,33 32.86,25.854 32.86,17.07 C32.86,8.287 25.713,1.14 16.93,1.14 M16.93,34 C7.595,34 0,26.406 0,17.07 C0,7.737 7.595,0.14 16.93,0.14 C26.265,0.14 33.86,7.736 33.86,17.07 C33.86,26.406 26.265,34 16.93,34" id="Fill-3" fill="#0F346C" mask="url(#mask-2)"></path>
+            </g>
+          </g>
+          <path class="svg-label" d="M17.181,25.352 C20.811,25.352 22.769,23.394 22.769,21.106 C22.769,19.17 21.361,17.828 18.259,17.476 L18.259,17.388 C21.207,16.684 22.395,15.166 22.395,13.604 C22.395,11.624 20.789,10.04 17.445,10.04 C14.739,10.04 12.649,11.624 12.649,13.538 C12.649,14.374 13.265,15.122 14.167,15.122 C15.113,15.122 15.597,14.352 15.597,13.582 C15.597,12.834 15.047,12.394 14.673,12.174 C15.157,11.404 15.993,10.92 17.137,10.92 C18.809,10.92 19.843,11.866 19.843,13.758 C19.843,15.782 19.029,17.036 15.839,17.036 L15.531,17.036 L15.531,17.982 L15.949,17.982 C19.139,17.982 20.217,19.214 20.217,21.15 C20.217,23.13 19.337,24.494 17.247,24.494 C15.993,24.494 15.047,24.076 14.365,23.504 C14.739,23.284 15.201,22.844 15.201,22.074 C15.201,21.282 14.695,20.534 13.749,20.534 C12.781,20.534 12.165,21.304 12.165,22.206 C12.165,24.142 14.563,25.352 17.181,25.352 Z" id="Fill-6" fill="#0F346C"></path>
+        </g>
+        <g id="2-grey" transform="translate(10.000000, 250.000000)">
+          <path class="svg-bg" d="M0.167,17.93 C0.167,8.856 7.523,1.5 16.597,1.5 C25.671,1.5 33.027,8.856 33.027,17.93 C33.027,27.004 25.671,34.36 16.597,34.36 C7.523,34.36 0.167,27.004 0.167,17.93" id="Fill-1" fill="#FFFFFF"></path>
+          <g id="Group-5" transform="translate(0.000000, 0.860000)">
+            <g id="Fill-3-Clipped">
+              <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+              </mask>
+              <g id="path-3"></g>
+              <path d="M16.93,1.14 C8.147,1.14 1,8.288 1,17.07 C1,25.855 8.147,33 16.93,33 C25.713,33 32.86,25.854 32.86,17.07 C32.86,8.287 25.713,1.14 16.93,1.14 M16.93,34 C7.595,34 0,26.406 0,17.07 C0,7.737 7.595,0.14 16.93,0.14 C26.265,0.14 33.86,7.736 33.86,17.07 C33.86,26.406 26.265,34 16.93,34" id="Fill-3" fill="#0F346C" mask="url(#mask-4)"></path>
+            </g>
+          </g>
+          <path class="svg-label" d="M12.31,24 L21.79,24 L21.89,20.12 L21.25,20.08 C20.67,21.82 20.31,22.26 18.75,22.26 L14.13,22.26 L14.13,22.14 L17.45,19.64 C20.29,17.56 21.57,16.04 21.57,14.12 C21.57,12.02 20.09,10.4 16.95,10.4 C14.47,10.4 12.41,11.94 12.41,13.8 C12.41,14.66 13.03,15.36 13.91,15.36 C14.83,15.36 15.31,14.64 15.31,13.86 C15.31,13.14 14.79,12.66 14.37,12.46 C14.79,11.66 15.65,11.2 16.73,11.2 C18.21,11.2 19.23,12.28 19.23,14.08 C19.23,15.94 18.61,17.2 15.33,19.96 L12.31,22.48 L12.31,24 Z" id="Fill-6" fill="#0F346C"></path>
+        </g>
+        <g id="1-grey" transform="translate(0.000000, 64.000000)">
+          <path class="svg-bg" d="M0.833,17.93 C0.833,8.855 8.189,1.5 17.263,1.5 C26.337,1.5 33.693,8.855 33.693,17.93 C33.693,27.003 26.337,34.36 17.263,34.36 C8.189,34.36 0.833,27.003 0.833,17.93" id="Fill-1" fill="#FFFFFF"></path>
+          <g id="Group-5" transform="translate(0.000000, 0.860000)">
+            <g id="Fill-3-Clipped">
+              <mask id="mask-6" fill="white">
+                <use xlink:href="#path-5"></use>
+              </mask>
+              <g id="path-5"></g>
+              <path d="M16.93,1.14 C8.147,1.14 1,8.288 1,17.07 C1,25.855 8.147,33 16.93,33 C25.713,33 32.86,25.854 32.86,17.07 C32.86,8.287 25.713,1.14 16.93,1.14 M16.93,34 C7.595,34 0,26.406 0,17.07 C0,7.737 7.595,0.14 16.93,0.14 C26.265,0.14 33.86,7.736 33.86,17.07 C33.86,26.406 26.265,34 16.93,34" id="Fill-3" fill="#0F346C" mask="url(#mask-6)"></path>
+            </g>
+          </g>
+          <path class="svg-label" d="M13.58,24 L20.86,24 L20.86,23.28 C18.92,23.24 18.32,23.08 18.32,22.58 L18.32,10.54 L13.5,10.9 L13.5,11.6 C15.66,11.56 16.14,11.94 16.14,12.82 L16.14,22.58 C16.14,23.08 15.52,23.24 13.58,23.28 L13.58,24 Z" id="Fill-6" fill="#0F346C"></path>
+        </g>
+      </g>
+    </g>
+  </svg>
+  <svg height='200' width='800'>
+    <polyline fill="none"  stroke="black" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" points='20,20 120,120 220,20 320,120 420,20 520,120'
+              />
+  </svg>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css/>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>onboarding_instructions2_test</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-06-12 12:49:06</sys_created_on>
+        <sys_id>94da055fdb6ed700b751ff0968961904</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>onboarding_instructions2_test</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_page_94da055fdb6ed700b751ff0968961904</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-06-12 12:49:06</sys_updated_on>
+        <title>Onboarding Instructions2 - Test Page</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=94da055fdb6ed700b751ff0968961904"/>
+</record_update>

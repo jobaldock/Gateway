@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Life Insurance (FEGLI)" section_id="e7fa8d9cdb3adb0021eed90d6896194f" sys_domain="global" table="x_dnf_gw_obf_federal_onboarding_questionnaire" version="3" view="fed_ess">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>basic_life</element>
+            <position>0</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:24:33</sys_created_on>
+            <sys_id>ee2bc59cdb3adb0021eed90d6896198d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Life Insurance (FEGLI)" display_value="Life Insurance (FEGLI)" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">e7fa8d9cdb3adb0021eed90d6896194f</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:24:33</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>life_insurance_authorization</element>
+            <position>1</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:24:33</sys_created_on>
+            <sys_id>622bc59cdb3adb0021eed90d6896198e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Life Insurance (FEGLI)" display_value="Life Insurance (FEGLI)" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">e7fa8d9cdb3adb0021eed90d6896194f</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:24:33</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:24:33</sys_created_on>
+            <sys_id>e22bc59cdb3adb0021eed90d6896198e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Life Insurance (FEGLI)" display_value="Life Insurance (FEGLI)" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">e7fa8d9cdb3adb0021eed90d6896194f</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:24:33</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>optional</element>
+            <position>3</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:24:33</sys_created_on>
+            <sys_id>662bc59cdb3adb0021eed90d6896198e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Life Insurance (FEGLI)" display_value="Life Insurance (FEGLI)" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">e7fa8d9cdb3adb0021eed90d6896194f</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:24:33</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>family_coverage</element>
+            <position>4</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:24:33</sys_created_on>
+            <sys_id>e62bc59cdb3adb0021eed90d6896198e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Life Insurance (FEGLI)" display_value="Life Insurance (FEGLI)" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">e7fa8d9cdb3adb0021eed90d6896194f</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:24:33</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Life Insurance (FEGLI)</caption>
+            <header>false</header>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:23:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e7fa8d9cdb3adb0021eed90d6896194f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Life Insurance (FEGLI)</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_ui_section_e7fa8d9cdb3adb0021eed90d6896194f</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:23:47</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="FED_ESS" name="fed_ess">fb9549d8db3adb0021eed90d689619b5</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_dnf_gw_obf_contacts" label="Contacts" language="en" table="sn_hr_core_profile">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_dnf_gw_obf_contacts</element>
+            <help/>
+            <hint/>
+            <label>Contacts</label>
+            <language>en</language>
+            <name>sn_hr_core_profile</name>
+            <plural>Contacts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-01-17 16:25:18</sys_created_on>
+            <sys_id>ee7079f5dbcfe700b751ff09689619bb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Contacts</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_sn_hr_core_profile_x_dnf_gw_obf_contacts_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-01-17 16:25:18</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

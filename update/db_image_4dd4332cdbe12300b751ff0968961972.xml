@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>png</format>
+        <height>48</height>
+        <image/>
+        <name>aie_done.png</name>
+        <size_bytes>925</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-31 15:17:05</sys_created_on>
+        <sys_id>4dd4332cdbe12300b751ff0968961972</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>aie_done.png</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>db_image_4dd4332cdbe12300b751ff0968961972</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-10-31 15:17:10</sys_updated_on>
+        <thumbnail/>
+        <width>48</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#76c964</average_image_color>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>image</file_name>
+        <image_height>48</image_height>
+        <image_width>48</image_width>
+        <size_bytes>925</size_bytes>
+        <size_compressed>948</size_compressed>
+        <state>available</state>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-31 15:17:10</sys_created_on>
+        <sys_id>0ce4332cdbe12300b751ff0968961932</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>guest</sys_updated_by>
+        <sys_updated_on>2019-04-16 15:42:48</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>4dd4332cdbe12300b751ff0968961972</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="0ce4332cdbe12300b751ff0968961932">0ce4332cdbe12300b751ff0968961932</sys_attachment>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-31 15:17:10</sys_created_on>
+        <sys_id>4ce4332cdbe12300b751ff0968961932</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>AZ0DYvyJUE5HDQoaCgAAAA1JSERSAAAAMAAAADAIBgAAAFcC+YcAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAzJJREFUaEPtmb1rFEEYxg+/Cju/KvWvEINW6SS4F2cO7lCTRkGtbdRgc13OQlBMIMb8BTHsrDHRKmB9YGNUrP1qTGKtgpzvs3kPwt47d7O7s2uzD/xgc7vzvs987MzspFapUqX8aj1v7Z8MG+eCSN2vRyoMjP5YN/onXf+JoWv67UN8j57Bs+12ex8X/39SkTpN5h6Que/1SPdSYfQ3lJ0IG6c4XHmqv6wfp9Z8Rq35WzSXAsQgFhCTwxcrMj5F7Ehm8kC9uIXYnMa/aJwfoiRLUnKfUI6nZxZvHeS0fkTde5i6+bWUsBCMfoWcnD6f4pYv03wfo1e99EQZw8YGhhPbyKYgbExLgctFXWY76TSx3DxBQ2dbDloemJ200cfYlrvQfVLAori2MSX+Dqgh59mWm7DCUqHci5Qrd7s3et2/j3oPP90W78NLsBacZHujhSVeClQEffNve49jhlSiw/aGC5useJ8iBPFN0jzA39c3pgeepSH9xWkDSObPJwsXgc08fpeeB1SJMbZpF3UVbYnlAL7IYj7G6Bm2aRc9ZMTCnshsHhi9wjbtom6iDw+hsAdymY9R79mmXVRL+pKSCg8ybO5Okt98PBNts027XOd/THeuBnyYB/DGNu1yqQDMuxrxZR44VWDUEMIc7WroTvemN/PAaQjhRZEK78WlVX2bjzF6k23aRRUIxcIJbJWA8ULMA6dpNMVCZqtEIeaJi5G6xzbtwqGTVNiGVIm9+DIfEzbOsk274s1cpL6KASzYKuHTvPNmDqJh1JGCDCNZCVzjXZCezYaaZXujheM+l/UgSf/l9W7e6F+pPmggqsCCGGwE/VlIupcdNce23IUPaSwccsAyUT8uLDePsq10mjT6qhy0PALTaLGdbKobtSgFLgWjn7CN7MLRIgVaFRMUCeXEP07YRj7hoJXG4rqYqADo3VvzdrjbFw5ayznsUnPjb8YPcFr/CsLGFarIlpw8O4gZvLjU5DTFiqfY+SyL3QC0SKHVg/XgCIcvT7xid6j1PovmhrBbRs2mXmGLEDZZZGiMWnOGWCE2ydwOemi3l+ja6He4hy0xdpXOG7NKlSoNUa32D2dTFh8ozkjTAAAAAElFTkSuQmCCgLjQRJ0DAAA=</data>
+        <length>1252</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="0ce4332cdbe12300b751ff0968961932">0ce4332cdbe12300b751ff0968961932</sys_attachment>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-31 15:17:10</sys_created_on>
+        <sys_id>cce4332cdbe12300b751ff0968961932</sys_id>
+    </sys_attachment_doc>
+</record_update>

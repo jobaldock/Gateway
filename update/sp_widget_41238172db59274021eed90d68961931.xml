@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {  
+	/* widget controller */  
+	var c = this;
+	
+	if (c.options.field_list)
+		c.cardFields = c.options.field_list.split(",");
+		c.getPrimaryField = function getPrimaryField(row){
+			return row[c.data.primaryField];
+		};
+	
+	console.log('Options');
+	console.log(c.options);
+
+	console.log('info');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>label {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+}
+
+.card div, .card span {
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;	
+}
+
+.card div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  //background: #FFF;
+  //text-align: center;
+  //line-height: 200px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.card .back {
+  background: $color-lightest;
+  color: $color-darkest;
+  border: 2px solid $color-darkest;
+  -webkit-transform: rotateX(180deg) ;
+  transform: rotateX(180deg) ;
+}
+
+/*label:hover .card {
+-webkit-transform: rotateX(20deg);
+transform: rotateX(20deg);
+box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}*/
+
+input {
+  display: none;
+}
+
+:checked + .card {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+}
+
+/*label:hover :checked + .card {
+transform: rotateX(160deg);
+-webkit-transform: rotateX(160deg);
+box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+.card .front, .card .front span {
+display:flex;
+flex-direction: column;
+align-items:center;
+justify-content:center;	
+}*/
+
+.color-icon, .bg-icon {
+  color: $color-accent-light;
+}
+
+.down-btn i {
+  -webkit-animation: tada 3s linear infinite;
+  animation: tada 3s linear infinite;
+}
+
+.down-bg {
+  color: $due-today;
+}
+
+.down-icon {
+  color: $color-darkest;
+}
+
+.card .front, .card .back {
+  padding:1.5em;
+}
+
+.card .front {
+  background: $color-darkest;  
+}
+
+.title{
+  text-align:center;
+  color: $color-lightest;
+}
+</css>
+        <data_table>x_dnf_gw_obf_info_cards_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,table,field_list,filter,header_field,subheader_field,icon</field_list>
+        <has_preview>false</has_preview>
+        <id>employee_info_v3</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding: Employee Info v3</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var me = gs.getUserID();
+
+	//Do nothing on initial page load
+	/*if (!input) {
+		return;
+	}*/
+
+	//After page initially loads get data
+	//if (input && input.action == 'retrieve_data') {
+	if (options.table) {
+		data.rows = [];
+
+		var gr = new GlideRecord(options.table);
+		//gr.addQuery('user', me);
+		gr.addEncodedQuery(options.filter);
+		//gr.setLimit(25);
+		gr.query();
+		if (!data.primaryField) {
+			data.primaryField = gr.getDisplayName();
+		}
+		var fields = "sys_id," + data.primaryField + "," + options.field_list;
+		data.fields = $sp.getFieldsObject(gr, fields);
+
+
+		while(gr.next()) {
+			var row = {};
+			if(options.header_field)
+				data.header_field=gr.getDisplayValue(options.header_field);		
+
+			if(options.subheader_field)
+				data.subheader_field=gr.getDisplayValue(options.subheader_field);
+
+			//$sp.getRecordDisplayValues(row, gr, fields);
+			$sp.getRecordElements(row, gr, fields);
+			data.rows.push(row);
+		}
+	}
+	//}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-25 15:51:17</sys_created_on>
+        <sys_id>41238172db59274021eed90d68961931</sys_id>
+        <sys_mod_count>211</sys_mod_count>
+        <sys_name>Onboarding: Employee Info v3</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_41238172db59274021eed90d68961931</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-01-04 20:02:24</sys_updated_on>
+        <template><![CDATA[<label>
+  <input type="checkbox"/>
+  <div class="card">
+    <div class="front">
+      <span class="fa-stack fa-4x">
+        <i class="far fa-circle fa-stack-2x bg-icon"></i>
+        <i class="fa fa-{{c.options.icon}} fa-1x color-icon" aria-hidden="true"></i>
+      </span>
+      <h2 class="title">{{c.options.title}}</h2>
+      <span class="fa-stack down-btn">
+        <i class="fa fa-circle fa-stack-2x down-bg"></i>
+        <i class="fa fa-chevron-down fa-stack-1x down-icon"></i>
+      </span>
+    </div>
+    <div class="back" ng-repeat="row in c.data.rows track by row.sys_id">
+      <h3 ng-if="c.data.header_field">{{c.data.header_field}}</h3>
+      <h5 ng-if="c.data.subheader_field">{{c.data.subheader_field}}</h5>
+      <!--<p ng-repeat="f in c.cardFields">
+<b>{{c.data.fields[f].label}}:</b> {{row[f]}}
+</p>-->
+      <p ng-repeat="f in c.cardFields">
+        <b>{{row[f].label}}:</b> {{row[f].display_value}}
+      </p>       
+    </div>
+  </div>
+</label>  ]]></template>
+    </sp_widget>
+</record_update>

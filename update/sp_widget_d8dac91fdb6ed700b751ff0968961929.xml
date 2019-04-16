@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(spUtil,$scope) {
+
+	var c = this;
+
+	var totalSteps = $(".steps li").length;
+
+	$(".submit").on("click", function(){
+		return false; 
+	});
+
+	$(".steps li:nth-of-type(1)").addClass("active");
+	$(".myContainer .form-container:nth-of-type(1)").addClass("active");
+
+	$(".form-container").on("click", ".next", function() { 
+		$(".steps li").eq($(this).parents(".form-container").index() + 1).addClass("active"); 
+		$(this).parents(".form-container").removeClass("active").next().addClass("active flipInY");
+		//$(this).parents(".form-container").removeClass("active").next().addClass("active flipInX");   
+	});
+
+	$(".form-container").on("click", ".back", function() {  
+		$(".steps li").eq($(this).parents(".form-container").index() - totalSteps).removeClass("active"); 
+		$(this).parents(".form-container").removeClass("active flipInY").prev().addClass("active flipInY"); 
+		//$(this).parents(".form-container").removeClass("active flipInX").prev().addClass("active flipInY"); 
+	});
+
+	$(".steps li").on("click", function() {
+		//var stepVal = $(this).find("span").text();
+		var stepVal = $(this).attr('name');
+		$(this).prevAll().addClass("active");
+		$(this).addClass("active");
+		$(this).nextAll().removeClass("active");
+		$(".myContainer .form-container").removeClass("active flipInY");  
+		$(".myContainer .form-container:nth-of-type("+ stepVal +")").addClass("active flipInY");  
+		//$(".myContainer .form-container").removeClass("active flipInX");  
+		//$(".myContainer .form-container:nth-of-type("+ stepVal +")").addClass("active flipInX");     
+	});
+
+	c.generateForms = function (){
+		c.data.action = "generateForms";
+		c.server.update().then(function(response){
+			//spUtil.update($scope);	
+			c.data.action = undefined;
+		})
+
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@-webkit-keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -4deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -4deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 2deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 2deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -1deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -1deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -4deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -4deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 2deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 2deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -1deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -1deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.flipInY {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+}
+
+.form-wizard {
+  //position: relative;
+  //display: table;
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  //margin: 0 auto;
+  max-width: 100%;
+  //width: 100%;
+  margin-bottom:40px;
+  padding-top:20px;
+}
+
+.steps {
+  margin: 0 auto;
+  overflow: hidden;
+  //width: 50%;
+  margin-bottom:40px;
+}
+
+.steps ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps ul li {
+  float: left;
+  color: $color-lightest;
+  padding: 0 15px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out 0;
+  -moz-transition: all 0.2s ease-in-out 0;
+  -ms-transition: all 0.2s ease-in-out 0;
+  -otransition: all 0.2s ease-in-out 0;
+  transition: all 0.2s ease-in-out 0;
+}
+
+.steps ul li:hover, .steps ul li.active {
+  color: $primary;
+}
+
+.steps ul li:hover span, .steps ul li.active span {
+  background: $primary;
+  color: $color-lightest;
+}
+
+.steps ul li:hover::after, .steps ul li.active::after {
+  background: $primary;
+  width: 100%;
+}
+
+.steps ul li::before, .steps ul li::after {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: 22px;
+  width: 100%;
+  height: 3px;
+  background: $color-lightest;
+  -webkit-transition: all 0.2s ease-in-out 0;
+  -moz-transition: all 0.2s ease-in-out 0;
+  -ms-transition: all 0.2s ease-in-out 0;
+  -otransition: all 0.2s ease-in-out 0;
+  transition: all 0.2s ease-in-out 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -otransform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.steps ul li::after {
+  width: 0;
+}
+
+.steps ul li span {
+  display: block;
+  margin: 0 auto 15px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  background: $color-lightest;
+  font-size: 18px;
+  line-height: 35px;
+  font-weight: 300;
+  color: $color-darkest;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all 0.2s ease-in-out 0;
+  -moz-transition: all 0.2s ease-in-out 0;
+  -ms-transition: all 0.2s ease-in-out 0;
+  -otransition: all 0.2s ease-in-out 0;
+  transition: all 0.2s ease-in-out 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -oborder-radius: 2px;
+  border-radius: 2px;
+}
+.steps ul li:hover span{
+  -webkit-animation: rubberBand 1s;
+  animation: rubberBand 1s;
+}
+
+.steps ul li:first-child::before, .steps ul li:first-child::after {
+  display: none;
+}
+
+.form-container {
+  clear: both;
+  display: none;
+  left: 100%;
+  background: $color-lightest;
+  padding: 30px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -oborder-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  -obox-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+/*.form-container:first-child, .form-container:last-child {
+padding:30px;
+}*/
+
+.form-container.active {
+  display: block;
+}
+
+.form-title {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.form-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80px;
+  height: 2px;
+  background: $due-today;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -otransform: translateX(-50%);
+  transform: translateX(-50%);
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding_instructions2</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Instructions2</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	if(input){
+		if(input.action == 'generateForms'){
+			var me = gs.getUserID();
+			var gr = new GlideRecord('sn_hr_le_case');
+			gr.initialize(); 
+			gr.hr_service = '92481164dbd99740e18dd8c75e96191d';
+			gr.opened_for = me;
+			gr.state = '10';
+			gr.insert();
+		}
+		data = input;
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-06-12 12:49:06</sys_created_on>
+        <sys_id>d8dac91fdb6ed700b751ff0968961929</sys_id>
+        <sys_mod_count>190</sys_mod_count>
+        <sys_name>Onboarding Instructions2</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_d8dac91fdb6ed700b751ff0968961929</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-06-15 16:15:10</sys_updated_on>
+        <template><![CDATA[<!--<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>-->
+
+<div class="form-wizard">  
+  <div class="steps">
+    <ul>
+      <li name="1">
+        <span class="fa fa-clipboard"></span>
+        Questionnaire
+      </li>
+      <li name="2">
+        <span class="fa fa-building"></span>
+        Work History
+      </li>
+      <li name="3">
+        <span class="fa fa-users"></span>
+        Beneficiaries
+      </li>
+      <li name="4">
+        <span class="fa fa-university"></span>
+        Tax Forms
+      </li>
+      <li name="5">
+        <span class="fa fa-file-pdf-o"></span>
+        Generate Forms
+      </li>
+      <li name="6">
+        <span class="fa fa-edit"></span>
+        Sign Forms
+      </li>
+      <li name="7">
+        <span class="fa fa-calendar"></span>
+        Appointments
+      </li>
+      <li name="8">
+        <span class="fa fa-file"></span>
+        View My Forms
+      </li>
+    </ul>
+  </div>
+  <div class="myContainer">
+    <div class="form-container animated">
+      <div class="text-center">
+        <h2 class="form-title">
+          Welcome to Your Onboarding Guide!
+        </h2>
+        <h4>
+          Please complete these steps to finish onboarding
+        </h4>
+        <h4>
+          Start with the onboarding quesitonnaire, to fill in your necessary information for your onboarding forms
+        </h4>
+        <div>
+          <widget id="onboarding-questionnaire"></widget>
+        </div>
+
+        <div class="text-center" style="width:50%;margin: 0 auto;">
+          <h5>
+            Progress:
+          </h5>
+          <widget id="form-percent-complete"></widget>
+        </div>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center">
+        <h2 class="form-title">
+          Enter Your Work History
+        </h2>
+      </div>
+      <div>
+        <widget id="my_work_history_v2"></widget>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">        
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center">
+        <h2 class="form-title">
+          Provide Your Beneficiaries
+        </h2>
+      </div>
+      <div>
+        <widget id="my_beneficiaries_v2"></widget>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">        
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center">
+        <h2 class="form-title">
+          Fill Out Your Tax Forms
+        </h2>
+      </div>
+      <div class="text-center" style="margin-bottom:30px;">
+        <widget id="symmetry-client"></widget>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">        
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center" style="margin-bottom:30px;">
+        <h2 class="form-title">Click Generate Forms to Prcoess Your Information to Be Signed</h2>
+        <span type="button" class="text-center btn btn-lg btn-info" ng-click="c.generateForms()">Generate Forms</span>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center" style="margin-bottom:30px;">
+        <h2 class="text-center form-title">Your Forms to Sign</h2>
+      </div>
+      <widget id="hrj-dashboard-case-list"></widget>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">        
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center">
+        <h2 class="form-title">
+          Schedule Your Appointments if Necessary
+        </h2>
+      </div>
+      <div>
+        <widget id="gateway_appointments"></widget>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">        
+        <input type="button" value="NEXT" class="btn btn-primary next">        
+      </div>
+    </div>
+    <div class="form-container animated">
+      <div class="text-center">
+        <h2 class="form-title">
+          View Your Completed Forms
+        </h2>
+      </div>
+      <div>
+        <widget id="onboarding-form-library"></widget>
+      </div>
+      <div class="form-group text-center mar-b-0">
+        <input type="button" value="BACK" class="btn btn-default back">  
+      </div>
+    </div>
+  </div>]]></template>
+    </sp_widget>
+</record_update>

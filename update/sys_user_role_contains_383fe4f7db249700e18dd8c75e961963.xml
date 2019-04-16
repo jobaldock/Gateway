@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="x_dnf_gw_found.user" name="x_dnf_gw_found.user">7db5d496db281700af88f5861d9619a1</contains>
+        <role display_value="x_dnf_gw_obf.user" name="x_dnf_gw_obf.user">a61dac77db249700e18dd8c75e96199a</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>kurt.bell</sys_created_by>
+        <sys_created_on>2018-03-06 13:59:49</sys_created_on>
+        <sys_id>383fe4f7db249700e18dd8c75e961963</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_dnf_gw_found.user.x_dnf_gw_obf.user</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_user_role_contains_383fe4f7db249700e18dd8c75e961963</sys_update_name>
+        <sys_updated_by>kurt.bell</sys_updated_by>
+        <sys_updated_on>2018-03-06 13:59:49</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="status" table="x_dnf_gw_obf_pdf_completion" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Not Started</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_pdf_completion</name>
+            <sequence>1</sequence>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-04-30 20:37:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2da95569db759b80af88f5861d961964</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-04-30 20:39:36</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Document &amp; Template Creation</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_pdf_completion</name>
+            <sequence>2</sequence>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-04-30 20:38:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d8b9d169db759b80af88f5861d961924</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-04-30 20:39:34</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Field Mapping</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_pdf_completion</name>
+            <sequence>3</sequence>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-04-30 20:38:22</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>85d91569db759b80af88f5861d9619d9</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-04-30 20:39:32</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Complete</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_pdf_completion</name>
+            <sequence>4</sequence>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-04-30 20:38:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4fd91569db759b80af88f5861d96197f</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-04-30 20:39:30</sys_updated_on>
+            <value>4</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>status</element>
+            <name>x_dnf_gw_obf_pdf_completion</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-04-30 20:37:38</sys_created_on>
+            <sys_id>54b95569db759b80af88f5861d961966</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>status</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_choice_x_dnf_gw_obf_pdf_completion_status</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-04-30 20:37:38</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

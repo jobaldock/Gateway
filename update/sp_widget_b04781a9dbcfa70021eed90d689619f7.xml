@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spUtil, $rootScope) {
+	var c = this;
+
+	//Get option values
+	c.title = c.options.title || 'My Contacts';
+	c.glyph = c.options.glyph || 'address-card-o';
+	c.options.color = c.options.color;
+
+	console.log('Options');
+	console.log(c.options);
+
+	//Set value to show loading spinner
+	c.data.loading = true;
+
+	//After page initially loads re-call server script to load data
+
+	c.runServer = function() {
+		c.server.get({
+			action: 'get_Contacts'
+		}).then(function(response) {
+
+			//Set value to hide loading spinner
+			c.data.loading = false;
+
+			console.log('Response');
+			console.log(response);
+
+			//Get link data
+			c.data = response.data;
+		});	
+	}
+	c.runServer();
+
+	c.myContacts = function(sysId, table, template, view) {
+		c.modalInstance = $uibModal.open({
+			templateUrl: template,
+			scope: $scope,
+			size: 'lg'
+		});
+
+		spUtil.get("widget-form-scoped", {
+			sys_id: sysId,
+			view: view,
+			table: table
+		}).then(function(response) {
+			c.myContactsTemplate = response;
+		});
+	}
+
+	//closeModal for the "x" 
+	c.closeModal = function() {
+		c.modalInstance.close();
+	}
+
+	$rootScope.$on('closeModal', function() {
+		c.modalInstance.close();
+	});
+
+	spUtil.recordWatch($scope, 'sn_hr_core_contact', "",function(event,data){
+		//spUtil.update($scope);	
+		c.runServer();	
+	});
+
+	c.deleteContact = function(contact) {
+		var con = confirm("Permantly delete this contact?");
+		if (con == true){
+			c.data.contact_sys_id = contact;
+			c.data.action = "delete-contact";
+			c.server.update().then(function(response){
+				c.data.action = undefined;
+			});
+		}
+	};
+
+	//pagination
+	$scope.setPageNum = function(num) {
+		$scope.data.p = num;
+		$scope.data.page_index = $scope.data.p - 1;
+		$scope.data.window_start = $scope.data.page_index * $scope.data.window_size;
+		$scope.data.window_end = ($scope.data.page_index + 1) * $scope.data.window_size;
+		//getData(true);
+	}
+	$scope.getNumber = function(num) {
+		return new Array(num);
+	}
+
+	$scope.mathMin = function(v1,v2) {
+		return Math.min(v1,v2);
+	}
+	//end pagination
+
+	console.log('myContacts');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.empty-state-content {
+  color: $danger;
+  text-align: center;
+  margin-bottom:0;
+}
+
+.list-group-item:hover {
+  background-color: $color-row-hover;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item {
+  display: inline-block
+}
+
+.delete {
+	color: $overdue;
+}
+
+.delete:hover {
+    font-weight:bold;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>my_contacts</id>
+        <internal>false</internal>
+        <link/>
+        <name>My Contacts</name>
+        <option_schema>[{"name":"title","section":"Presentation","label":"Title","type":"string"},{"name":"glyph","section":"Presentation","label":"Glyph Icon","type":"glyphicon"},{"displayValue":"Color Definition","hint":"","name":"color","display_value_list":[],"section":"Presentation","label":"Bootstrap Heading Color","type":"choice","choices":[{"label":"default","value":"default"},{"label":"primary","value":"primary"},{"label":"success","value":"success"},{"label":"info","value":"info"},{"label":"warning","value":"warning"},{"label":"danger","value":"danger"}],"value":"sys_report_color","ed":{"reference":"sys_report_color"}}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' variable with catalog item, variables, and variable view
+(function() {
+
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//tables
+	var contactTable = 'sn_hr_core_contact';
+
+	var me = gs.getUserID();
+
+	//After page initially loads get data
+	if (input && input.action == 'get_Contacts') {
+
+		//pagination
+		data.table = contactTable;
+		data.table = data.table || $sp.getValue('table');
+		data.filter = data.filter || $sp.getValue('filter');
+		data.keywords = data.keywords || $sp.getValue('keywords');
+		data.p = data.p || $sp.getValue('p') || 1;
+		data.p = parseInt(data.p);
+		data.o = data.o || $sp.getValue('o') || $sp.getValue('order_by');
+		data.d = data.d || $sp.getValue('d') || $sp.getValue('order_direction');
+		data.window_size = data.window_size || $sp.getValue('maximum_entries') || 5;
+		data.page_index = data.p - 1;
+
+		data.window_start = data.page_index * data.window_size;
+		data.window_end = (data.page_index + 1) * data.window_size;
+		//end pagination
+
+		data.contacts = [];
+
+		var my_contacts = new GlideRecord(contactTable);
+		my_contacts.addQuery('user', me);
+		my_contacts.query();
+		//pagination
+		data.row_count =my_contacts.getRowCount();
+		data.num_pages = Math.ceil(data.row_count / data.window_size);
+		//end pagination
+		while(my_contacts.next()){
+			data.contacts.push({
+				sys_id: my_contacts.getValue('sys_id'),
+				first_name: my_contacts.getDisplayValue('first_name'),
+				last_name: my_contacts.getDisplayValue('last_name'),
+				relationship: my_contacts.getDisplayValue('relation_to_employee'),
+				dob: my_contacts.getDisplayValue('date_of_birth'),
+				gender: my_contacts.getDisplayValue('x_dnf_gw_found_sex'),
+				address: my_contacts.getDisplayValue('address'),
+				email: my_contacts.getDisplayValue('email'),
+				emergency_contact: my_contacts.getDisplayValue('emergency_contact'),
+				mobile_phone: my_contacts.getDisplayValue('mobile_phone'),
+				work_phone: my_contacts.getDisplayValue('work_phone'),
+				home_phone: my_contacts.getDisplayValue('home_phone')
+			});
+		}
+	}
+
+	if (input.action == "delete-contact"){
+		var deleteContact = new GlideRecord(contactTable);
+		deleteContact.addQuery('sys_id', input.contact_sys_id);
+		deleteContact.query();
+		if (deleteContact.next()) {
+			deleteContact.deleteRecord();
+			gs.addInfoMessage('Your contact has been deleted');
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-01-16 18:46:45</sys_created_on>
+        <sys_id>b04781a9dbcfa70021eed90d689619f7</sys_id>
+        <sys_mod_count>61</sys_mod_count>
+        <sys_name>My Contacts</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_b04781a9dbcfa70021eed90d689619f7</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-01-17 19:42:23</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-{{::c.options.color}} b">
+  <div class="panel-heading flex">
+    <h1 class="h4 panel-title"><i class="fa fa-{{c.glyph}} m-r-xs" aria-hidden="true"></i>{{c.title}}</h1>
+    <button ng-click="c.myContacts(-1, 'sn_hr_core_contact','my_contact','gateway_hr')" class="m-l-sm btn btn-primary text-uppercase" title="Add Contact">
+      <i class="fa fa-plus m-r-xs"></i>Add Contact
+    </button>
+  </div>
+
+  <div class="panel-body" ng-if="c.data.loading">
+    <span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+      <span class="sr-only">Loading...</span>
+    </span>
+  </div>
+
+  <div ng-if="!c.data.loading && c.data.contacts.length==0" class="empty-state-content panel-body">
+    <p>${You have no contacts}</p>
+  </div>
+
+  <div ng-if="!c.data.loading && c.data.contacts.length>0" class="list-group" style="max-height: none; overflow-y: auto;">
+    <div ng-repeat="item in c.data.contacts | orderBy:'last_name' track by $index" class="list-group-item" ng-if="$index >= data.window_start && $index < data.window_end">   
+      <div class="flex">
+        <div class="flex-col">
+          <h1 class="h4">{{item.last_name}}, {{item.first_name}}</h1>
+          <div class="contact-item">
+            <small ng-if="item.relationship" class="text-muted m-r-sm"><i class="fa fa-user m-r-xs"></i>Relationship: {{item.relationship}}</small>
+            <small ng-if="item.dob" class="text-muted m-r-sm"><i class="fa fa-calendar m-r-xs"></i>Date of Birth: {{item.dob}}</small>
+            <small ng-if="item.address" class="text-muted m-r-sm"><i class="fa fa-map-marker m-r-xs"></i>{{item.address}}</small>
+
+          </div>
+        </div>
+        <div style="margin-left:auto;">
+          <a href="javascript:void(0)" title="Edit Contact">
+            <i class="fa fa-pencil fa-2x m-r-lg" ng-click="c.myContacts(item.sys_id, 'sn_hr_core_contact','my_contact','gateway_hr')"></i>
+          </a>
+          <a href="javascript:void(0)" title="Delete Contact">
+            <i class="fa fa-trash-o fa-2x m-r-lg delete" ng-click="c.deleteContact(item.sys_id)"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--pagination -->
+  <div class="panel-footer" ng-hide="options.hide_footer" ng-if="data.row_count">
+    <div class="btn-toolbar m-r pull-left">
+      <div class="btn-group">
+        <a ng-disabled="data.p == 1" href="javascript:void(0)" ng-click="setPageNum(data.p - 1)" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+      </div>
+      <div ng-if="data.num_pages > 1 && data.num_pages < 20" class="btn-group">
+        <a ng-repeat="i in getNumber(data.num_pages) track by $index" ng-click="setPageNum($index + 1)" href="javascript:void(0)" ng-class="{active: ($index + 1) == data.p}" type="button" class="btn btn-default">{{$index + 1}}</a>
+      </div>
+      <div class="btn-group">
+        <a ng-disabled="data.p == data.num_pages" href="javascript:void(0)" ng-click="setPageNum(data.p + 1)" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="m-t-xs panel-title" style="color: #000000">${Rows {{data.window_start + 1}} - {{ mathMin(data.window_end,data.row_count) }} of {{data.row_count}}}</div>
+    <span class="clearfix"></span>
+  </div>
+</div>
+<!-- end pagination -->
+
+
+<script type="text/ng-template" id="my_contact">
+	<div>
+		<sp-widget widget="c.myContactsTemplate"></sp-widget>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

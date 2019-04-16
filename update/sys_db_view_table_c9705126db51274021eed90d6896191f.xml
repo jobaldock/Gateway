@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_view_table">
+    <sys_db_view_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <left_join>true</left_join>
+        <order>300</order>
+        <sys_class_name>sys_db_view_table</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-24 22:11:14</sys_created_on>
+        <sys_id>c9705126db51274021eed90d6896191f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>cmn_department</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_db_view_table_c9705126db51274021eed90d6896191f</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-24 22:22:55</sys_updated_on>
+        <table>cmn_department</table>
+        <variable_prefix>dept</variable_prefix>
+        <view display_value="x_dnf_gw_obf_all_personal_info">99ba01eedb11274021eed90d68961948</view>
+        <where_clause>user_department=dept_sys_id</where_clause>
+    </sys_db_view_table>
+</record_update>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>account_number</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Form Annotations</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	//Type appropriate comment here, and begin script below
+	//g_form.showFieldMsg('d','If you are covered by Medicare, check all that apply above','info');
+	//g_form.showFieldMsg('other','Indicate the type(s) of other insurance above','info');
+	g_form.showFieldMsg('esignature_consent','I agree that forms pertaining to my onboarding process, when permitted by the Office of Personnel Management, may be electronically signed. I further agree that electronic signatures are the same as handwritten signatures for the purposes of validity, enforceability and admissibility.','error');
+
+	// g_form.showFieldMsg('allotment_information_checkbox','Check this box if you want to start, cancel or change the amount of savings or discretionary allotment','info');
+	g_form.showFieldMsg('catch_up_contributions','You are eligible to make catch-up contributions if you are age 50 or older (or if you will become age 50 during the calendar year for which you are making this election), and you are already contributing a percentage or a dollar amount which will result in reaching the Internal Revenue Code (IRC) elective deferral limit by the end of the year.','info');
+
+
+	g_form.showFieldMsg('continuation_space','For any question marked with ***, hover over the question for additional requested information. Provide this information in the "Additional Information" question above.','info');
+}
+
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-16 17:01:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1f687ccbdbf85f00af88f5861d961945</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Form Annotations</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_script_client_1f687ccbdbf85f00af88f5861d961945</sys_update_name>
+        <sys_updated_by>mpapacrist</sys_updated_by>
+        <sys_updated_on>2018-06-15 14:48:32</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

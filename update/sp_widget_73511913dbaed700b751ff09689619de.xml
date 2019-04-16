@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+	/* widget controller */
+	var c = this;
+
+	$('.list').click(function(){
+		$(this).toggleClass('active');
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.container {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  height: 100vh;
+}
+.container .steps {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.container .steps ul {
+  list-style: none;
+}
+.container .steps ul li {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 100%;
+  background: #d8d8d8;
+  margin-right: 2rem;
+  position: relative;
+}
+.container .steps ul li:first-child {
+  margin-left: unset;
+}
+.container .steps ul li:first-child:before {
+  display: none;
+}
+.container .steps ul li:before {
+  content: "";
+  width: 2.4rem;
+  background-color: #d8d8d8;
+  height: 2px;
+  position: absolute;
+  top: 2rem;
+  right: 3.9rem;
+}
+.container .steps ul .active {
+  background: #03A9F4;
+  color: #fff;
+}
+.container .steps ul .active:before {
+  background-color: #03A9F4;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding_instructions3</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Instructions3</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+data.my_beneficiaries = $sp.getWidget('my_beneficiaries');
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-06-12 13:17:45</sys_created_on>
+        <sys_id>73511913dbaed700b751ff09689619de</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Onboarding Instructions3</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_73511913dbaed700b751ff09689619de</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-06-12 13:19:39</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <div class="steps">
+    <ul>
+      <li class="list active">1</li>
+      <li class="list">2</li>
+      <li class="list">3</li>
+      <li class="list">4</li>
+    </ul>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

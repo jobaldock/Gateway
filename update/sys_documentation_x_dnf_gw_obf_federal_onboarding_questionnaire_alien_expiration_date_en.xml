@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="alien_expiration_date" label="Alien Expiration Date (if applicable)" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>alien_expiration_date</element>
+            <help/>
+            <hint/>
+            <label>Alien Expiration Date (if applicable)</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>Alien Expiration Date (if applicable)</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-06-01 16:30:23</sys_created_on>
+            <sys_id>26f3dd77db16530021eed90d68961939</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Alien Expiration Date (if applicable)</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_alien_expiration_date_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-06-01 16:30:23</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

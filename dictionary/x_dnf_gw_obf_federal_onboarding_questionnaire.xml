@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Federal Onboarding Questionnaire" max_length="40" name="x_dnf_gw_obf_federal_onboarding_questionnaire" type="collection">
+        <element label="Account Number" max_length="20" name="account_number" type="string"/>
+        <element label="Account Title (Account Holder's Name)" max_length="40" name="account_title" type="string"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Alien Expiration Date (if applicable)" max_length="40" name="alien_expiration_date" type="glide_date"/>
+        <element label="Allotment Information" max_length="40" name="allotment_information_checkbox" type="boolean"/>
+        <element label="Allottee's Account Number" max_length="20" name="allottees_account_number" type="string"/>
+        <element label="Allottee's Account Title" max_length="40" name="allottees_account_title" type="string"/>
+        <element choice="1" label="Action" max_length="40" name="allottees_action" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Start" sequence="0" value="start"/>
+                <element inactive_on_update="false" label="Cancel" sequence="1" value="cancel"/>
+                <element inactive_on_update="false" label="Change" sequence="2" value="change"/>
+            </choice>
+        </element>
+        <element choice="1" label="Amount" max_length="40" name="allottees_amount" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Increase to:" sequence="0" value="increase"/>
+                <element inactive_on_update="false" label="Decrease to:" sequence="1" value="decrease"/>
+            </choice>
+        </element>
+        <element label="Check Digit" max_length="1" name="allottees_check_digit" type="string"/>
+        <element label="Financial Institution Name" max_length="100" name="allottees_financial_institution_name" type="string"/>
+        <element label="New Total" max_length="20" name="allottees_new_total" type="currency"/>
+        <element label="Allottee's Routing Number" max_length="9" name="allottees_routing_number" type="string"/>
+        <element choice="1" label="Type of Account" max_length="40" name="allottees_type_of_account" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Savings" sequence="0" value="savings"/>
+                <element inactive_on_update="false" label="Checking" sequence="1" value="checking"/>
+            </choice>
+        </element>
+        <element label="Allottee Name (person/company who will receive allotment)" max_length="100" name="allottee_name" type="string"/>
+        <element label="I elect Basic Life insurance coverage" max_length="40" name="basic_life" type="string"/>
+        <element label="Branch of Service Retired From" max_length="32" name="branch_of_service_retired_from" reference="x_dnf_gw_found_branch_of_service" type="reference"/>
+        <element label="I would like to start or change catch-up contributions" max_length="40" name="catch_up_contributions" type="boolean"/>
+        <element label="Check Digit" max_length="1" name="check_digit" type="string"/>
+        <element choice="1" label="My Citizenship Status" max_length="40" name="citizenship" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="A citizen of the United States" sequence="0" value="us_citizen"/>
+                <element inactive_on_update="false" label="A noncitizen national of the United States" sequence="1" value="noncitizen_national"/>
+                <element inactive_on_update="false" label="A lawful permanent resident" sequence="2" value="permanent_resident"/>
+                <element inactive_on_update="false" label="An alien authorized to work in the United States" sequence="3" value="alien"/>
+            </choice>
+        </element>
+        <element choice="1" label="Check the preference that applies to you:" max_length="40" name="claim_preference_as" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Spouse of a disabled veteran" sequence="0" value="spouse"/>
+                <element inactive_on_update="false" label="Mother of a deceased or disabled veteran" sequence="1" value="mother"/>
+                <element inactive_on_update="false" label="Unmarried widow/widower of a veteran" sequence="2" value="widower"/>
+            </choice>
+        </element>
+        <element label="I claim veterans' preference which has not been verified." max_length="40" name="claim_veterans_preference" type="boolean"/>
+        <element label="Additional Information" max_length="4000" name="continuation_space" type="journal"/>
+        <element hint="Include felonies, firearms or explosives violations, misdemeanors, and all other offenses. If 'YES', use space below to provide the date, explanation of the violation, place of occurrence and the name and address of the police department or court involved." label="*** Have you been convicted, imprisoned, on probation or parole in last 7 years?" max_length="40" name="convicted" type="string"/>
+        <element label="Country of Citizenship" max_length="32" name="country_of_citizenship" reference="core_country" reference_qual="name!=United States of America^EQ" reference_qual_condition="name!=United States of America^EQ" type="reference"/>
+        <element label="Country of Issuance" max_length="32" name="country_of_issuance" reference="core_country" reference_qual="name!=United States of America^EQ" reference_qual_condition="name!=United States of America^EQ" type="reference"/>
+        <element hint="If 'YES', use the last box to provide the date, explanation of the violation, place of occurrence, and the name and address of the military authority or court involved." label="*** Have you been convicted by a military court-martial in the last 7 years?" max_length="40" name="court_martial" type="string"/>
+        <element label="I am eligible to retire under the Civil Service Retirement System (CSRS)" max_length="40" name="csrs" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;var eod='';&#13;&#10;&#9;var hr = new GlideRecord('sn_hr_core_profile');&#13;&#10;&#9;hr.addQuery('user', gs.getUserID());&#13;&#10;&#9;hr.query();&#13;&#10;&#9;if(hr.next()) {&#13;&#10;&#9;&#9;eod = hr.getDisplayValue('employment_start_date');&#13;&#10;&#9;}&#13;&#10;&#9;return eod;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Date of Event" max_length="40" name="date_of_event" type="glide_date"/>
+        <element hint="Includes delinquencies arising from Federal taxes, loans, overpayment of benefits, and other debts to the U.S. Government, plus defaults of Federally guaranteed or insured loans such as student and home mortgage loans. If 'YES', use the last box to provide the type, length, and amount of the delinquency or default, and steps that you are taking to correct the error or repay the debt." label="*** Are you delinquent on any Federal debt? " max_length="40" name="delinquent" type="string"/>
+        <element label="Did you use a different name during your military service?" max_length="40" name="different_military_name" type="boolean"/>
+        <element choice="1" hint="Please refer to https://www.opm.gov/forms/pdf_fill/sf256.pdf for disability codes and descriptions." label="Disability Code: https://www.opm.gov/forms/pdf_fill/sf256.pdf for descriptions" max_length="40" name="disability_code" reference="x_dnf_gw_found_disability_codes" type="reference">
+            <choice/>
+        </element>
+        <element active="false" label="Enrollment Code" max_length="10" name="enrollment_code" type="string"/>
+        <element label="I consent to  electronic signatures.  This consent may be withdrawn at any time." max_length="100" name="esignature_consent" type="string"/>
+        <element label="Event That Permits You To Enroll, Change, or Cancel" max_length="40" name="event_code" type="string"/>
+        <element label="Did you have more than 6 months' absence during civilian service?" max_length="40" name="extended_absence" type="string"/>
+        <element choice="1" label="I elect Option C: Family coverage ($2,500 per child and $5,000 per spouse)" max_length="40" name="family_coverage" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Decline" sequence="0" value="decline"/>
+                <element inactive_on_update="false" label="1x Multiple" sequence="1" value="family_1"/>
+                <element inactive_on_update="false" label="2x Multiple" sequence="2" value="family_2"/>
+                <element inactive_on_update="false" label="3x Multiple" sequence="3" value="family_3"/>
+                <element inactive_on_update="false" label="4x Multiple" sequence="4" value="family_4"/>
+                <element inactive_on_update="false" label="5x Multiple" sequence="5" value="family_5"/>
+            </choice>
+        </element>
+        <element label="Have you been employed by the Federal government before?" max_length="40" name="fed_employed_before" type="string"/>
+        <element label="I elect to enroll in Federal Employee Heath Benefits Program (FEHB)" max_length="40" name="fehb_enroll" type="string"/>
+        <element label="FEHB Plan You Are Enrolling In or Changing To" max_length="32" name="fehb_plan" reference="sn_hr_core_benefit_provider" type="reference"/>
+        <element label="I waive pretax treatment of FEHB premiums; deduct these on an after-tax basis" max_length="40" name="fehb_waive_pretax" type="string"/>
+        <element label="I elect to enroll in the Federal Employees Retirement System (FERS):" max_length="40" name="fers" type="string"/>
+        <element label="Financial Institution Name" max_length="100" name="financial_institution_name" type="string"/>
+        <element hint="During the last 5 years, have you been fired from any job for any reason, did you quit after being told that you would be fired, did you leave any job by mutual agreement because of specific problems, or were you debarred from Federal employement by the Office of Personnel Management or any other Federal agency?&#13;&#10;&#13;&#10;If 'YES', use the last box to provide the date, an explanation of the problem, reason for leaving, and the employer's name and address." label="***Have you been fired from a job, left due to problems, or debarred in 5 years?" max_length="40" name="fired" type="string"/>
+        <element label="Foreign Passport Number" max_length="15" name="foreign_passport_number" type="string"/>
+        <element active="false" label="I am Hispanic or Latino" max_length="40" name="hispanic_or_latino" type="boolean"/>
+        <element label="I am Hispanic or Latino" max_length="40" name="hispanic_or_latino_string" type="string"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="HR Profile" max_length="32" name="hr_profile" reference="sn_hr_core_profile" type="reference" use_dynamic_default="true"/>
+        <element label="Form I-94 Admission Number" max_length="11" name="i94" type="string"/>
+        <element label="Are you covered by insurance other than Medicare?" max_length="40" name="insurance_other_than_medicare" type="string"/>
+        <element active="false" choice="3" label="I am:" max_length="40" name="i_am" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="An employee" sequence="0" value="employee"/>
+                <element inactive_on_update="false" label="Retired or an applicant for retirement" sequence="1" value="retired"/>
+                <element inactive_on_update="false" label="Former employee eligible for retirement in the future" sequence="2" value="former_employee"/>
+            </choice>
+        </element>
+        <element label="When did you leave your last Federal job?" max_length="40" name="last_federal_job" type="glide_date"/>
+        <element choice="1" hint="If not, use the last box to identify the type(s) of insurance for which waivers were not canceled." label="*** Did you later cancel the life insurance waiver(s)?" max_length="40" name="later_cancel_waivers" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Yes" sequence="0" value="yes"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Do Not Know" sequence="2" value="do not know"/>
+            </choice>
+        </element>
+        <element hint="https://www.opm.gov/retirement-services/calculators/fegli-calculator/option-a-standard/ " label="I elect Option A: Standard life insurance" max_length="40" name="life_insurance_authorization" type="string"/>
+        <element choice="1" label="Living Former Spouse" max_length="40" name="living_former_spouse" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Yes" sequence="0" value="yes"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="I don't know if a court order is on file at OPM." sequence="2" value="idk"/>
+            </choice>
+        </element>
+        <element label="Medicare Claim Number" max_length="20" name="medicare_claim_number" type="string"/>
+        <element label="If you are covered by Medicare, check all that apply" max_length="4000" name="medicare_coverage" reference="x_dnf_gw_found_medicare_coverage" type="glide_list"/>
+        <element label="Name used during military service" max_length="40" name="military_name" type="string"/>
+        <element label="Are you a retiree from the U.S. Military?" max_length="40" name="military_retiree" type="boolean"/>
+        <element label="Name of other insurance:" max_length="40" name="name_of_other_insurance" type="string"/>
+        <element label="Did you earn a badge/medal during a nonwartime campaign or expedition?" max_length="40" name="nonwartime_campaign" type="boolean"/>
+        <element default="true" label="I do NOT want to enroll in the FEHB Program" max_length="40" name="no_fehb" type="boolean"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" label="I elect Option B: Additional insurance for myself" max_length="100" name="optional" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Decline" sequence="0" value="decline"/>
+                <element inactive_on_update="false" label="1x Basic Pay" sequence="1" value="basic_1"/>
+                <element inactive_on_update="false" label="2x Basic Pay" sequence="2" value="basic_2"/>
+                <element inactive_on_update="false" label="3x Basic Pay" sequence="3" value="basic_3"/>
+                <element inactive_on_update="false" label="4x Basic Pay" sequence="4" value="basic_4"/>
+                <element inactive_on_update="false" label="5x Basic Pay" sequence="5" value="basic_5"/>
+            </choice>
+        </element>
+        <element label="Indicate the type(s) of other insurance" max_length="4000" name="other_insurance" reference="x_dnf_gw_found_insurance_other_than_medicare" type="glide_list"/>
+        <element label="I have used other names" max_length="40" name="other_names_checkbox" type="boolean"/>
+        <element label="Other Name (First, Middle, Last)" max_length="40" name="other_name_1" type="string"/>
+        <element label="Other Name (First, Middle, Last)" max_length="40" name="other_name_2" type="string"/>
+        <element label="OWCP claim number, if applicable" max_length="9" name="owcp_claim_number" type="string"/>
+        <element label="Parent" max_length="32" name="parent" reference="sn_hr_core_task" type="reference"/>
+        <element label="Policy Number:" max_length="40" name="policy_number" type="string"/>
+        <element choice="1" label="Did you have prior civilian service?" max_length="40" name="prior_civilian_service" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Yes" sequence="0" value="yes"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+            </choice>
+        </element>
+        <element label="Race and Ethnicity Code" max_length="4000" name="race_and_ethnicity_code" reference="x_dnf_gw_found_race_and_ethnicity_codes" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="glide_list"/>
+        <element hint="Include: father, mother, husband, wife, son, daughter, brother, sister, uncle, aunt, first cousin, nephew, niece, father-in-law,mother-in-law, son-in-law, daughter-in-law, brother-in-law, sister-in-law, stepfather, stepmother, stepson, stepdaughter, stepbrother, stepsister, half brother, and half sister.  If &quot;YES,&quot; use the last box to provide the relative's name, relationship, and the department, agency, or branch of the Armed Forces for which your relative works." label="*** Do any relatives work for the agency you are submitting this form?" max_length="40" name="relatives" type="string"/>
+        <element label="Does your resume list all civilian and uniformed service?" max_length="40" name="resume_list_all" type="string"/>
+        <element label="Retiree claim number" max_length="40" name="retiree_claim_number" type="string"/>
+        <element label="Retirement Date" max_length="40" name="retirement_date" type="glide_date"/>
+        <element hint="Based on military, Federal civilian, or District of Columbia Government service" label="Haev you received or applied for retirement pay, pension, or other retired pay? " max_length="40" name="retirement_pay" type="string"/>
+        <element label="Roth (After-Tax) ($)" max_length="10" name="roth_after_tax" type="integer"/>
+        <element label="Roth (After-Tax) Contributions ($)" max_length="10" name="roth_after_tax_contributions_dollars" type="integer"/>
+        <element label="Roth (After-Tax) Contributions (%)" max_length="10" name="roth_after_tax_contributions_percent" type="integer"/>
+        <element label="Roth Percentage or Dollar" max_length="4000" name="roth_percentage_or_dollar" type="glide_list"/>
+        <element label="Routing Transit Number" max_length="9" name="routing_transit_number" type="string"/>
+        <element label="*** Have you registered with the Selecti..." max_length="40" name="selective_service" type="string"/>
+        <element label="Have you served in the U.S Military? " max_length="40" name="served_us_military" type="string"/>
+        <element label="Service Number" max_length="100" name="service_number" type="string"/>
+        <element label="Service from which you retired" max_length="32" name="service_retired" reference="x_dnf_gw_found_branch_of_service" type="reference"/>
+        <element label="Traditional Percent or Dollar" max_length="4000" name="traditional_percent_or_dollar" type="glide_list"/>
+        <element label="Traditional (Pre-Tax) Contributions ($)" max_length="10" name="traditional_pretax_contributions_dollars" type="integer"/>
+        <element label="Traditional (Pre-Tax) Contributions (%)" max_length="10" name="traditional_pretax_contributions_percent" type="integer"/>
+        <element label="Traditional (Pre-Tax) ($)" max_length="10" name="traditional_pre_tax" type="integer"/>
+        <element label="Traditional, Roth, Both" max_length="100" name="traditional_roth_both" type="string"/>
+        <element choice="1" label="Type of Account" max_length="40" name="type_of_account" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Checkings" sequence="0" value="checkings"/>
+                <element inactive_on_update="false" label="Savings" sequence="1" value="savings"/>
+            </choice>
+        </element>
+        <element choice="1" label="Type of Allotment" max_length="40" name="type_of_allotment" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Savings (whole dollar amounts only)" sequence="0" value="savings"/>
+                <element inactive_on_update="false" label="Discretionary or Third Party" sequence="1" value="discretionary"/>
+            </choice>
+        </element>
+        <element choice="1" label="Type of Payment" max_length="40" name="type_of_payment" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Net Pay" sequence="0" value="net_pay"/>
+                <element inactive_on_update="false" label="Travel" sequence="1" value="travel"/>
+                <element inactive_on_update="false" label="Other Federal Payments" sequence="2" value="other_federal_payments"/>
+            </choice>
+        </element>
+        <element label="Alien Registration/USCIS Number" max_length="9" name="uscis" type="string"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element hint="If 'YES' use the last box to provide the date, explanation of the violation, place of occurrence, and the name and address of the police department or court involved." label="*** Are you currently under charges for any violation of law?" max_length="40" name="violation_of_law" type="string"/>
+        <element choice="1" hint="When you worked for the Federal Government, did you waive Basic Life Insurance or any type of optional life insurance? " label="Did you waive any type of life insurance?" max_length="40" name="waive_basic_life" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Yes" sequence="0" value="yes"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Do Not Know" sequence="2" value="do not know"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="parent"/>
+        </index>
+        <index name="index2">
+            <element name="fehb_plan"/>
+        </index>
+        <index name="index3">
+            <element name="country_of_citizenship"/>
+        </index>
+        <index name="index4">
+            <element name="hr_profile"/>
+        </index>
+        <index name="index5">
+            <element name="service_retired"/>
+        </index>
+        <index name="index6">
+            <element name="user"/>
+            <element name="active"/>
+        </index>
+        <index name="index7">
+            <element name="branch_of_service_retired_from"/>
+        </index>
+        <index name="index8">
+            <element name="country_of_issuance"/>
+        </index>
+    </element>
+</database>

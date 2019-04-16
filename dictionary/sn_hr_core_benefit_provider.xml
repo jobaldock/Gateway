@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="HR Benefit Plan" max_length="40" name="sn_hr_core_benefit_provider" type="collection">
+        <element label="Enrollment Code" max_length="40" name="x_dnf_gw_obf_enrollment_code" type="string"/>
+    </element>
+</database>

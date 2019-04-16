@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>foreign_passport_number</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-01 17:19:41</sys_created_on>
+        <sys_id>753f55ffdb16530021eed90d6896199a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>foreign_passport_number</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_ui_policy_action_753f55ffdb16530021eed90d6896199a</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-06-01 17:19:41</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <ui_policy display_value="If Alien and provided I94, make other fields Read Only">76feddbfdb16530021eed90d68961932</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>

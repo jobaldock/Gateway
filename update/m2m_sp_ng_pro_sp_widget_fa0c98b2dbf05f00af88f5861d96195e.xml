@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
+        <sp_angular_provider display_value="spModelTabbedScoped">eefb98b2dbf05f00af88f5861d96199d</sp_angular_provider>
+        <sp_widget display_value="Form Scoped">43338788dbb01b00af88f5861d9619c5</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-15 20:17:55</sys_created_on>
+        <sys_id>fa0c98b2dbf05f00af88f5861d96195e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spModelTabbedScoped.Form Scoped</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_fa0c98b2dbf05f00af88f5861d96195e</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-03-15 20:17:55</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+</record_update>

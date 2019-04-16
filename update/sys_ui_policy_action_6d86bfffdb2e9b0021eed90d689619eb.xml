@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>extended_absence</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-06-14 14:36:29</sys_created_on>
+        <sys_id>6d86bfffdb2e9b0021eed90d689619eb</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>extended_absence</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_ui_policy_action_6d86bfffdb2e9b0021eed90d689619eb</sys_update_name>
+        <sys_updated_by>mpapacrist</sys_updated_by>
+        <sys_updated_on>2018-06-14 14:38:18</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <ui_policy display_value="If resume shows all work, hide absence question">0936bbffdb2e9b0021eed90d689619e1</ui_policy>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+</record_update>

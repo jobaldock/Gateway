@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="update_synch=true" extends="sp_instance_table" label="Info Cards Instance v2" max_length="40" name="x_dnf_gw_obf_info_cards_instance_v2" type="collection">
+        <element label="Button Title" max_length="40" name="button_title" type="string"/>
+        <element label="Button URL" max_length="1024" name="button_url" type="url"/>
+        <element label="Expandable ID" max_length="40" name="expandable_id" type="string"/>
+        <element label="Icon" max_length="40" name="icon" type="string"/>
+        <element label="Show Agency" max_length="40" name="show_agency" type="boolean"/>
+        <element label="Show Appointment Type" max_length="40" name="show_appointment_type" type="boolean"/>
+        <element label="Show Branch of Service" max_length="40" name="show_branch_of_service" type="boolean"/>
+        <element label="Show Bureau" max_length="40" name="show_bureau" type="boolean"/>
+        <element label="Show Button" max_length="40" name="show_button" type="boolean"/>
+        <element label="Show Cost Center" max_length="40" name="show_cost_center" type="boolean"/>
+        <element label="Show Department" max_length="40" name="show_department" type="boolean"/>
+        <element label="Show Department Primary Contact" max_length="40" name="show_department_primary_contact" type="boolean"/>
+        <element label="Show Email" max_length="40" name="show_email" type="boolean"/>
+        <element label="Show Employee Number" max_length="40" name="show_employee_number" type="boolean"/>
+        <element label="Show Employment Start Date" max_length="40" name="show_employment_start_date" type="boolean"/>
+        <element label="Show Home Phone" max_length="40" name="show_home_phone" type="boolean"/>
+        <element label="Show Location" max_length="40" name="show_location" type="boolean"/>
+        <element label="Show Manager" max_length="40" name="show_manager" type="boolean"/>
+        <element label="Show Manager Email" max_length="40" name="show_manager_email" type="boolean"/>
+        <element label="Show Manager Location" max_length="40" name="show_manager_location" type="boolean"/>
+        <element label="Show Manager Mobile Phone" max_length="40" name="show_manager_mobile_phone" type="boolean"/>
+        <element label="Show Manager Phone" max_length="40" name="show_manager_phone" type="boolean"/>
+        <element label="Show Manager Title" max_length="40" name="show_manager_title" type="boolean"/>
+        <element label="Show Mobile Phone" max_length="40" name="show_mobile_phone" type="boolean"/>
+        <element label="Show Occupational Series" max_length="40" name="show_occupational_series" type="boolean"/>
+        <element label="Show Pay Plan" max_length="40" name="show_pay_plan" type="boolean"/>
+        <element label="Show Pay Step" max_length="40" name="show_pay_step" type="boolean"/>
+        <element label="Show Position" max_length="40" name="show_position" type="boolean"/>
+        <element label="Show Primary Contact Email" max_length="40" name="show_primary_contact_email" type="boolean"/>
+        <element label="Show Primary Contact Mobile Phone" max_length="40" name="show_primary_contact_mobile_phone" type="boolean"/>
+        <element label="Show Primary Contact Phone" max_length="40" name="show_primary_contact_phone" type="boolean"/>
+        <element label="Show Salary Grade" max_length="40" name="show_salary_grade" type="boolean"/>
+        <element label="Show SSN" max_length="40" name="show_ssn" type="boolean"/>
+        <element label="Show User Name" max_length="40" name="show_user_name" type="boolean"/>
+        <element label="Show Work Phone" max_length="40" name="show_work_phone" type="boolean"/>
+    </element>
+</database>

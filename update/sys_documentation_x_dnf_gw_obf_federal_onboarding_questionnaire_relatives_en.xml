@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="relatives" label="*** Do any relatives work for the agency you are submitting this form?" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>relatives</element>
+            <help/>
+            <hint>Include: father, mother, husband, wife, son, daughter, brother, sister, uncle, aunt, first cousin, nephew, niece, father-in-law,mother-in-law, son-in-law, daughter-in-law, brother-in-law, sister-in-law, stepfather, stepmother, stepson, stepdaughter, stepbrother, stepsister, half brother, and half sister.  If "YES," use the last box to provide the relative's name, relationship, and the department, agency, or branch of the Armed Forces for which your relative works.</hint>
+            <label>*** Do any relatives work for the agency you are submitting this form?</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>*** Do any relatives work for the agency you are submitting this form?s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:21:44</sys_created_on>
+            <sys_id>5d4952c0db701b00af88f5861d9619b3</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>*** Do any relatives work for the agency you are submitting this form?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_relatives_en</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-14 15:23:28</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>uscis</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-01 17:22:30</sys_created_on>
+        <sys_id>ccefddffdb16530021eed90d6896194b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>uscis</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_ui_policy_action_ccefddffdb16530021eed90d6896194b</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-06-01 17:22:30</sys_updated_on>
+        <table>x_dnf_gw_obf_federal_onboarding_questionnaire</table>
+        <ui_policy display_value="If Alien and provided Foreign Passport, make other fields Read Only">088f59ffdb16530021eed90d6896194b</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>

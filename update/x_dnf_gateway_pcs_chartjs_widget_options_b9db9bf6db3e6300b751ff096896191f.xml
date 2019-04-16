@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_dnf_gateway_pcs_chartjs_widget_options">
+    <x_dnf_gateway_pcs_chartjs_widget_options action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <background_color>#f2f2f2</background_color>
+        <chart_type>bar</chart_type>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <field_list>hr_task_type,assigned_to,short_description,state</field_list>
+        <fifth_color/>
+        <filter table="sn_hr_core_task">parent.short_description=Gateway onboarding<item endquery="false" field="parent.short_description" goto="false" newquery="false" operator="=" or="false" value="Gateway onboarding"/>
+        </filter>
+        <first_color/>
+        <fourth_color/>
+        <glyph/>
+        <group_by>state</group_by>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <second_color/>
+        <short_description/>
+        <show_legend>false</show_legend>
+        <sixth_color/>
+        <size>md</size>
+        <sp_column display_value="2">8faadbf6db3e6300b751ff09689619ef</sp_column>
+        <sp_widget display_value="chartjs widget">06054284dbbf530021eed90d68961988</sp_widget>
+        <stacked_by/>
+        <sys_class_name>x_dnf_gateway_pcs_chartjs_widget_options</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-08 16:32:36</sys_created_on>
+        <sys_id>b9db9bf6db3e6300b751ff096896191f</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>All Onboarding Tasks by State</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>x_dnf_gateway_pcs_chartjs_widget_options_b9db9bf6db3e6300b751ff096896191f</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-08 18:59:14</sys_updated_on>
+        <table>sn_hr_core_task</table>
+        <table_view_type>same</table_view_type>
+        <third_color/>
+        <title>All Onboarding Tasks by State</title>
+        <url/>
+        <widget_parameters/>
+        <x_axis_label/>
+        <y_axis_label/>
+    </x_dnf_gateway_pcs_chartjs_widget_options>
+    <sys_translated_text action="delete_multiple" query="documentkey=b9db9bf6db3e6300b751ff096896191f"/>
+</record_update>

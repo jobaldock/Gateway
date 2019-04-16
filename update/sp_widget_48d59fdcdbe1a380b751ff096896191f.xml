@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+	/* widget controller */
+	var c = this;
+
+	$scope.aie_done = false;
+	c.toggleDone = function(){
+		if($scope.aie_done == false){
+			$scope.aie_done = !$scope.aie_done;
+		}
+		alert('Saved Successfully!');
+	}
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.progress-bar{
+  background-color: #ee8622; 
+}
+.pagination &gt; .active &gt; a{
+  background-color: #ee8622;
+  border-color: #ee8622;
+}
+.panel-group .panel-heading {
+  padding: 15px;
+}
+.btn-info{
+  background-color: #ee8622;
+  border: #efefef;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>AIE Forms Accordian 1</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-30 18:23:35</sys_created_on>
+        <sys_id>48d59fdcdbe1a380b751ff096896191f</sys_id>
+        <sys_mod_count>55</sys_mod_count>
+        <sys_name>AIE Forms Accordian 1</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_48d59fdcdbe1a380b751ff096896191f</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-11-02 15:47:29</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+
+<body>
+  <br>
+  <div class="container">
+    <a class="btn btn-info pull-right" style="margin-left:5px;" href="https://milrecruiting.com/app">Recruiting Radar</a>
+    <div class="progress"  style="height: 22px;border-radius: 2px">
+      <div class="progress-bar progress-bar-striped active" role="progressbar"
+           aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+        Soldier Forms 67% Completed
+      </div>
+    </div></div>
+
+  <div class="container">
+    <!--<h2>Accordion Example</h2>
+<p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>-->
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img ng-if="!aie_done" src="aie_pending.png" height="18" width="18">
+            <img ng-if="aie_done" src="aie_done.png" height="18" width="18"> 
+            &nbsp;&nbsp;
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><b><font color="#e6e8ea"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;PERSONAL QUESTIONNAIRE</font></b></a>
+
+          </h4>
+
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+          <div class="panel-body">
+
+
+            <i><b>        Follow instructions completely or your form will be unable to be processed. If you have any questions, contact the office that provided you the form.</b></i>
+            <br><br>All questions on this form must be answered completely and truthfully in order that the Government may make the determinations described below on a complete record. Penalties for inaccurate or false statements are discussed below. If you are a current civilian employee of the federal government: failure to answer any questions completely and truthfully could result in an adverse personnel action against you, including loss of employment; with respect to Sections 23, 27, and 29, however, neither your truthful responses nor information derived from those responses will be used as evidence against you in a subsequent criminal proceeding.<br><br>
+            <div class="panel-group" id="accordion21">
+              <div class="panel">
+                <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoOne">SECTION 1 - FULL NAME &raquo;
+                </a>
+                <div id="collapseTwoOne" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a class="btn btn-info pull-right" href="?id=kb_article&sys_id=d948e00ddb6d2300b751ff096896195d">Help</a>
+                    <form class="form-horizontal">
+                      <fieldset>
+                        <!-- Form Name -->
+                        <b>SECTION 1 - FULL NAME</b>
+                        <p>
+                          Provide your full name. If you have only initials in your name, provide them and indicate "Initial only". If you do not have a middle name, indicate "No Middle Name". If you are a "Jr.," "Sr.," etc. enter this under Suffix.
+
+
+                        </p>
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Last name</label>  
+                          <div class="col-md-5">
+                            <input id="textinput" name="textinput" type="text" placeholder="Morgan" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">First Name</label>  
+                          <div class="col-md-5">
+                            <input id="textinput" name="textinput" type="text" placeholder="Rhodri" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Middle name</label>  
+                          <div class="col-md-5">
+                            <input id="textinput" name="textinput" type="text" placeholder="Steven" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="selectbasic">Suffix</label>
+                          <div class="col-md-2">
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                              <option value="1">Jr.</option>
+                              <option value="2">Sr.</option>
+                            </select>
+                          </div>
+                        </div>
+
+                      </fieldset>
+                    </form>
+
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel ">
+                <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoTwo">SECTION 2 - DATE OF BIRTH &raquo;
+                </a>
+                <div id="collapseTwoTwo" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a class="btn btn-info pull-right" href="?id=kb_article&sys_id=d948e00ddb6d2300b751ff096896195d">Help</a>
+                    Date of Birth
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel ">
+                <a data-toggle="collapse" data-parent="#accordion21" href="#collapse33">SECTION 3 - PLACE OF BIRTH &raquo;
+                </a>
+                <div id="collapse33" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a class="btn btn-info pull-right" href="?id=kb_article&sys_id=d948e00ddb6d2300b751ff096896195d">Help</a>
+                    Place of Birth
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel ">
+                <a data-toggle="collapse" data-parent="#accordion21" href="#collapse44">SECTION 4 - SOCIAL SECURITY NUMBER &raquo;
+                </a>
+                <div id="collapse44" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a class="btn btn-info pull-right" href="?id=kb_article&sys_id=d948e00ddb6d2300b751ff096896195d">Help</a>
+                    Social Security Number
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="panel">
+                <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwo2">SECTION 5 - OTHER NAMES USED* &raquo;
+                </a>
+                <div id="collapseTwo2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a class="btn btn-info pull-right" href="?id=kb_article&sys_id=d948e00ddb6d2300b751ff096896195d">Help</a>
+                    <form class="form-horizontal">
+                      <fieldset>
+                        <!-- Form Name -->
+                        <b>SECTION 5 - OTHER NAMES USED </b>
+                        <p>
+                          <span style="padding-right:5px;" >Have you used any other names?*</span><input style="padding-right:5px;" type="checkbox" name="otherNameYes" value="otherNameYes"> Yes <input style="padding-right:5px;" type="checkbox" name="otherNameYes" value="otherNameYes"> No
+                        </p>
+                        
+                        <p>
+                          Provide your full name. If you have only initials in your name, provide them and indicate "Initial only". If you do not have a middle name, indicate "No Middle Name". If you are a "Jr.," "Sr.," etc. enter this under Suffix.
+                        </p>
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Last name</label>  
+                          <div class="col-md-5">
+                            <input id="textinput" name="textinput" type="text" placeholder="Morgan" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">First Name</label>  
+                          <div class="col-md-5">
+                            <input id="textinput" name="textinput" type="text" placeholder="Rhodri" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Middle name</label>  
+                          <div class="col-md-5">
+                            <input id="textinput" name="textinput" type="text" placeholder="Steven" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="selectbasic">Suffix</label>
+                          <div class="col-md-2">
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                              <option value="1">Jr.</option>
+                              <option value="2">Sr.</option>
+                            </select>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel ">
+                <a data-toggle="collapse" data-parent="#accordion21" href="#collapse66">SECTION 6 - YOUR IDENTIFYING INFORMATION &raquo;
+                </a>
+                <div id="collapse66" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a class="btn btn-info pull-right" href="?id=kb_article&sys_id=d948e00ddb6d2300b751ff096896195d">Help</a>
+                    Your Identifying Information
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <a class="btn btn-info pull-right" href="" ng-click="c.toggleDone()">Save</a>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img src="aie_done.png" height="18" width="18">  &nbsp;&nbsp;
+
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><b><font color="#e6e8ea"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;SCREENING</font></b></a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          <center>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pg-blue">
+                <li class="page-item disabled">
+                  <a class="page-link" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link">1</a></li>
+                <li class="page-item active">
+                  <a class="page-link">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item">
+                  <a class="page-link">Next</a>
+                </li>
+              </ul>
+            </nav></center>
+        </div>
+
+      </div>
+
+
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img src="aie_done.png" height="18" width="18">  &nbsp;&nbsp;
+
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><font color="#e6e8ea"><b><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;BACKGROUND INVESTIGATION</b></font></a>
+          </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img src="aie_done.png" height="18" width="18">  &nbsp;&nbsp;
+
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><font color="#e6e8ea"><b><span class="glyphicon glyphicon-tree-deciduous"></span>&nbsp;&nbsp;FAMILY AND ASSOCIATES</font></b></a>
+          </h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse">
+          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        </div>
+      </div>    
+
+
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img src="aie_done.png" height="18" width="18">  &nbsp;&nbsp;
+
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><font color="#e6e8ea"><b><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;CHARACTER REFERENCES</font></b></a>
+          </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse">
+          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        </div>
+      </div>
+
+      <!--<div class="panel panel-default" style="background-color:#F0F0F0">
+<div class="panel-heading" style="background-color:#404040">
+<h4 class="panel-title">
+<img src="aie_pending.png" height="18" width="18">  &nbsp;&nbsp;
+
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><font color="#e6e8ea"><b><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;SIGN AND SUBMIT FORMS</font></b></a>
+</h4>
+</div>
+<div id="collapse6" class="panel-collapse collapse">
+<div class="panel-body">
+<b>PREVIEW MY FORMS</b>
+<br>
+<a href="https://deloitteusgwcop6.service-now.com/sys_attachment.do?sysparm_referring_url=tear_off&view=true&sys_id=51c0f9fedb11ab40179c73abbf96198f" target="_blank">Preview SF86</a><br>
+<a href="">Certification of Applicant – Security Clearance Application</a><br>
+<a href="">DA 4187</a><br>
+<a href="">DA 5500</a><br>
+<a href="">DA 5501</a><br>
+<a href="">DA 61</a><br>
+<a href="">DD 1966</a><br>
+<a href="">DD 1966 Page 5 Only</a><br>
+<a href="">DD 2807-2</a><br>
+<a href="">DD 368</a><br>
+<a href="">DD 369 Police Check</a><br>
+<a href="">DD 370 – All References</a><br>
+<a href="">DD 370 – Education References</a><br>
+<a href="">DD 370 – Employment References</a><br>
+<a href="">DD 370 – General References</a><br>
+<a href="">DD 372</a><br>
+<a href="">DD 4</a><br>
+<a href="">DD 93</a><br>
+<a href="">SF 1199-A</a><br>
+<a href="">SGLV 8286</a><br>
+<a href="">SGLV 8286S</a><br>
+<a href="">Signature Medical Release – Security Clearance Application</a><br>
+<a href="">Signature Release of Credit Check</a><br>
+<a href="">Signature Release of Information – Security Clearance Application</a><br>
+<a href="">US MEPCOM 680-3A-E</a><br>
+<a href="">USAREC Form 601-210.02</a><br>
+<a href="">USAREC Form 601-210.03</a><br>
+<a href="">USAREC Form 601-210.04</a><br>
+<a href="">USAREC Form 601-210.22</a><br>
+
+<br>
+<b>TERMS OF ACCEPTANCE and SIGNATURE</b><br>
+
+Any signature (including any electronic symbol or process attached to, or associated with, a contract or other record and adopted by a Person with the intent to sign, authenticate or accept such contract or record) hereto or to any other certificate, agreement or document related to this transaction, and any contract formation or record-keeping through electronic means shall have the same legal validity and enforceability as a manually executed signature or use of a paper-based recordkeeping system to the fullest extent permitted by applicable law, including the Federal Electronic Signatures in Global and National Commerce Act, the New York State Electronic Signatures and Records Act, or any similar state law based on the Uniform Electronic Transactions Act, and the parties hereby waive any objection to the contrary.<br><br>
+
+<br>
+<form>
+<div class="form-group">
+<label for="exampleInputEmail1"><b>Electronic Signature <font color="red">*</font></b></label>
+<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="RHODRI MORGAN">
+<small id="emailHelp" class="form-text text-muted">Please type your First and Last Name</small>
+</div>
+<div class="form-group form-check">
+<input type="checkbox" class="form-check-input" id="exampleCheck1">
+<label class="form-check-label" for="exampleCheck1"> I understand that checking this box constitutes a legal signature confirming that I acknowledge and agree to the above Terms of Acceptance.
+</label>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<br>          
+<!--          <b>Acceptance Checkbox *</b>
+I understand that checking this box constitutes a legal signature confirming that I acknowledge and agree to the above Terms of Acceptance.
+
+
+
+
+
+
+
+</div>-->
+      <!--</div>
+</div>
+
+
+</div> 
+</div>-->
+
+
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img src="aie_pending.png" height="18" width="18">  &nbsp;&nbsp;
+
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse7"><font color="#e6e8ea"><b><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;SIGN FORMS</b></font></a>
+          </h4>
+        </div>
+        <div id="collapse7" class="panel-collapse collapse">
+          <div class="panel-body">
+            <b>PREVIEW MY FORMS</b>
+            <br>
+            <a href="https://deloitteusgwcop6.service-now.com/sys_attachment.do?sysparm_referring_url=tear_off&view=true&sys_id=51c0f9fedb11ab40179c73abbf96198f" target="_blank">Preview SF86</a><br>
+            <a href="">Certification of Applicant – Security Clearance Application</a><br>
+            <a href="">DA 4187</a><br>
+            <a href="">DA 5500</a><br>
+            <a href="">DA 5501</a><br>
+            <a href="">DA 61</a><br>
+            <a href="">DD 1966</a><br>
+            <a href="">DD 1966 Page 5 Only</a><br>
+            <a href="">DD 2807-2</a><br>
+            <a href="">DD 368</a><br>
+            <a href="">DD 369 Police Check</a><br>
+            <a href="">DD 370 – All References</a><br>
+            <a href="">DD 370 – Education References</a><br>
+            <a href="">DD 370 – Employment References</a><br>
+            <a href="">DD 370 – General References</a><br>
+            <a href="">DD 372</a><br>
+            <a href="">DD 4</a><br>
+            <a href="">DD 93</a><br>
+            <a href="">SF 1199-A</a><br>
+            <a href="">SGLV 8286</a><br>
+            <a href="">SGLV 8286S</a><br>
+            <a href="">Signature Medical Release – Security Clearance Application</a><br>
+            <a href="">Signature Release of Credit Check</a><br>
+            <a href="">Signature Release of Information – Security Clearance Application</a><br>
+            <a href="">US MEPCOM 680-3A-E</a><br>
+            <a href="">USAREC Form 601-210.02</a><br>
+            <a href="">USAREC Form 601-210.03</a><br>
+            <a href="">USAREC Form 601-210.04</a><br>
+            <a href="">USAREC Form 601-210.22</a><br>
+            <br>
+            <b>TERMS OF ACCEPTANCE and SIGNATURE</b><br>
+            Any signature (including any electronic symbol or process attached to, or associated with, a contract or other record and adopted by a Person with the intent to sign, authenticate or accept such contract or record) hereto or to any other certificate, agreement or document related to this transaction, and any contract formation or record-keeping through electronic means shall have the same legal validity and enforceability as a manually executed signature or use of a paper-based recordkeeping system to the fullest extent permitted by applicable law, including the Federal Electronic Signatures in Global and National Commerce Act, the New York State Electronic Signatures and Records Act, or any similar state law based on the Uniform Electronic Transactions Act, and the parties hereby waive any objection to the contrary.
+            <br><br>
+            <b>Forms to Sign:</b>
+            <widget id="onboarding_signature_dashboard"></widget>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" style="background-color:#F0F0F0">
+        <div class="panel-heading" style="background-color:#404040">
+          <h4 class="panel-title">
+            <img src="aie_done.png" height="18" width="18">  &nbsp;&nbsp;
+
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse8"><font color="#e6e8ea"><b><span class="fa fa-clipboard"></span>&nbsp;&nbsp;VIEW FORMS</b></font></a>
+          </h4>
+        </div>
+        <div style="margin-bottom:50px;" id="collapse8" class="panel-collapse collapse">
+          <div class="panel-body">
+            <widget id="form_library_aie"></widget>
+          </div>
+        </div>
+      </div>
+]]></template>
+    </sp_widget>
+</record_update>

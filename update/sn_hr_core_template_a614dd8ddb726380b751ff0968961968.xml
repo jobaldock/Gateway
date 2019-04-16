@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_core_template">
+    <sn_hr_core_template action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <assign_to>subject_person</assign_to>
+        <assignment_option/>
+        <assignment_type>employee</assignment_type>
+        <date_offset_quantity>30</date_offset_quantity>
+        <date_offset_type>after</date_offset_type>
+        <date_offset_units>days</date_offset_units>
+        <due_date_source>subject_person_hr_profile.employment_start_date</due_date_source>
+        <global>true</global>
+        <group/>
+        <link_element/>
+        <name>Gateway Dental Benefits Enrollment</name>
+        <next/>
+        <next_child/>
+        <owning_group/>
+        <parent_case_table>sn_hr_le_case</parent_case_table>
+        <roles/>
+        <short_description/>
+        <show_on_template_bar>true</show_on_template_bar>
+        <stand_alone>false</stand_alone>
+        <sys_class_name>sn_hr_core_template</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-01-02 20:11:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>a614dd8ddb726380b751ff0968961968</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Gateway Dental Benefits Enrollment</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sn_hr_core_template_a614dd8ddb726380b751ff0968961968</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-03-01 18:41:15</sys_updated_on>
+        <table>sn_hr_core_task</table>
+        <template>short_description=Select your dental benefits^optional=true^hr_task_type=hr_service^hr_service=bf0db1099f231200d9011977677fcf38^state=10^template=a614dd8ddb726380b751ff0968961968^EQ</template>
+        <template_reference/>
+        <template_reference_field/>
+        <use_assignment_date>false</use_assignment_date>
+        <user display_value="David Lu">191e2cb7db249700e18dd8c75e961929</user>
+        <view/>
+    </sn_hr_core_template>
+</record_update>

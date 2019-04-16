@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="show_button" label="Show Button" language="en" table="x_dnf_gw_obf_info_cards_instance">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>show_button</element>
+            <help/>
+            <hint/>
+            <label>Show Button</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_info_cards_instance</name>
+            <plural>Show Buttons</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-05 15:23:08</sys_created_on>
+            <sys_id>89781ff7db572700d8261b7748961988</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Show Button</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_info_cards_instance_show_button_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-05 15:23:08</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

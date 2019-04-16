@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_le_type">
+    <sn_hr_le_type action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <display_activity_set>false</display_activity_set>
+        <sys_class_name>sn_hr_le_type</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-04-04 20:43:06</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>90912f45dbddd740e18dd8c75e961917</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Generate Form Test</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sn_hr_le_type_90912f45dbddd740e18dd8c75e961917</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-04-04 20:43:06</sys_updated_on>
+        <title>Generate Form Test</title>
+    </sn_hr_le_type>
+</record_update>

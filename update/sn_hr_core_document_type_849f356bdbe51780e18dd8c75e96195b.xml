@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_core_document_type">
+    <sn_hr_core_document_type action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <name>DG60</name>
+        <sys_class_name>sn_hr_core_document_type</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-04-24 18:15:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>849f356bdbe51780e18dd8c75e96195b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DG60</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sn_hr_core_document_type_849f356bdbe51780e18dd8c75e96195b</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-04-24 18:15:26</sys_updated_on>
+        <value>dg60</value>
+    </sn_hr_core_document_type>
+</record_update>

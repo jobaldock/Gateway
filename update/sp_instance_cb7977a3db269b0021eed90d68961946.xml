@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css>.category-list .badge {
+  line-height:1.2;
+  background-color: $primary;
+  color: $color-lightest;
+}
+  
+.category-widget {
+  .category-list {
+    padding:10px;
+    overflow:hidden;
+  }
+  .list-group-item {
+    float:left;
+    width:32.5%;
+    margin:3px;
+    border:1px solid $border!important;
+    border-radius:3px;
+    padding:15px;
+    color: $primary;
+  }
+  .list-group-item:hover {
+    background: $body-bg;
+  }
+}
+
+@media (min-width : 768px) and (max-width : 1200px) {
+    .category-widget {
+      .list-group-item  {
+        width: 48.8%;
+      }
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .category-widget {
+      .list-group-item  {
+        width: 100%;
+      }
+    }
+}
+
+@media screen and (max-width: 843px) {
+  .panel-heading i.fa{
+     display: none;
+  }
+}</css>
+        <glyph>empty</glyph>
+        <id/>
+        <order>6</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">8f7977a3db269b0021eed90d6896193b</sp_column>
+        <sp_widget display_value="SC Categories">4c03cba0cb11020000f8d856634c9ce1</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-13 20:10:43</sys_created_on>
+        <sys_id>cb7977a3db269b0021eed90d68961946</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Browse HR Service Catalog</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_instance_cb7977a3db269b0021eed90d68961946</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-06-13 20:10:43</sys_updated_on>
+        <title>Browse HR Service Catalog</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"hide_xs": {
+		"value": false,
+		"displayValue": false
+	},
+	"omit_badges": {
+		"value": "",
+		"displayValue": ""
+	},
+	"check_can_view": {
+		"value": "",
+		"displayValue": ""
+	},
+	"category_layout": {
+		"value": "",
+		"displayValue": ""
+	},
+	"page": "hrj_sc_category"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=cb7977a3db269b0021eed90d68961946"/>
+</record_update>

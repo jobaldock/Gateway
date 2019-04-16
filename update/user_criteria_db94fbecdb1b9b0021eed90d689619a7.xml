@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="user_criteria">
+    <user_criteria action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <company/>
+        <department/>
+        <group/>
+        <location/>
+        <match_all>false</match_all>
+        <name>Retired from military service (HR Criteria)</name>
+        <role/>
+        <script><![CDATA[new sn_hr_core.hr_Criteria().evaluateById("5084fbecdb1b9b0021eed90d689619a4", user_id);]]></script>
+        <sys_class_name>user_criteria</sys_class_name>
+        <sys_created_by>mpapacrist</sys_created_by>
+        <sys_created_on>2018-07-11 18:54:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>db94fbecdb1b9b0021eed90d689619a7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Retired from military service (HR Criteria)</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>user_criteria_db94fbecdb1b9b0021eed90d689619a7</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-04-02 23:53:37</sys_updated_on>
+        <user/>
+    </user_criteria>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="retiree_claim_number" label="Retiree claim number" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>retiree_claim_number</element>
+            <help/>
+            <hint/>
+            <label>Retiree claim number</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>Retiree claim numbers</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:59:35</sys_created_on>
+            <sys_id>27e12a08db701b00af88f5861d9619d9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Retiree claim number</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_retiree_claim_number_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-03-07 16:59:35</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

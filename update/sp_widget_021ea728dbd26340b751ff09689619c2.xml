@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $rootScope, $timeout, $window, nowServer, $http, spModal, $uibModal,spUtil) {
+
+	//"use strict";
+	var c = this;
+	$scope.init = function(user_id) {
+		$scope.getTasks(user_id);
+		
+	};
+
+	$scope.getTasks = function(user_id) {
+		$scope.data.action = "getTasks";
+		$scope.data.user_id = user_id;
+		$scope.server.update();
+	};
+
+	/*c.onWidget = function(template, task) {
+		c.taskName = task.short_description;
+		c.modalInstance = $uibModal.open({
+			templateUrl: template,
+			scope: $scope,
+			size: 'lg'
+		});
+		spUtil.get('hrj_task_activity_scoped', {
+			sys_id: task.sys_id,
+			table: 'sn_hr_core_task',
+			recordInfo: task.taskInfo
+		}).then(function(response) {
+			c.newTask = response;
+		});
+	};
+
+	//closeModal for the "x" 
+	c.closeModal = function() {
+		c.modalInstance.close();
+	};
+
+	//receiving $broadcast closeModal from hrj_task_activity_scoped widget so window closes automatically onSubmit
+	$rootScope.$on('closeModal', function() {
+		if(c.modalInstance){
+			c.modalInstance.close();
+		}
+	});*/
+
+	spUtil.recordWatch($scope, 'sn_hr_core_task', "",function(event,data){
+		spUtil.update($scope);
+		setTimeout(function(){ $rootScope.$broadcast('onboardingSignTaskCount', $scope.data.taskCount); }, 10000);
+		//c.runServer();	
+	});
+
+	c.onWidget = function(task){
+		spModal.open({
+			title: task.short_description,
+			widget: 'hrj_task_activity_scoped',
+			size: 'lg',
+			buttons: [],
+			widgetInput: {
+				sys_id: task.sys_id,
+				table: 'sn_hr_core_task',
+				recordInfo: task.taskInfo
+			}
+		}).then(function(response){
+		})
+	}
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.flex, .cards, .card {
+  display: flex;
+}
+
+.flex {
+  flex-wrap:wrap;
+}
+
+.cards, .card {
+  align-items:center;
+}
+
+.cards {
+  padding: 1em;
+  background-color: $color-lightest;
+  box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+}
+
+.card {
+  justify-content: space-around;
+  width:100%;
+}
+
+.card-img {
+  margin: 10px;
+}
+
+.finished {
+  color: $success;
+}
+
+.overdue {
+  color: $overdue;
+}
+
+.pending {
+  color: $due-today;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+//************************************MEDIA QUERIES************************************//
+
+@media screen and (max-width: 768px) {
+  .flex {
+    align-items:center;
+  	flex-direction:column;
+  }
+  
+  .cards {
+    width: 75%; 
+    margin:1%;
+  }
+  
+   .cards:first-of-type {
+    margin-top: 0;
+  }
+
+  .cards:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .cards {
+    width: 49%;
+    margin: 1%;  
+  }
+  
+  .cards:nth-of-type(even) {
+    margin-right: 0;
+  }
+
+  .cards:nth-of-type(odd) {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .cards {
+    width: 32%;
+    margin: 1%;
+  }
+
+  .cards:nth-of-type(3n) {
+    margin-right: 0;
+  }
+
+  .cards:nth-of-type(3n+1) {
+    margin-left: 0;
+  }
+}</css>
+        <data_table>sp_instance_menu</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title</field_list>
+        <has_preview>true</has_preview>
+        <id>my_onboarding_sign_tasks</id>
+        <internal>false</internal>
+        <link/>
+        <name>My Onboarding Sign Tasks</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.user_id = gs.getUserID();
+	data.user_name = gs.getUserName();
+	data.title = $sp.getValue("title");
+	data.short_description = $sp.getValue("short_description");
+	data.taskCount = 0;
+
+	if (input && input.action === 'getTasks')
+		getTasks(data.user_id);
+
+	function getTasks(userId) {
+		data.tasks = new sn_hr_core.hr_Task().getMyTasks(data.user_id);
+		for (var i = data.tasks.length-1; i >= 0; i--) {
+			var task = new sn_hr_sp.hr_TaskTicket().getTasks(data.tasks[i].sys_id, 'sn_hr_core_task');
+			data.tasks[i].taskInfo = task;
+			if(data.tasks[i].hr_task_type != 'sign_document'){
+				data.tasks.splice(i,1);
+			} else if(data.tasks[i].state != '3'){
+				data.taskCount++;
+			}
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-12-07 21:34:38</sys_created_on>
+        <sys_id>021ea728dbd26340b751ff09689619c2</sys_id>
+        <sys_mod_count>82</sys_mod_count>
+        <sys_name>My Onboarding Sign Tasks</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_021ea728dbd26340b751ff09689619c2</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-01-04 21:48:11</sys_updated_on>
+        <template><![CDATA[<div class="flex" ng-init="init(user.sys_id)">
+  <div  class="cards" ng-repeat="task in data.tasks | orderBy: ['order']" >
+    <div  class="card" ng-click="c.onWidget(task);">
+    <!--<div  class="card" ng-click="c.onWidget('newTask',task);">-->
+      <i ng-if="task.finished" class="{{task.icon}} fa-5x card-img finished" aria-hidden="true"></i>
+      <i ng-if="!task.finished && task.isOverDue" class="{{task.icon}} fa-5x card-img overdue" aria-hidden="true"></i>
+      <i ng-if="!task.finished && !task.isOverDue" class="{{task.icon}} fa-5x card-img pending" aria-hidden="true"></i>
+      <div class="card-content">
+        <h4>
+          <!--<a href="?id=hri_task_details&table=sn_hr_core_task&sys_id={{task.sys_id}}" id="task_{{$index}}">{{::task.short_description}}</a>-->
+          <a ng-click="">{{::task.short_description}}</a>
+        </h4>
+        <p class="text-normal">${For:} {{::task.taskInfo.subject_person}}</p>
+        <span ng-if="!task.finished">
+          <span class="text-normal" ng-if="task.due_date">${Due by} {{::task.due_date | date: 'mediumDate' }}
+            <span class="text-warning" ng-if="task.isOverDue"> (${Overdue})</span>
+          </span>
+        </span>
+        <span ng-if="task.finished" class="text-muted">${Completed at} {{::task.closed_at | date: 'mediumDate'}}</span>
+      </div>
+      <div>
+        <i alt="${Open}" ng-if="!task.finished && task.isOverDue" class="m-l-sm far fa-square fa-2x overdue"></i>
+        <i alt="${Open}" ng-if="!task.finished && !task.isOverDue" class="m-l-sm far fa-square fa-2x pending"></i>
+        <i alt="${Completed}" ng-if="task.finished" class="m-l-sm far fa-check-square fa-2x finished"></i>
+      </div>   
+    </div>
+  </div>
+</div>
+
+<!--<script type="text/ng-template" id="newTask">
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<h4 class="panel-title pull-left">{{c.taskName}}</h4>
+      <span ng-click="c.closeModal()"><i class="fa fa-times pull-right"></i></span>
+    </div>
+		<sp-widget widget="c.newTask" options="c.newTaskOptions"></sp-widget>
+  </div>
+</script>-->]]></template>
+    </sp_widget>
+</record_update>

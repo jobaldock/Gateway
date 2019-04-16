@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="court_martial" label="*** Have you been convicted by a military court-martial in the last 7 years?" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>court_martial</element>
+            <help/>
+            <hint>If 'YES', use the last box to provide the date, explanation of the violation, place of occurrence, and the name and address of the military authority or court involved.</hint>
+            <label>*** Have you been convicted by a military court-martial in the last 7 years?</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>*** Have you been convicted by a military court-martial in the last 7 years?s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:27:30</sys_created_on>
+            <sys_id>6d9adec0db701b00af88f5861d96196f</sys_id>
+            <sys_mod_count>5</sys_mod_count>
+            <sys_name>*** Have you been convicted by a military court-martial in the last 7 years?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_court_martial_en</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-14 15:23:50</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

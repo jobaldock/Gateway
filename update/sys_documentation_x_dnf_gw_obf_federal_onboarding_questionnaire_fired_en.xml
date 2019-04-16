@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="fired" label="***Have you been fired from a job, left due to problems, or debarred in 5 years?" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>fired</element>
+            <help/>
+            <hint>During the last 5 years, have you been fired from any job for any reason, did you quit after being told that you would be fired, did you leave any job by mutual agreement because of specific problems, or were you debarred from Federal employement by the Office of Personnel Management or any other Federal agency?&#13;
+&#13;
+If 'YES', use the last box to provide the date, an explanation of the problem, reason for leaving, and the employer's name and address.</hint>
+            <label>***Have you been fired from a job, left due to problems, or debarred in 5 years?</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>***Have you been fired from a job, left due to problems, or debarred in 5 years?</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:26:05</sys_created_on>
+            <sys_id>454adac0db701b00af88f5861d961917</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>***Have you been fired from a job, left due to problems, or debarred in 5 years?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_fired_en</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-14 15:24:01</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

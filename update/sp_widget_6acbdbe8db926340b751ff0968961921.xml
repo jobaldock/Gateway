@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $rootScope) {  /* widget controller */  
+	var c = this;
+		
+	//once submitted, broadcast to close modal, must have $on on My Onboarding Task widget
+		//$rootScope.$broadcast('closeModal'); 
+	
+	console.log('hrj_task_activity_scoped');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>#task-completed {
+  text-align: center; 
+  padding: 30% 0;
+  background-color: $body-bg;
+}
+
+.task-min-height{
+	min-height:100px
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hrj_task_activity_scoped</id>
+        <internal>false</internal>
+        <link/>
+        <name>HRJ Task Activity Scoped</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	if (input && input.sys_id)
+		data.sys_id = input.sys_id;
+	else
+		return;
+
+	data.recordInfo = input.recordInfo;
+
+	var task = new sn_hr_sp.hr_TaskTicket().getTasks(data.sys_id, input.table);
+
+	if (task && task.hr_task_type) {
+		var p = {};
+		p.sys_id = data.sys_id;
+		if(task.hr_task_type == 'questionnaire'){
+			p = {questionnaire_table: 'x_dnf_gw_obf_federal_onboarding_questionnaire', service_id: '8a5af794db252b4021eed90d689619bb', task_table:'sn_hr_core_task', task_id:p.sys_id};
+			data.widget = $sp.getWidget('gateway_questionnaire_widget', p);
+		}else{
+			data.widget = $sp.getWidget(getTaskWidgetId('hrj-task-'), p);
+		}
+		if(!data.widget.sys_id){
+			data.widget = $sp.getWidget(getTaskWidgetId('hr-task-'), p);
+		}
+	}
+
+
+
+	else if (task.class_name == 'sc_request') {
+		data.isExternalTask = true;
+		data.caption = new sn_hr_sp.hr_PortalUtil().getRequestTitle(data.recordInfo);
+		data.link = '?id=sc_request&table=sc_request&sys_id='+task.sys_id;
+		data.link_caption =  gs.getMessage('View full request');
+	}
+	else {
+		if (gs.nil(task.assigned_to.userId))
+			data.caption = gs.getMessage("Task is unassigned");
+		else
+			data.caption = gs.getMessage("Task assigned to {0}",task.assigned_to.name);
+		data.task_created = task.created;
+	}
+
+	function getTaskWidgetId(startingText) {
+		return startingText+ task.hr_task_type.replace(/_/g, "-");
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-12-07 20:14:39</sys_created_on>
+        <sys_id>6acbdbe8db926340b751ff0968961921</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>HRJ Task Activity Scoped</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_6acbdbe8db926340b751ff0968961921</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-02-11 17:32:13</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.widget" class="task-min-height ng-scope">
+	<sp-widget widget="data.widget"></sp-widget>  
+</div>
+<div ng-if="data.isExternalTask">
+	<hr-task-action caption="${{{data.caption}}}" link="{{data.link}}" link-caption="${{{data.link_caption}}}"/>
+</div>
+<div ng-if="!data.widget && !data.isExternalTask">
+  <hr-task-action caption="${{{data.caption}}}" timestamp="::data.task_created" created="true"/>
+</div>
+  
+    ]]></template>
+    </sp_widget>
+</record_update>

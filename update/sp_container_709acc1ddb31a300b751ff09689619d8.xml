@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name> HRJ Dashboard dnf v5 - Container 2</name>
+        <order>2</order>
+        <sp_page display_value="hrj_dashboard_dnf_v5">fc9a8c1ddb31a300b751ff096896190a</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-11-14 16:24:38</sys_created_on>
+        <sys_id>709acc1ddb31a300b751ff09689619d8</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name> HRJ Dashboard dnf v5 - Container 2</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_container_709acc1ddb31a300b751ff09689619d8</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-02-05 21:00:19</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>

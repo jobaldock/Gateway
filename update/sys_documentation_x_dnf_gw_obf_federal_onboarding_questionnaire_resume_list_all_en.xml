@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="resume_list_all" label="Does your resume list all civilian and uniformed service?" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>resume_list_all</element>
+            <help/>
+            <hint/>
+            <label>Does your resume list all civilian and uniformed service?</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>Does your resume list all civilian and uniformed service?s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-14 14:45:59</sys_created_on>
+            <sys_id>80c8ff73db6e9b0021eed90d68961962</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Does your resume list all civilian and uniformed service?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_resume_list_all_en</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-14 14:45:59</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

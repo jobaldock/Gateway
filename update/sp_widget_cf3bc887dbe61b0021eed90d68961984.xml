@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spUtil, $rootScope) {
+	var c = this;
+
+	//Get option values
+	c.title = c.options.title || 'My Work History';
+	c.glyph = c.options.glyph || 'building';
+
+	console.log('Options');
+	console.log(c.options);
+
+	//Set value to show loading spinner
+	c.data.loading = true;
+
+	//After page initially loads re-call server script to load data
+
+	c.runServer = function() {
+		c.server.get({
+			action: 'get_hist'
+		}).then(function(response) {
+
+			//Set value to hide loading spinner
+			c.data.loading = false;
+
+			console.log('Response');
+			console.log(response);
+
+			//Get link data
+			c.list = response.data.list;
+			c.data = response.data;
+			c.list2 = response.data.list2;
+			c.work_type = response.data.work_type;
+		});	
+	}
+	c.runServer();
+
+	c.newEntry = function(sysId, table, template) {
+		c.modalInstance = $uibModal.open({
+			templateUrl: template,
+			scope: $scope,
+			size: 'lg'
+		});
+		spUtil.get("widget-form-scoped", {
+			sys_id: sysId,
+			table: table
+		}).then(function(response) {
+			if (template == 'newWork'){
+				c.newWork = response;
+			}
+		});
+	};
+
+  c.campaign = function(workHistory) {
+		c.campaignDetails = workHistory.sys_id;
+		//c.workHistory = workType;
+		c.campaign_details = workHistory.campaign;
+	};
+
+	//closeModal for the "x" 
+	c.closeModal = function() {
+		c.modalInstance.close();
+	}
+
+	//receiving $broadcast closeModal from Appt Scheduler widget so window closes automatically onSubmit
+	$rootScope.$on('closeModal', function() {
+		if(c.modalInstance){
+			c.modalInstance.close();
+		}
+	});
+
+	spUtil.recordWatch($scope, 'x_dnf_gw_found_work_history', "",function(event,data){
+		//spUtil.update($scope);	
+		c.runServer();	
+	});
+
+	//pagination
+	$scope.setPageNum = function(num) {
+		$scope.data.p = num;
+		$scope.data.page_index = $scope.data.p - 1;
+		$scope.data.window_start = $scope.data.page_index * $scope.data.window_size;
+		$scope.data.window_end = ($scope.data.page_index + 1) * $scope.data.window_size;
+		//getData(true);
+	}
+	$scope.getNumber = function(num) {
+		return new Array(num);
+	}
+
+	$scope.mathMin = function(v1,v2) {
+		return Math.min(v1,v2);
+	}
+	//end pagination
+
+	console.log('work_history');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.empty-state-content {
+  color: $danger;
+  text-align: center;
+  margin-bottom:0;
+}
+
+.list-group-item:hover {
+  background-color: $color-row-hover;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+}
+
+/*.action {
+  margin-left: auto;
+  width: 152.55px;
+  text-align: center;
+}*/
+
+.success {
+  color: $success;
+}
+
+.warning {
+  color: $danger;
+}
+
+.table {
+  display: table;
+  padding:10px;
+}
+
+.table-header {
+  font-weight: bold;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell, .table-header {
+  display: table-cell;
+  padding: 10px;
+}
+
+.table-row:nth-child(even) {
+  background: $color-lighter;
+}
+
+//animated plus/minus sign for expand/collapse details
+.accordion-toggle {
+  position: relative;
+}
+
+.accordion-toggle::before,
+.accordion-toggle::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background-color: $color-darkest;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.accordion-toggle::before {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  opacity: 0;
+}
+.accordion-toggle.collapsed::before {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+.accordion-toggle.collapsed::after {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.accordion-toggle &gt; span {
+  margin-left: 20px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>my_work_history_dlu</id>
+        <internal>false</internal>
+        <link/>
+        <name>My Work History Dlu</name>
+        <option_schema>[{"name":"title","section":"Presentation","label":"Title","type":"string"},{"name":"glyph","section":"Presentation","default_value":"building-o","label":"Glyph Icon","type":"glyphicon"},{"name":"color","section":"Presentation","label":"Bootstrap Heading Color","type":"choice","choices":[{"label":"default","value":"default"},{"label":"primary","value":"primary"},{"label":"success","value":"success"},{"label":"info","value":"info"},{"label":"warning","value":"warning"},{"label":"danger","value":"danger"}]}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// populate the 'data' variable with catalog item, variables, and variable view
+(function() {
+
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//tables
+	var workHistoryType = 'x_dnf_gw_found_work_history_type';
+	var workHistoryTable = 'x_dnf_gw_found_work_history';
+	var campaignsTable = 'x_dnf_gw_found_nonwartime_campaigns_and_expeditions';
+
+	var me = gs.getUserID();
+
+	//After page initially loads get data
+	if (input && input.action == 'get_hist') {
+
+		//pagination
+		data.table = 'x_dnf_gw_found_work_history_type';
+		data.table = data.table || $sp.getValue('table');
+		data.filter = data.filter || $sp.getValue('filter');
+		data.keywords = data.keywords || $sp.getValue('keywords');
+		data.p = data.p || $sp.getValue('p') || 1;
+		data.p = parseInt(data.p);
+		data.o = data.o || $sp.getValue('o') || $sp.getValue('order_by');
+		data.d = data.d || $sp.getValue('d') || $sp.getValue('order_direction');
+		data.window_size = data.window_size || $sp.getValue('maximum_entries') || 5;
+		data.page_index = data.p - 1;
+
+		data.window_start = data.page_index * data.window_size;
+		data.window_end = (data.page_index + 1) * data.window_size;
+		//end pagination
+
+		data.list = [];
+		data.list2 = [];
+		data.work_type = [];
+		
+		var work_type = new GlideRecord(workHistoryType);
+		work_type.addQuery('active', true);
+		work_type.query();
+		//pagination
+		data.row_count = work_type.getRowCount();
+		data.num_pages = Math.ceil(data.row_count / data.window_size);
+		//end pagination
+		while(work_type.next()) {
+			data.work_type.push({
+				work_history_type: work_type.getDisplayValue('work_history_type'),
+				work_history_type_sysID: work_type.getValue('sys_id'),
+				work_history: []
+			})
+		}
+		
+		var gr = new GlideRecord(workHistoryTable);
+		gr.addQuery('user', me);
+		gr.query();
+		while(gr.next()){
+			var record = {};
+			record.work_history_type = gr.getDisplayValue('work_history_type');
+			record.work_history_type_sysID = gr.getValue('work_history_type');
+			record.work_name = gr.getDisplayValue('work_history');
+			record.to = new Date(gr.getDisplayValue('to'));
+			record.from =  new Date(gr.getDisplayValue('from'));
+			record.sys_id = gr.getValue('sys_id');
+			record.campaign = [];
+
+			data.list.push(record);
+		}
+		
+		for(var x=0; x<data.list.length; x++) {
+			for(var y=0; y<data.work_type.length; y++) {
+				if(data.list[x].work_history_type_sysID == data.work_type[y].work_history_type_sysID){
+					data.work_type[y].work_history.push(data.list[x]);
+				}
+			}
+		}
+		
+		var gr2 = new GlideRecord(campaignsTable);
+		gr2.addQuery('user', me);
+		gr2.orderByDesc('to');
+		gr2.query();
+		while(gr2.next()){
+			var record2 = {};
+			record2.camp = gr2.getDisplayValue('nonwartime_campaigns_and_expeditions');
+			record2.to = new Date(gr2.getDisplayValue('to'));
+			record2.from = new Date(gr2.getDisplayValue('from'));
+			record2.uni = gr2.getValue('uniformed_work_history').toString();
+			record2.uni_sysID = gr2.getValue('uniformed_work_history');
+			record2.sys_id = gr2.getValue('sys_id');
+
+			data.list2.push(record2);
+		}
+		
+		for(var a=0; a<data.list2.length; a++) {
+			for(var b=0; b<data.list.length; b++) {
+				if(data.list2[a].uni_sysID == data.list[b].sys_id){
+					data.list[b].campaign.push(data.list2[a]);
+				}
+			}
+		}
+		
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-06-11 13:32:49</sys_created_on>
+        <sys_id>cf3bc887dbe61b0021eed90d68961984</sys_id>
+        <sys_mod_count>143</sys_mod_count>
+        <sys_name>My Work History Dlu</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_cf3bc887dbe61b0021eed90d68961984</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-06-12 15:51:41</sys_updated_on>
+        <template><![CDATA[<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<div class="panel panel-{{::c.options.color}} b">
+  <div class="panel-heading flex">
+    <h1 class="h4 panel-title"><i class="fa fa-{{c.glyph}} m-r-xs" aria-hidden="true"></i>{{c.title}}</h1>
+    <!--<button title="Add Work History" style="margin-left:auto;" type="button" class="btn btn-primary" ng-click="c.newEntry(-1, 'x_dnf_gw_found_work_history','newWork')">Add Work History</button>-->
+  </div>
+
+  <div class="panel-body" ng-if="c.data.loading">
+    <span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+      <span class="sr-only">Loading...</span>
+    </span>
+  </div>
+
+  <div ng-if="!c.data.loading && c.list.length==0" class="empty-state-content panel-body">
+    <p>${You have no work history}</p>
+  </div>
+
+  <div ng-if="!c.data.loading && c.list.length>0" class="list-group" style="max-height: none; overflow-y: auto;">
+    <div ng-repeat="item in c.work_type | orderBy:'work_history_type' track by $index" class="list-group-item" ng-if="$index >= data.window_start && $index < data.window_end">
+      <div class="flex">
+        <a class="flex collapsed" ng-class="{'accordion-toggle collapsed':item.work_history.length>0}" ng-if="item.work_history.length>0" data-toggle="collapse" href="#{{item.work_history_type_sysID}}" role="button" aria-expanded="false" aria-controls="collapseDetails">
+          <span class="h4" >{{item.work_history_type}}</span>
+        </a>
+        <h1 class="h4 flex collapsed" ng-if="item.work_history.length==0">
+          {{item.work_history_type}}
+        </h1>
+        <div class="action">
+          <button title="Add Work History" type="button" class="btn btn-primary text-uppercase" ng-click="c.newEntry(-1, 'x_dnf_gw_found_work_history','newWork')">Add Work History</button>
+        </div>
+      </div>
+      <div class="collapse" id="{{item.work_history_type_sysID}}">
+        <div class="table">
+          <div class="table-row">
+            <div class="table-header" ng-if="item.work_history_type=='Uniformed Service'">
+            </div>
+            <div class="table-header">
+              Edit
+            </div>
+            <div class="table-header">
+              Work Name
+            </div>
+            <div class="table-header">
+              From
+            </div>
+            <div class="table-header">
+              To
+            </div>
+            <div class="table-header" ng-if="item.work_history_type=='Uniformed Service'">
+            </div>
+          </div>
+          <div class="table-row" ng-repeat="work in item.work_history | orderBy: '-to' track by $index">
+            <div class="table-cell" style="vertical-align: middle;" ng-if="item.work_history_type=='Uniformed Service'">
+              <!--<a class="flex collapsed" ng-class="{'accordion-toggle collapsed':work.campaign.length>0}" ng-if="work.campaign.length>0" data-toggle="collapse" ng-click="c.campaign(work)" href="#{{work.sys_id}}" role="button" aria-expanded="false" aria-controls="collapseDetails"></a>-->
+              <a class="flex collapsed" ng-class="{'accordion-toggle collapsed':work.campaign.length>0}" ng-if="work.campaign.length>0" data-toggle="collapse" href="#{{work.sys_id}}" role="button" aria-expanded="false" aria-controls="collapseDetails"></a>
+            </div>
+            <div class="table-cell">
+              <a href="javascript:void(0)"><i class="fa fa-edit" title="Edit Work History" ng-click="c.newEntry(work.sys_id,'x_dnf_gw_found_work_history','newWork');"></i></a>
+            </div>
+            <div class="table-cell">
+              {{work.work_name}}
+              <div id="{{work.sys_id}}" class="collapse m-t-sm">
+                <ul style="list-style-type:circle">
+                  <li ng-repeat="campaigns in work.campaign | filter: {'uni' : work.sys_id} | orderBy: '-to' track by $index" >
+                    <!--<a href="javascript:void(0)"><i class="fa fa-edit m-r-xs" title="Edit nonwartime campaign" ng-click="c.newEntry(campaigns.sys_id, 'x_dnf_gw_found_nonwartime_campaigns_and_expeditions','newWork')"></i></a>-->
+                    <a href="javascript:void(0)"><span ng-click="c.newEntry(campaigns.sys_id, 'x_dnf_gw_found_nonwartime_campaigns_and_expeditions','newWork')" uib-tooltip="{{campaigns.from | date:'MMMM dd, yyyy'}} - {{campaigns.to | date:'MMMM dd, yyyy'}}" tooltip-placement="right">{{campaigns.camp}}</span></a>
+                  </li>
+                </ul>
+
+              </div>   
+            </div>
+            <div class="table-cell">
+              {{work.from | date:'MMMM dd, yyyy'}}
+            </div>
+            <div class="table-cell">
+              {{work.to | date:'MMMM dd, yyyy'}}
+            </div>
+            <div class="table-cell" ng-if="item.work_history_type=='Uniformed Service'">
+              <button title="Add Nonwartime Campaign" type="button" class="btn btn-link btn-xs" ng-click="c.newEntry(-1, 'x_dnf_gw_found_nonwartime_campaigns_and_expeditions','newWork')">Add Campaign</button>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="collapse" id="{{c.campaignDetails}}"  ng-if="item.work_history_type=='Uniformed Service'">
+<ul>
+<li ng-repeat="campaigns in c.campaign_details">
+{{campaigns.from}} - {{campaigns.to}}: {{campaigns.camp}}               
+<a href="javascript:void(0)"><i class="fa fa-edit m-l-xs" title="Edit nonwartime campaign" ng-click="c.newEntry(campaigns.sys_id, 'x_dnf_gw_found_nonwartime_campaigns_and_expeditions','newWork')"></i></a>
+</li>
+</ul>
+</div>-->
+
+      </div>
+    </div>
+  </div>
+
+  <!--pagination -->
+  <div class="panel-footer" ng-hide="options.hide_footer" ng-if="data.row_count">
+    <div class="btn-toolbar m-r pull-left">
+      <div class="btn-group">
+        <a ng-disabled="data.p == 1" href="javascript:void(0)" ng-click="setPageNum(data.p - 1)" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+      </div>
+      <div ng-if="data.num_pages > 1 && data.num_pages < 20" class="btn-group">
+        <a ng-repeat="i in getNumber(data.num_pages) track by $index" ng-click="setPageNum($index + 1)" href="javascript:void(0)" ng-class="{active: ($index + 1) == data.p}" type="button" class="btn btn-default">{{$index + 1}}</a>
+      </div>
+      <div class="btn-group">
+        <a ng-disabled="data.p == data.num_pages" href="javascript:void(0)" ng-click="setPageNum(data.p + 1)" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="m-t-xs panel-title" style="color: #000000">${Rows {{data.window_start + 1}} - {{ mathMin(data.window_end,data.row_count) }} of {{data.row_count}}}</div>
+    <span class="clearfix"></span>
+  </div>
+</div>
+<!-- end pagination -->
+
+<script type="text/ng-template" id="newWork">
+	<div>
+		<sp-widget widget="c.newWork"></sp-widget>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

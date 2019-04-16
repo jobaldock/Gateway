@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="EOD Form Triggers" max_length="40" name="x_dnf_gw_obf_eod_form_triggers" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Table" max_length="80" name="controlling_table" type="table_name"/>
+        <element label="HR Service" max_length="32" name="hr_service" reference="sn_hr_core_service" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Triggering Column(s)" max_length="4000" name="requires_value_in" reference="sys_dictionary" reference_qual="javascript:&quot;name=&quot;+current.controlling_table;" type="glide_list" use_reference_qualifier="advanced"/>
+        <element dependent="controlling_table" dependent_on_field="controlling_table" label="Require These Conditions" max_length="4000" name="require_these_conditions" type="conditions" use_dependent_field="true"/>
+        <element dependent="controlling_table" dependent_on_field="controlling_table" label="Subject Employee FIeld" max_length="80" name="subject_employee_field" type="field_name" use_dependent_field="true"/>
+        <index name="index">
+            <element name="hr_service"/>
+        </index>
+    </element>
+</database>

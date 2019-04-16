@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="disability_code" label="Disability Code: https://www.opm.gov/forms/pdf_fill/sf256.pdf for descriptions" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>disability_code</element>
+            <help/>
+            <hint>Please refer to https://www.opm.gov/forms/pdf_fill/sf256.pdf for disability codes and descriptions.</hint>
+            <label>Disability Code: https://www.opm.gov/forms/pdf_fill/sf256.pdf for descriptions</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>Disability Code: https://www.opm.gov/forms/pdf_fill/sf256.pdf for descriptions</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:04:34</sys_created_on>
+            <sys_id>31551eccdb301b00af88f5861d961949</sys_id>
+            <sys_mod_count>5</sys_mod_count>
+            <sys_name>Disability Code: https://www.opm.gov/forms/pdf_fill/sf256.pdf for descriptions</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_disability_code_en</sys_update_name>
+            <sys_updated_by>zpampel</sys_updated_by>
+            <sys_updated_on>2018-07-19 16:28:07</sys_updated_on>
+            <url>https://www.opm.gov/forms/pdf_fill/sf256.pdf</url>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="email_client=true,live_feed=true,display_image=opened_for" audit="true" extends="sn_hr_core_case" label="HR Lifecycle Events Case" max_length="40" name="sn_hr_le_case" sizeclass="713" type="collection">
+        <element label="DD214 Required" max_length="40" name="x_dnf_gw_obf_dd214_required" type="boolean"/>
+        <element label="Related Onboarding Questionnaire" max_length="32" name="x_dnf_gw_obf_obq" reference="x_dnf_gw_obf_federal_onboarding_questionnaire" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="OF306 Required" max_length="40" name="x_dnf_gw_obf_of306_required" type="boolean"/>
+        <element label="Transcripts Required" max_length="40" name="x_dnf_gw_obf_transcripts_required" type="boolean"/>
+    </element>
+</database>

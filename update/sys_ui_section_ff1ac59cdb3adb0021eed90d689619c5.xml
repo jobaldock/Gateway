@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Retirement" section_id="ff1ac59cdb3adb0021eed90d689619c5" sys_domain="global" table="x_dnf_gw_obf_federal_onboarding_questionnaire" version="3" view="fed_ess">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>i_am</element>
+            <position>0</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:20:34</sys_created_on>
+            <sys_id>184a819cdb3adb0021eed90d6896197e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Retirement" display_value="Retirement" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">ff1ac59cdb3adb0021eed90d689619c5</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:20:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>csrs</element>
+            <position>1</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:20:34</sys_created_on>
+            <sys_id>984a819cdb3adb0021eed90d6896197e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Retirement" display_value="Retirement" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">ff1ac59cdb3adb0021eed90d689619c5</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:20:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:20:34</sys_created_on>
+            <sys_id>1c4a819cdb3adb0021eed90d6896197e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Retirement" display_value="Retirement" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">ff1ac59cdb3adb0021eed90d689619c5</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:20:34</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>retiree_claim_number</element>
+            <position>3</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:20:34</sys_created_on>
+            <sys_id>9c4a819cdb3adb0021eed90d6896197e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Retirement" display_value="Retirement" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">ff1ac59cdb3adb0021eed90d689619c5</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:20:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>fers</element>
+            <position>4</position>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:20:34</sys_created_on>
+            <sys_id>104a819cdb3adb0021eed90d6896197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Retirement" display_value="Retirement" name="x_dnf_gw_obf_federal_onboarding_questionnaire" sys_domain="global" view="fb9549d8db3adb0021eed90d689619b5">ff1ac59cdb3adb0021eed90d689619c5</sys_ui_section>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:20:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Retirement</caption>
+            <header>false</header>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-15 15:19:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ff1ac59cdb3adb0021eed90d689619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Retirement</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_ui_section_ff1ac59cdb3adb0021eed90d689619c5</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-15 15:19:59</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="FED_ESS" name="fed_ess">fb9549d8db3adb0021eed90d689619b5</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

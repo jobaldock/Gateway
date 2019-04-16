@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_dnf_gw_obf_enrollment_code" label="Enrollment Code" language="en" table="sn_hr_core_benefit_provider">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_dnf_gw_obf_enrollment_code</element>
+            <help/>
+            <hint/>
+            <label>Enrollment Code</label>
+            <language>en</language>
+            <name>sn_hr_core_benefit_provider</name>
+            <plural>Enrollment Codes</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-12-06 14:07:01</sys_created_on>
+            <sys_id>d30ef818db162340b751ff0968961902</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Enrollment Code</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_sn_hr_core_benefit_provider_x_dnf_gw_obf_enrollment_code_en</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-12-06 14:07:01</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

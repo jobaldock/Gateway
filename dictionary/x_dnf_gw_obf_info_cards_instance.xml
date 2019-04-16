@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="update_synch=true" extends="sp_instance_table" label="Info Cards Instance" max_length="40" name="x_dnf_gw_obf_info_cards_instance" type="collection">
+        <element label="Button Title" max_length="40" name="button_title" type="string"/>
+        <element label="Button URL" max_length="1024" name="button_url" type="url"/>
+        <element label="Expandable ID" max_length="40" name="expandable_id" type="string"/>
+        <element attributes="allow_null=true" dependent="table" dependent_on_field="table" label="Header Field" max_length="80" name="header_field" type="field_name" use_dependent_field="true"/>
+        <element label="Icon" max_length="40" name="icon" type="string"/>
+        <element label="Show Button" max_length="40" name="show_button" type="boolean"/>
+        <element attributes="allow_null=true" dependent="table" dependent_on_field="table" label="Subheader Field" max_length="80" name="subheader_field" type="field_name" use_dependent_field="true"/>
+    </element>
+</database>

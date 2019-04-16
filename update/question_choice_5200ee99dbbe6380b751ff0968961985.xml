@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+    <question_choice action="INSERT_OR_UPDATE">
+        <misc>0</misc>
+        <order>200</order>
+        <question display_value="Select Laptop">92cf5a99dbbe6380b751ff096896193a</question>
+        <rec_misc>0</rec_misc>
+        <sys_class_name>question_choice</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-03 20:20:38</sys_created_on>
+        <sys_id>5200ee99dbbe6380b751ff0968961985</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>MacBook Air</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>question_choice_5200ee99dbbe6380b751ff0968961985</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-03 20:20:38</sys_updated_on>
+        <text>MacBook Air</text>
+        <value>macbook_air</value>
+    </question_choice>
+    <fx_price action="delete_multiple" query="id=5200ee99dbbe6380b751ff0968961985"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>misc</field>
+        <id>5200ee99dbbe6380b751ff0968961985</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-03 20:20:38</sys_created_on>
+        <sys_id>9110ee99dbbe6380b751ff0968961956</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-03 20:20:38</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>rec_misc</field>
+        <id>5200ee99dbbe6380b751ff0968961985</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2019-01-03 20:20:38</sys_created_on>
+        <sys_id>5910ee99dbbe6380b751ff0968961955</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2019-01-03 20:20:38</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+</record_update>

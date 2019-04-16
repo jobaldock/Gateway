@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {  
+	/* widget controller */  
+	var c = this;
+
+	if (c.options.field_list)
+		c.cardFields = c.options.field_list.split(",");
+	c.getPrimaryField = function getPrimaryField(row){
+		return row[c.data.primaryField];
+	};
+
+	if (c.options.show_button) {
+		c.data.button_title = c.options.button_title;
+		c.data.button_url = c.options.button_url;
+	}
+
+	console.log('Options');
+	console.log(c.options);
+
+	console.log('info');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.divider {
+  border-bottom: 1px solid $color-accent;
+  margin-left: 0;
+  margin-right: 0;
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  background: $color-lightest;
+  border-radius: 5px;
+  border: 1px solid $color-darkest;
+  cursor: pointer;
+  //height: 17em;
+  padding: 1.5em;
+  box-shadow: 3px 6px 2em $color-darkest;
+  //position: relative;
+  //transition: height 0.4s, box-shadow 0.5s;
+}
+/*.cards:hover {
+box-shadow: 0 0 2em #999;
+height: 38em;
+transition: height 0.3s ease, box-shadow 0.5s ease;
+}
+.cards:hover .divider {
+opacity: 0.5;
+}
+.cards:hover .info {
+transition: top 0.5s ease, opacity 1s ease;
+visibility: visible;
+top: 1%;
+opacity: 1;
+}
+.cards:hover .icon {
+font-size: 2em;
+//left: 45%;
+transition: font-size .3s, left .3s;
+}*/
+/*.cards .info {
+position: relative;
+visibility: hidden;
+top: -50%;
+opacity: 0;
+}*/
+
+.cards .icon,
+.cards.collapsed .icon {
+  color: $color-accent;
+  font-size: 4em;
+  text-align: center;
+  padding: 0em;
+  position: relative;
+  top: 0em;
+  transition: font-size .3s ease;
+}
+
+.cards[aria-expanded="true"] .icon {
+  font-size: 2em;
+}
+
+.cards[aria-expanded="true"] .divider {
+  opacity: 0.5;
+}
+
+.cards[aria-expanded="true"] .info {
+  transition: top 0.5s ease, opacity 1s ease;
+  //visibility: visible;
+  top: 1%;
+  opacity: 1;
+}
+
+/*.cards[aria-expanded="true"] {
+min-height: 345px;
+}*/
+
+.cards .title {
+  color: $color-darkest;
+  text-align: center;
+  font-weight: 300;
+}
+
+.cards .btn {
+  color: $color-accent;
+  //border: 1px solid $color-accent;
+  border-radius: 3px;
+  transition: color 0.3s, background 0.3s;
+}
+.cards .btn:hover {
+  background: $color-accent;
+  color: $color-lightest;
+  transition: background 0.5s ease;
+}
+</css>
+        <data_table>x_dnf_gw_obf_info_cards_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,table,field_list,filter,header_field,subheader_field,icon,show_button,button_title,button_url</field_list>
+        <has_preview>false</has_preview>
+        <id>onboarding-employee-info-v4</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Employee Info v4</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var me = gs.getUserID();
+
+	//Do nothing on initial page load
+	/*if (!input) {
+		return;
+	}*/
+
+	//After page initially loads get data
+	//if (input && input.action == 'retrieve_data') {
+	if (options.table) {
+		data.rows = [];
+
+		var gr = new GlideRecord(options.table);
+		//gr.addQuery('user', me);
+		gr.addEncodedQuery(options.filter);
+		//gr.setLimit(25);
+		gr.query();
+		if (!data.primaryField) {
+			data.primaryField = gr.getDisplayName();
+		}
+		var fields = "sys_id," + data.primaryField + "," + options.field_list;
+		data.fields = $sp.getFieldsObject(gr, fields);
+
+
+		while(gr.next()) {
+			var row = {};
+			if(options.header_field)
+				data.header_field=gr.getDisplayValue(options.header_field);		
+
+			if(options.subheader_field)
+				data.subheader_field=gr.getDisplayValue(options.subheader_field);
+
+			//$sp.getRecordDisplayValues(row, gr, fields);
+			$sp.getRecordElements(row, gr, fields);
+			data.rows.push(row);
+		}
+	}
+	//}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-02-04 16:11:56</sys_created_on>
+        <sys_id>860a562bdbdbe300d8261b77489619d2</sys_id>
+        <sys_mod_count>131</sys_mod_count>
+        <sys_name>Onboarding Employee Info v4</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_860a562bdbdbe300d8261b77489619d2</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-02-06 13:59:22</sys_updated_on>
+        <template><![CDATA[<div class="cards" data-toggle="collapse" href="#{{c.options.expandable_id}}" role="button" aria-expanded="false" aria-controls="collapseDiv" ng-click="expandDiv()">
+  <span class="{{c.options.icon}} icon"></span>
+  <hr class="divider"/>
+  <h2 class="title">{{c.options.title}}</h2>
+  <div class="info" class="collapse" id={{c.options.expandable_id}} onClick="event.stopPropagation();">
+    <hr class="divider"/>
+    <div ng-repeat="row in c.data.rows track by row.sys_id">
+      <h3 ng-if="c.data.header_field">{{c.data.header_field}}</h3>
+      <h5 ng-if="c.data.subheader_field">{{c.data.subheader_field}}</h5>
+      <p ng-repeat="f in c.cardFields">
+        <b>{{row[f].label}}:</b> {{row[f].display_value}}
+      </p>       
+    </div>
+    <a href={{c.data.button_url}} target="_blank" ng-if="c.options.show_button" class="btn btn-lg center-block">{{c.data.button_title}}</a>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

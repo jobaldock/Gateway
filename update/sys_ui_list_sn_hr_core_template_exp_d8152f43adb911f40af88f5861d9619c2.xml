@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sn_hr_core_template" version="2" view="exp_d8152f43adb911f40af88f5861d9619c2">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a362f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>table</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2762f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>active</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a762f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_updated_on</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2b62f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_updated_by</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>ab62f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_scope</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2f62f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assign_to</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>af62f43adb911f40af88f5861d9619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assignment_option</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2362f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assignment_type</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a362f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_class_name</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2762f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_on</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a762f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_by</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2b62f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>date_offset_quantity</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>12</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>ab62f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>date_offset_type</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>13</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2f62f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>date_offset_units</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>14</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>af62f43adb911f40af88f5861d9619cb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_name</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>15</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2362f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_domain</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>16</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a362f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>due_date_source</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>17</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2762f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>global</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>18</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a762f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>group</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>19</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2b62f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>link_element</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>20</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>ab62f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>next_child</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>21</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2f62f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>next</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>22</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>af62f43adb911f40af88f5861d9619cc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>owning_group</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>23</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2362f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_package</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>24</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a362f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>parent_case_table</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>25</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2762f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_policy</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>26</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a762f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>roles</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>27</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2b62f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>28</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>ab62f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>show_on_template_bar</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>29</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2f62f43adb911f40af88f5861d9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>stand_alone</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>30</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2b62383adb911f40af88f5861d9619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_id</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>31</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>ab62383adb911f40af88f5861d9619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_tags</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>32</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2f62383adb911f40af88f5861d9619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>template</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>33</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>af62383adb911f40af88f5861d9619df</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>template_reference</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>34</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2362383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>template_reference_field</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>35</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a362383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_update_name</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>36</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2762383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_mod_count</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>37</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>a762383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>use_assignment_date</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>38</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2b62383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>user</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>39</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>ab62383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>view</element>
+            <list_id display_value="sn_hr_core_template" element="NULL" name="sn_hr_core_template" parent="NULL" relationship="NULL" sys_domain="global" view="2362f43adb911f40af88f5861d9619c7">af62f43adb911f40af88f5861d9619c9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>40</position>
+            <sum>false</sum>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_id>2f62383adb911f40af88f5861d9619e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sn_hr_core_template</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>kurt.bell</sys_created_by>
+            <sys_created_on>2018-04-09 18:27:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>af62f43adb911f40af88f5861d9619c9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sn_hr_core_template</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_ui_list_sn_hr_core_template_exp_d8152f43adb911f40af88f5861d9619c2</sys_update_name>
+            <sys_updated_by>kurt.bell</sys_updated_by>
+            <sys_updated_on>2018-04-09 18:27:06</sys_updated_on>
+            <sys_user/>
+            <view display_value="Exp_d8152f43adb911f40af88f5861d9619c2" name="exp_d8152f43adb911f40af88f5861d9619c2">2362f43adb911f40af88f5861d9619c7</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

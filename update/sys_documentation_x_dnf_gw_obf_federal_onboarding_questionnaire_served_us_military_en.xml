@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="served_us_military" label="Have you served in the U.S Military? " language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>served_us_military</element>
+            <help/>
+            <hint/>
+            <label>Have you served in the U.S Military? </label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>Have you served in the U.S Military? s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>mpapacrist</sys_created_by>
+            <sys_created_on>2018-06-14 14:44:24</sys_created_on>
+            <sys_id>f0683b73db6e9b0021eed90d689619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Have you served in the U.S Military?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_served_us_military_en</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-14 14:44:24</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

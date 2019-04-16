@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="later_cancel_waivers" label="*** Did you later cancel the life insurance waiver(s)?" language="en" table="x_dnf_gw_obf_federal_onboarding_questionnaire">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>later_cancel_waivers</element>
+            <help/>
+            <hint>If not, use the last box to identify the type(s) of insurance for which waivers were not canceled.</hint>
+            <label>*** Did you later cancel the life insurance waiver(s)?</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <plural>*** Did you later cancel the life insurance waiver(s)?s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-03-07 16:09:56</sys_created_on>
+            <sys_id>14965e00db701b00af88f5861d96198b</sys_id>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_name>*** Did you later cancel the life insurance waiver(s)?</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_documentation_x_dnf_gw_obf_federal_onboarding_questionnaire_later_cancel_waivers_en</sys_update_name>
+            <sys_updated_by>mpapacrist</sys_updated_by>
+            <sys_updated_on>2018-06-14 15:21:57</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

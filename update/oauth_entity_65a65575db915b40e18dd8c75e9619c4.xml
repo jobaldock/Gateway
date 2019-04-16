@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>60</auth_code_lifespan>
+        <auth_url/>
+        <certificate_url/>
+        <client_id>25a6557574915b406b2d37c8123bd2c4</client_id>
+        <client_secret>umbOymU8XUB6Qsm3tL51Yg==</client_secret>
+        <client_uuid>e1a65575db915b40e18dd8c75e9619c4</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments/>
+        <default_grant_type>password</default_grant_type>
+        <id_token_lifespan>86400</id_token_lifespan>
+        <logo_url/>
+        <message_signature_lifespan>60</message_signature_lifespan>
+        <name>Postman</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url/>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <revoke_token_url/>
+        <salt/>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>kurt.bell</sys_created_by>
+        <sys_created_on>2018-04-06 18:31:31</sys_created_on>
+        <sys_id>65a65575db915b40e18dd8c75e9619c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Postman</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>oauth_entity_65a65575db915b40e18dd8c75e9619c4</sys_update_name>
+        <sys_updated_by>kurt.bell</sys_updated_by>
+        <sys_updated_on>2018-04-06 18:31:31</sys_updated_on>
+        <token_url/>
+        <type>client</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+</record_update>

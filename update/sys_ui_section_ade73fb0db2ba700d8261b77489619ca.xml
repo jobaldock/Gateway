@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="ade73fb0db2ba700d8261b77489619ca" sys_domain="global" table="x_dnf_gw_obf_info_cards_instance_v2" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>title</element>
+            <position>0</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>834833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>074833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>874833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_scope</element>
+            <position>3</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0b4833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>4</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8b4833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>button_title</element>
+            <position>5</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0f4833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>button_url</element>
+            <position>6</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8f4833f0db2ba700d8261b7748961983</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>expandable_id</element>
+            <position>7</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>034833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>icon</element>
+            <position>8</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>834833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_work_phone</element>
+            <position>9</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>074833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_user_name</element>
+            <position>10</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>874833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_salary_grade</element>
+            <position>11</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0b4833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_ssn</element>
+            <position>12</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8b4833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_primary_contact_phone</element>
+            <position>13</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0f4833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_primary_contact_mobile_phone</element>
+            <position>14</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8f4833f0db2ba700d8261b7748961984</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_primary_contact_email</element>
+            <position>15</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>034833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_position</element>
+            <position>16</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>834833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_pay_step</element>
+            <position>17</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>074833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_pay_plan</element>
+            <position>18</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>874833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_occupational_series</element>
+            <position>19</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0b4833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_mobile_phone</element>
+            <position>20</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8b4833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_manager_title</element>
+            <position>21</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0f4833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_manager_phone</element>
+            <position>22</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8f4833f0db2ba700d8261b7748961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_manager_mobile_phone</element>
+            <position>23</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>034833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_manager_location</element>
+            <position>24</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>834833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_manager_email</element>
+            <position>25</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>074833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_manager</element>
+            <position>26</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>874833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_location</element>
+            <position>27</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0b4833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_home_phone</element>
+            <position>28</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8b4833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_employment_start_date</element>
+            <position>29</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0f4833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_employee_number</element>
+            <position>30</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8f4833f0db2ba700d8261b7748961986</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_email</element>
+            <position>31</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>034833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_department_primary_contact</element>
+            <position>32</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>834833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_department</element>
+            <position>33</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>074833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_cost_center</element>
+            <position>34</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>874833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_button</element>
+            <position>35</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0b4833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_bureau</element>
+            <position>36</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8b4833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_branch_of_service</element>
+            <position>37</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>0f4833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_appointment_type</element>
+            <position>38</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>8f4833f0db2ba700d8261b7748961987</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>show_agency</element>
+            <position>39</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>034833f0db2ba700d8261b7748961988</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>40</position>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:16:11</sys_created_on>
+            <sys_id>834833f0db2ba700d8261b7748961988</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_dnf_gw_obf_info_cards_instance_v2" sys_domain="global" view="Default view">ade73fb0db2ba700d8261b77489619ca</sys_ui_section>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:16:11</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_dnf_gw_obf_info_cards_instance_v2</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2019-02-08 20:14:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ade73fb0db2ba700d8261b77489619ca</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_dnf_gw_obf_info_cards_instance_v2</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_ui_section_ade73fb0db2ba700d8261b77489619ca</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2019-02-08 20:14:27</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

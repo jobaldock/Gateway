@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="HRJ Task Activity Scoped">6acbdbe8db926340b751ff0968961921</child>
+        <cloned>2018-12-07 20:14:39</cloned>
+        <last_validated>2018-12-07 20:14:39</last_validated>
+        <parent display_value="HRJ Task Activity">68a841ea533722003066a5f4a11c08b6</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category/&gt;&lt;client_script&gt;&lt;![CDATA[function($scope) {  /* widget controller */  var c = this;
+console.log($scope);
+					 }]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;#task-completed {
+  text-align: center; 
+  padding: 30% 0;
+  background-color: $body-bg;
+}
+
+.task-min-height{
+	min-height:100px
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;hrj-task-activity&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;HRJ Task Activity&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	if (options &amp;&amp; options.sys_id)
+		data.sys_id = options.sys_id;
+	else
+		return;
+
+	data.recordInfo = options.recordInfo;
+	
+	var task = new hr_TaskTicket().getTasks(data.sys_id, options.table);
+	if (task &amp;&amp; task.hr_task_type) {
+		var p = {};
+		p.sys_id = data.sys_id;
+		data.widget = $sp.getWidget(getTaskWidgetId('hrj-task-'), p);
+		if(!data.widget.sys_id)
+			data.widget = $sp.getWidget(getTaskWidgetId('hr-task-'), p);
+	}
+	
+	else if (task.class_name == 'sc_request') {
+		data.isExternalTask = true;
+		data.caption = new hr_PortalUtil().getRequestTitle(data.recordInfo);
+		data.link = '?id=sc_request&amp;table=sc_request&amp;sys_id='+task.sys_id;
+		data.link_caption =  gs.getMessage('View full request');
+	}
+	else {
+		if (gs.nil(task.assigned_to.userId))
+				data.caption = gs.getMessage("Task is unassigned");
+		else
+				data.caption = gs.getMessage("Task assigned to {0}",task.assigned_to.name);
+		data.task_created = task.created;
+	}
+	
+	function getTaskWidgetId(startingText) {
+		return startingText+ task.hr_task_type.replace(/_/g, "-");
+	}
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-12-22 19:29:09&lt;/sys_created_on&gt;&lt;sys_id&gt;68a841ea533722003066a5f4a11c08b6&lt;/sys_id&gt;&lt;sys_mod_count&gt;82&lt;/sys_mod_count&gt;&lt;sys_name&gt;HRJ Task Activity&lt;/sys_name&gt;&lt;sys_package display_value="Human Resources: Service Portal" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Human Resources: Service Portal"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_68a841ea533722003066a5f4a11c08b6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zpampel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-12-07 19:55:44&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div ng-if="data.widget" class="task-min-height ng-scope"&gt;
+	&lt;sp-widget widget="data.widget"&gt;&lt;/sp-widget&gt;  
+&lt;/div&gt;
+&lt;div ng-if="data.isExternalTask"&gt;
+	&lt;hr-task-action caption="${{{data.caption}}}" link="{{data.link}}" link-caption="${{{data.link_caption}}}"/&gt;
+&lt;/div&gt;
+&lt;div ng-if="!data.widget &amp;&amp; !data.isExternalTask"&gt;
+  &lt;hr-task-action caption="${{{data.caption}}}" timestamp="::data.task_created" created="true"/&gt;
+&lt;/div&gt;
+  
+    ]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-12-07 20:14:39</sys_created_on>
+        <sys_id>62cb1fe8db926340b751ff0968961945</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>6acbdbe8db926340b751ff0968961921</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_62cb1fe8db926340b751ff0968961945</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-12-07 20:14:39</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>

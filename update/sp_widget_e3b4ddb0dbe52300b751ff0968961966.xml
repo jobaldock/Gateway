@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spUtil) {
+	/* widget controller */
+	var c = this;
+
+	//Get option values
+	c.data.title = c.options.title || 'My Forms';
+	c.data.glyph = c.options.glyph || 'file-pdf-o';
+
+	//Set value to show loading spinner
+	//c.data.loading = true;
+
+	//After page initially loads re-call server script to load data
+
+	/*c.runServer = function() {
+		c.server.get({
+			action: 'get_forms'
+		}).then(function(response) {
+
+			//Set value to hide loading spinner
+			c.data.loading = false;
+
+			//Get link data
+			c.data.list = response.data.list;
+		});	
+	}
+	c.runServer();*/
+
+	c.preview = function(file) {
+		$scope.file_name = file.short_description;
+		c.data.attachment_sysID = file.attachment_sysID;
+		c.data.preview_pdf = '/sys_attachment.do?sysparm_referring_url=tear_off&view=true&sys_id=' + c.data.attachment_sysID;
+
+		c.modalInstance = $uibModal.open({
+			templateUrl: 'previewDoc',
+			scope: $scope,
+			size: 'lg'
+		});
+	}
+
+	//closeModal for the "x" 
+	c.closeModal = function() {
+		c.modalInstance.close();
+	}
+
+	//pagination
+	$scope.setPageNum = function(num) {
+		$scope.data.p = num;
+		$scope.data.page_index = $scope.data.p - 1;
+		$scope.data.window_start = $scope.data.page_index * $scope.data.window_size;
+		$scope.data.window_end = ($scope.data.page_index + 1) * $scope.data.window_size;
+		//getData(true);
+	}
+	$scope.getNumber = function(num) {
+		return new Array(num);
+	}
+
+	$scope.mathMin = function(v1,v2) {
+		return Math.min(v1,v2);
+	}
+
+	//recordWatch
+	spUtil.recordWatch($scope, 'sys_attachment', "",function(event,data){
+		spUtil.update($scope);
+		//c.runServer();	
+	});
+
+	console.log('form_library');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.flex {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+}
+
+.list-group-item:hover {
+  background-color: $color-row-hover;
+}
+
+.link {
+  cursor:pointer;
+  font-size:20px;
+}
+
+.empty-state-content {
+  color: $danger;
+  text-align: center;
+  margin-bottom:0;
+}
+
+.warning {
+  color: $warning;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data>{&#13;
+  "options": {&#13;
+    "color": "default",&#13;
+		"maximum_entries": 3&#13;
+  }&#13;
+}</demo_data>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>form_library_aie</id>
+        <internal>false</internal>
+        <link/>
+        <name>form library aie</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function($sp) {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+	//Do nothing on initial page load
+	/*if (!input) {
+		return;
+	}*/
+
+	//tables
+	var task_tbl = 'sn_hr_core_task';
+	var le_case_tbl = 'sn_hr_le_case';
+	var attachment_tbl = 'sys_attachment';
+	var symmetry_tax_tbl = 'x_dnf_gw_symmetry_tax_withholding_forms';
+
+	//global variables
+	var user = gs.getUserID();
+	data.list = [];
+
+	//After page initially loads get data
+	//if (input && input.action == 'get_forms') {
+	//pagination
+	data.p = data.p || $sp.getValue('p') || 1;
+	data.p = parseInt(data.p);
+	data.o = data.o || $sp.getValue('o') || $sp.getValue('order_by');
+	data.d = data.d || $sp.getValue('d') || $sp.getValue('order_direction');
+	data.window_size = data.window_size || $sp.getValue('maximum_entries') || 5;
+	data.page_index = data.p - 1;
+
+
+
+	var tasks = new GlideRecord(task_tbl);
+	tasks.addQuery('assigned_to', user);
+	//tasks.addQuery('parent.subject_person', user);
+	tasks.addQuery('state', '3');
+	tasks.query();
+	while(tasks.next()) {
+
+		var parent = tasks.parent.getRefRecord();
+
+		if(parent.getValue('subject_person') == user){
+			var str = parent.getDisplayValue('short_description');
+			var res = str.substring(str.indexOf(" ")+1);
+
+			data.list.push({
+				sysID: tasks.getValue('sys_id'),
+				short_description: res,
+				state: tasks.getDisplayValue('state'),
+				due_date: tasks.getDisplayValue('due_date'),
+				last_updated: tasks.getDisplayValue('sys_updated_on'),
+				parent_active: parent.getValue('active'),
+				parent_id: parent.getValue('sys_id'),
+				type: 'standard'
+			})
+		}
+	}
+
+	//test data for AIE
+	data.list.push({
+		short_description: 'DA 4187',
+		last_updated: '10/31/2018'
+	});
+	data.list.push({
+		short_description: 'DA 5500',
+		last_updated: '10/31/2018'
+	});
+	data.list.push({
+		short_description: 'DA 5501',
+		last_updated: '10/31/2018'
+	});
+	data.list.push({
+		short_description: 'DA 61',
+		last_updated: '10/31/2018'
+	});
+
+	var symmetry = new GlideRecord(symmetry_tax_tbl);
+	symmetry.addQuery('subject_employee', user);
+	symmetry.addQuery('active', true);
+	symmetry.query();
+	while(symmetry.next()) {
+		//var str2 = symmetry.getDisplayValue('form_name');
+		//var res2 = "Preview/Print " + str2;
+
+		data.list.push({
+			sysID: symmetry.getValue('sys_id'),
+			short_description: symmetry.getDisplayValue('form_name'),
+			last_updated: symmetry.getDisplayValue('sys_updated_on'),
+			type: 'symmetry'
+		})
+	}
+
+	var attachment = new GlideRecord(attachment_tbl);
+	attachment.query();
+	while(attachment.next()) {
+		for(var i=0;i<data.list.length;i++) {
+			if(attachment.getValue('table_sys_id') == data.list[i].sysID) {
+				//pagination info
+				data.window_start = data.page_index * data.window_size;
+				data.window_end = (data.page_index + 1) * data.window_size;
+				attachment.chooseWindow(data.window_start, data.window_end);
+
+				data.list[i].attachment_sysID = attachment.getValue('sys_id');
+				data.list[i].file_name = attachment.getDisplayValue('file_name');
+
+				data.row_count = data.list.length;
+				data.num_pages = Math.ceil(data.row_count / data.window_size);
+			} else if (attachment.getValue('table_sys_id') == data.list[i].parent_id) {
+				//pagination info
+				data.window_start = data.page_index * data.window_size;
+				data.window_end = (data.page_index + 1) * data.window_size;
+				attachment.chooseWindow(data.window_start, data.window_end);
+
+				data.list[i].attachment_sysID = attachment.getValue('sys_id');
+				data.list[i].file_name = attachment.getDisplayValue('file_name');
+
+				data.row_count = data.list.length;
+				data.num_pages = Math.ceil(data.row_count / data.window_size);
+			}
+		}
+	}
+	//}
+
+
+
+})($sp);
+
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zpampel</sys_created_by>
+        <sys_created_on>2018-10-31 22:16:01</sys_created_on>
+        <sys_id>e3b4ddb0dbe52300b751ff0968961966</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>form library aie</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_e3b4ddb0dbe52300b751ff0968961966</sys_update_name>
+        <sys_updated_by>zpampel</sys_updated_by>
+        <sys_updated_on>2018-10-31 22:24:29</sys_updated_on>
+        <template><![CDATA[<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<div class="panel panel-{{::c.options.color}} b">
+  <div class="panel-heading">
+    <h1 class="h4 panel-title"><i class="m-r-xs fa fa-{{c.data.glyph}}" aria-hidden="true"></i>{{c.data.title}}</h1>
+  </div>
+
+  <!--<div class="panel-body" ng-if="c.data.loading">
+<span><i class="fa fa-spinner fa-spin fa-3x fafw"></i>
+<span class="sr-only">Loading...</span>
+</span>
+</div>-->
+
+  <div ng-if="c.data.list.length==0" class="empty-state-content panel-body">
+    <p>${You have no forms}</p>
+  </div>
+  <div ng-if="c.data.list.length>0" class="list-group" style="max-height: none; overflow-y: auto;">
+    <div ng-repeat="item in c.data.list track by $index" class="list-group-item" ng-if="$index >= data.window_start && $index < data.window_end">
+      <div class="flex">
+        <div style="margin-right:auto;">
+          <span class="h4">{{item.short_description}}</span>
+          <i title="This form has outdated information" class="fa-2x fa fa-exclamation-circle warning" aria-hidden="true" ng-if="item.parent_active == 0"></i>
+          <div>
+            <small class="text-muted"><i class="fa fa-clock-o m-l-xs"></i><span style="padding-left: 5px;">Last Updated: {{item.last_updated}}</span></small>
+          </div>
+        </div>
+        <!--<a class="link" ng-click="" data-toggle="tooltip" data-placement="top" title="Preview"><i class="fa fa-eye"></i></a>-->
+        <a title="Preview Document" class="link m-r-sm" ng-click="c.preview(item);" uib-tooltip="Preview" tooltip-placement="left"><i class="fa fa-eye"></i></a>   
+        <a title="Download Document" href="/sys_attachment.do?sys_id={{item.attachment_sysID}}" target="_blank" class="link m-l-sm" uib-tooltip="Download" tooltip-placement="left"><i class="fa fa-download"></i></a>   
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <div class="panel-footer" ng-if="data.row_count">
+    <div class="btn-toolbar m-r pull-left">
+      <div class="btn-group">
+        <a ng-disabled="data.p == 1" href="javascript:void(0)" ng-click="setPageNum(data.p - 1)" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+      </div>
+      <div ng-if="data.num_pages > 1 && data.num_pages < 20" class="btn-group">
+        <a ng-repeat="i in getNumber(data.num_pages) track by $index" ng-click="setPageNum($index + 1)" href="javascript:void(0)" ng-class="{active: ($index + 1) == data.p}" type="button" class="btn btn-default">{{$index + 1}}</a>
+      </div>
+      <div class="btn-group">
+        <a ng-disabled="data.p == data.num_pages" href="javascript:void(0)" ng-click="setPageNum(data.p + 1)" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="m-t-xs panel-title" style="color: #000000">${Rows {{data.window_start + 1}} - {{ mathMin(data.window_end,data.row_count) }} of {{data.row_count}}}</div>
+    <span class="clearfix"></span>
+  </div>
+</div>
+
+
+
+<script type="text/ng-template" id="previewDoc">
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<h4 class="panel-title pull-left">{{file_name}}</h4>
+      <span ng-click="c.closeModal()"><i class="fa fa-times pull-right"></i></span>
+  </div>
+		<div class="embed-responsive embed-responsive-16by9">
+    	<!-- originally had iframe, but console showed warning.  Changed to <object> with type="application/pdf"-->
+    	<!--<iframe ng-src="{{c.data.preview_pdf}}" frameborder="0" class="embed-responsive-item"></iframe>-->
+    	<object data="{{c.data.preview_pdf}}" type="application/pdf" frameborder="0" class="embed-responsive-item"></object>
+  </div>
+    <div class="panel-footer clearfix">
+			<a ng-href="/sys_attachment.do?sys_id={{c.data.attachment_sysID}}" target="_blank" class="btn btn-primary text-uppercase pull-right"><i class="fa fa-download m-r-xs"></i>Download</a>    	
+  </div>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

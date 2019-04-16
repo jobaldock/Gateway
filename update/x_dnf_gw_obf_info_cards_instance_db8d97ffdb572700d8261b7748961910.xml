@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_dnf_gw_obf_info_cards_instance">
+    <x_dnf_gw_obf_info_cards_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button_title>test this</button_title>
+        <button_url>http://www.google.com</button_url>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field/>
+        <expandable_id/>
+        <field_list/>
+        <filter/>
+        <glyph/>
+        <header_field/>
+        <icon/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <show_button>true</show_button>
+        <size>md</size>
+        <sp_column display_value="1">c68d57ffdb572700d8261b7748961967</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Onboarding Employee Info v4">860a562bdbdbe300d8261b77489619d2</sp_widget>
+        <subheader_field/>
+        <sys_class_name>x_dnf_gw_obf_info_cards_instance</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-02-05 15:45:24</sys_created_on>
+        <sys_id>db8d97ffdb572700d8261b7748961910</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>x_dnf_gw_obf_info_cards_instance_db8d97ffdb572700d8261b7748961910</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-02-05 16:03:42</sys_updated_on>
+        <table/>
+        <title>test</title>
+        <url/>
+        <widget_parameters/>
+    </x_dnf_gw_obf_info_cards_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=db8d97ffdb572700d8261b7748961910"/>
+</record_update>

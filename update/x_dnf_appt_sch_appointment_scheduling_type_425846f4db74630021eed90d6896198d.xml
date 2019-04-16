@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_dnf_appt_sch_appointment_scheduling_type">
+    <x_dnf_appt_sch_appointment_scheduling_type action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">8d4e4665dbb61f00b751ff0968961902</sp_column>
+        <sp_widget display_value="Gateway Appointments">494f903edb511f40af88f5861d96198b</sp_widget>
+        <sys_class_name>x_dnf_appt_sch_appointment_scheduling_type</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-09-24 19:14:23</sys_created_on>
+        <sys_id>425846f4db74630021eed90d6896198d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>x_dnf_appt_sch_appointment_scheduling_type_425846f4db74630021eed90d6896198d</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-09-24 19:15:22</sys_updated_on>
+        <table>sn_hr_le_case</table>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </x_dnf_appt_sch_appointment_scheduling_type>
+    <sys_translated_text action="delete_multiple" query="documentkey=425846f4db74630021eed90d6896198d"/>
+</record_update>

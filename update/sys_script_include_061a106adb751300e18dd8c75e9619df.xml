@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_dnf_gw_obf.utilities</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>utilities</name>
+        <script><![CDATA[var utilities = Class.create();
+utilities.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	applyFormTriggers: function(_tableName, _currentGlideObject, _previousGlideObject, _subjectPerson){
+		var isThereATrigger = this.triggersExist(_tableName);
+		if(isThereATrigger){
+			var triggeredHRServices = [];
+			var triggerColumns = new GlideRecord('x_dnf_gw_obf_eod_form_triggers');
+			triggerColumns.addQuery('active', 'true');
+			triggerColumns.addQuery('controlling_table', _tableName);
+			triggerColumns.query();			
+			while(triggerColumns.next()){
+				var criteriaMet = false;
+				criteriaMet = this.triggerCriteriaMet(_tableName, triggerColumns, _subjectPerson);
+				if(criteriaMet){
+					var currentColumnArray = triggerColumns.requires_value_in.split(',');
+
+					for (var k1 = 0; k1 < currentColumnArray.length; k1++){
+						var dictionaryGR = new GlideRecord('sys_dictionary');
+						dictionaryGR.get(currentColumnArray[k1]);
+						var columnName = dictionaryGR.getValue('element');
+						var previousValue = '';
+						
+						var	currentValue=_currentGlideObject.getValue(columnName);
+						
+						//need if statement for delete
+						if(_previousGlideObject){
+							previousValue=_previousGlideObject.getValue(columnName);
+						}
+						//gs.addErrorMessage('what');
+						//check if value is null, trigger HR Services on update (current not equal previous), insert, and delete
+						if(currentValue){
+							if(currentValue !== previousValue || _currentGlideObject.operation()=='insert'){
+
+								var hrService = triggerColumns.getElement('hr_service.value');
+								if(hrService && _subjectPerson){
+									if(triggeredHRServices.indexOf(hrService) == -1){
+										this.generateHRService(hrService, _subjectPerson);
+										triggeredHRServices.push(hrService);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return isThereATrigger;
+	},
+
+	generateHRService: function(_hrService, _subjectPerson){
+		var parentId = '';
+		var hr_service = new GlideRecord(sn_hr_core.hr.TABLE_SERVICE);
+		hr_service.addQuery('value', _hrService);
+		hr_service.query();
+		if (hr_service.next()) {
+			var hr = new GlideRecord(sn_hr_core.hr.TABLE_LIFE_CYCLE_EVENTS_CASE);
+			hr.addQuery('hr_service', hr_service.getUniqueValue());
+			//hr.addQuery('active', true);
+			hr.addQuery('subject_person', _subjectPerson);
+			hr.query();
+			while(hr.next()){
+				hr.active = false;
+				hr.state = 7;
+				parentId = hr.getValue('parent');
+				hr.update();
+			}
+
+			var hrCase = new GlideRecord(sn_hr_core.hr.TABLE_LIFE_CYCLE_EVENTS_CASE);
+			hrCase.initialize();
+			hrCase.hr_service = hr_service.getUniqueValue();
+			hrCase.opened_for = gs.getUserID();
+			hrCase.subject_person = _subjectPerson;
+			hrCase.parent = parentId;
+			hrCase.state = 10;
+			hrCase.x_dnf_gw_obf_obq = this.fetchOBQuestionnaire(_subjectPerson).getValue('sys_id');
+			hrCase.insert();
+		}
+	},
+
+	fetchOBQuestionnaire: function(_subjectPerson){
+		var obq = null;
+		grOBQ = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+		grOBQ.addQuery('user',_subjectPerson);
+		grOBQ.addQuery('active','true');
+		grOBQ.orderByDesc('sys_updated_on');
+		grOBQ.query();
+		if(grOBQ.next()){
+			obq = grOBQ;
+		}
+		return obq;
+
+	},
+
+	triggersExist: function(_tableName){
+		var doTriggersExist = false;
+
+		var triggerTableScan = new GlideRecord('x_dnf_gw_obf_eod_form_triggers');
+		triggerTableScan.addQuery('active', 'true');
+		triggerTableScan.addQuery('controlling_table', _tableName);
+		triggerTableScan.query();
+		if(triggerTableScan.hasNext()){
+			doTriggersExist=true;
+		}
+
+		return doTriggersExist;
+	},
+
+	triggerCriteriaMet: function(_tableName, _triggerRecord, _subjectPerson){
+
+		var criteriaMet = true;
+		var employeeColumn = _triggerRecord.getValue('subject_employee_field');
+		var criteriaSet = _triggerRecord.getValue('require_these_conditions');
+
+		if(employeeColumn && criteriaSet){
+			var grCheckCriteria = new GlideRecord(_tableName);			
+			grCheckCriteria.addEncodedQuery(criteriaSet);
+			grCheckCriteria.addQuery(employeeColumn, _subjectPerson);
+			//grCheckCriteria.addQuery('active','true');
+			grCheckCriteria.query();
+			if(!grCheckCriteria.hasNext()){
+				criteriaMet = false;
+			}
+		}
+
+		return criteriaMet;
+	},
+	type: 'utilities'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>kurt.bell</sys_created_by>
+        <sys_created_on>2018-05-03 18:35:44</sys_created_on>
+        <sys_id>061a106adb751300e18dd8c75e9619df</sys_id>
+        <sys_mod_count>80</sys_mod_count>
+        <sys_name>utilities</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sys_script_include_061a106adb751300e18dd8c75e9619df</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-03-11 22:10:04</sys_updated_on>
+    </sys_script_include>
+</record_update>

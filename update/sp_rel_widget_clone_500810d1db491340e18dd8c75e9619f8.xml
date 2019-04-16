@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="HRK Banners dnf">9c0810d1db491340e18dd8c75e9619f2</child>
+        <cloned>2018-03-23 14:25:04</cloned>
+        <last_validated>2018-03-23 14:25:04</last_validated>
+        <parent display_value="HRK Banners">a1f6f1679fe232003be01050a57fcf56</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category/&gt;&lt;client_script&gt;&lt;![CDATA[function($scope, $sce) {
+  var c = this;
+	
+	$scope.loadData = function(callback) {		
+		$scope.data.action = "loadData";
+		$scope.server.update().then(callback);
+	};
+	
+	$scope.preventDefault = function($event){
+		$event.preventDefault();
+	};
+	
+	$scope.swipeRight = function(){
+		angular.element("#banner-carousel").carousel('prev');
+	};
+
+	$scope.swipeLeft = function(){
+		angular.element("#banner-carousel").carousel('next');
+	};
+		
+	function displayItems() {
+		if($scope.data &amp;&amp; $scope.data.items){
+			for (var i=0; i &lt; $scope.data.items.length; i++){
+				$scope.data.items[i].html = $sce.trustAsHtml($scope.data.items[i].rich_text);
+			}
+		}
+	}
+	
+	if (c.data.async)
+		$scope.loadData(displayItems);
+	else
+		displayItems();
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.announcement-item {
+    padding: 5px 15px 5px 15px;
+}
+div &amp;gt; div.announcement-item:not(:last-child) {
+    border-bottom: 1px solid $color-lighter;
+}
+a.a-list i {
+    margin-right: .2em;
+    margin-bottom: 1em;
+}
+.image-size img {
+    max-width: 100%;
+    height: auto
+}
+#widget-banner {
+    margin: -10px -15px 30px -15px;
+    position: relative;
+}
+#widget-banner .carousel-inner .item {
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+#widget-banner .carousel-control {
+    width: 5%;
+    z-index:100;
+}
+#widget-banner .carousel-control span {
+    position: absolute;
+    font-size: 2em;
+    top: 50%;
+    left: 50%;
+    margin-left: -13px;
+    margin-top: -22px;
+}
+#widget-banner .carousel-indicators {
+    bottom: 0;
+}
+#widget-banner .carousel-indicators li {
+	margin:1px 2px;
+}
+#widget-banner .carousel-indicators li.active {
+	margin:0 2px;
+}
+#widget-banner .carousel-caption {
+    bottom: auto;
+    top: 0;
+    left: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 0 7%;
+    text-shadow: 0 0 30px rgba(51, 51, 51, 0.5);
+}
+#widget-banner .carousel-caption &amp;gt; div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#widget-banner .carousel-caption h1 {
+    font-size: 4em;
+    margin-top: 0;
+}
+#widget-banner .carousel-caption p {
+    font-size: 1.3em;
+    margin-bottom:20px;
+}
+@media (max-width: 425px) {
+    #widget-banner .carousel-inner .item {
+        height: 60vh;
+    }
+    #widget-banner .carousel-caption {
+      	padding:0 15%;
+    }
+    #widget-banner .carousel-caption h1 {
+        font-size: 2.5em;
+    }
+    #widget-banner .carousel-caption p {
+        font-size: 1em;
+    }
+    #widget-banner .carousel-control {
+        background: none;
+    }
+    #widget-banner .carousel-control span {
+        margin-left: -7px;
+    }
+    #widget-banner .carousel-indicators li {
+        width: 8px;
+        height: 8px;
+    }
+    #widget-banner .carousel-indicators li.active {
+        width: 10px;
+        height: 10px;
+    }
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;hrk-banners&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;HRK Banners&lt;/name&gt;&lt;option_schema&gt;[{"name":"hrWidgetInstance","label":"HR widget instance name","type":"string"}]&lt;/option_schema&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	if (!options.linkType) 
+		options.linkType = hr_PortalContent.BANNER_CONTENT_TYPE ;
+	
+	data.async = true;
+	if (data.async &amp;&amp; (!input || input.action != "loadData"))
+		return;
+	
+	var linkSysId = gs.action.getGlideURI().get("link_sys_id");
+	if (!gs.nil(linkSysId))
+		data.items = hr_PortalContent.getHRLinksByContentType(options.linkType, options.hrWidgetInstance, linkSysId);
+	else 
+		data.items = hr_PortalContent.getHRLinksByContentType(options.linkType, options.hrWidgetInstance);
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-05-11 18:18:09&lt;/sys_created_on&gt;&lt;sys_id&gt;a1f6f1679fe232003be01050a57fcf56&lt;/sys_id&gt;&lt;sys_mod_count&gt;124&lt;/sys_mod_count&gt;&lt;sys_name&gt;HRK Banners&lt;/sys_name&gt;&lt;sys_package display_value="Human Resources: Service Portal" source="sn_hr_sp"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Human Resources: Service Portal"&gt;3d1da2705b021200a4656ede91f91ab6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_a1f6f1679fe232003be01050a57fcf56&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-09-11 22:25:29&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div id="widget-banner"&gt;
+   &lt;div ng-if="c.data.items.length &gt; 0"&gt;
+      &lt;div id="banner-carousel" class="carousel slide" data-ride="carousel"&gt;
+          &lt;ol class="carousel-indicators" ng-if="c.data.items.length &gt; 1"&gt;
+              &lt;li ng-repeat="item in c.data.items" data-target="#banner-carousel" data-slide-to="{{$index}}" ng-class="{'active': $index == 0}"&gt;&lt;/li&gt;
+          &lt;/ol&gt;
+          &lt;div class="carousel-inner" role="listbox"&gt;
+              &lt;div ng-repeat="bannerItem in c.data.items" class="item" ng-class="{'active': $index == 0}" ng-style= "{'background-image':'url(/'+bannerItem.background_image+')'};" ng-swipe-right="swipeRight()" ng-swipe-left="swipeLeft()"&gt;
+                 &lt;div ng-if="bannerItem.use_custom_html=='false'" class="carousel-caption text-center"&gt;
+			              &lt;div&gt;
+                         &lt;h1&gt;{{::bannerItem.heading_text}}&lt;/h1&gt;
+                         &lt;p&gt;{{::bannerItem.body_text}}&lt;/p&gt;
+                         &lt;a ng-if="bannerItem.show_button=='true'" target="_blank" ng-href="{{bannerItem.button_link}}" class="widget-button btn btn-primary btn-lg"&gt;{{::bannerItem.button_text}}&lt;/a&gt;              
+                    &lt;/div&gt;
+			           &lt;/div&gt;
+                 &lt;div ng-if="bannerItem.use_custom_html=='true'"&gt;
+                     &lt;p ng-bind-html="::bannerItem.html" &gt;&lt;/p&gt;
+                 &lt;/div&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;a ng-if="c.data.items.length &gt; 1" class="left carousel-control" href="#banner-carousel" role="button" data-slide="prev" ng-click="preventDefault($event)"&gt;
+            &lt;span class="fa fa-angle-left" aria-hidden="true"&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Previous&lt;/span&gt;
+          &lt;/a&gt;
+          &lt;a ng-if="c.data.items.length &gt; 1" class="right carousel-control"  href="#banner-carousel" role="button" data-slide="next" ng-click="preventDefault($event)"&gt;
+            &lt;span class="fa fa-angle-right" aria-hidden="true"&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Next&lt;/span&gt;
+          &lt;/a&gt;
+      &lt;/div&gt;
+  &lt;/div&gt; 
+&lt;/div&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-23 14:25:04</sys_created_on>
+        <sys_id>500810d1db491340e18dd8c75e9619f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>9c0810d1db491340e18dd8c75e9619f2</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_500810d1db491340e18dd8c75e9619f8</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-03-23 14:25:04</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>

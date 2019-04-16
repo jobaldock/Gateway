@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="traditional_roth_both" table="x_dnf_gw_obf_federal_onboarding_questionnaire" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>traditional_roth_both</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Traditional (Pre-Tax) Contribution</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>0</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-11-16 22:23:17</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>09df2bf9db3de300b751ff09689619a8</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-11-16 22:26:33</sys_updated_on>
+            <value>traditional</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>traditional_roth_both</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Roth (After-Tax) Contribution</label>
+            <language>en</language>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sequence>1</sequence>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-11-16 22:23:25</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4edf2bf9db3de300b751ff09689619a9</sys_id>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-11-16 22:26:46</sys_updated_on>
+            <value>roth</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>traditional_roth_both</element>
+            <name>x_dnf_gw_obf_federal_onboarding_questionnaire</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>davilu</sys_created_by>
+            <sys_created_on>2018-11-16 22:23:17</sys_created_on>
+            <sys_id>c2dfabf9db3de300b751ff09689619d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>traditional_roth_both</sys_name>
+            <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+            <sys_update_name>sys_choice_x_dnf_gw_obf_federal_onboarding_questionnaire_traditional_roth_both</sys_update_name>
+            <sys_updated_by>davilu</sys_updated_by>
+            <sys_updated_on>2018-11-16 22:23:17</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

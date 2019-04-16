@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $uibModal, spUtil, $rootScope) {
+
+	var c = this;
+	console.log($scope);
+
+	c.runServer = function() {
+		c.server.get({
+			//action: 'get_hist'
+		}).then(function(response) {
+
+			//Set value to hide loading spinner
+			//c.data.loading = false;
+
+			console.log('Response');
+			console.log(response);
+
+			//Get link data
+			c.data = response.data;
+		});	
+	}
+	//c.runServer();
+
+	//Used to switch content being displayed
+	c.currentSwitch = 'action-items';
+
+	c.generateForms = function (){
+		c.data.action = "generateForms";
+		c.server.update().then(function(response){
+			//spUtil.update($scope);	
+			c.data.action = undefined;
+		})
+	}
+	//function to switch display based on value of currentSwitch
+	c.setSwitch = function (curSwitch){
+		c.currentSwitch = curSwitch;
+	}
+
+	c.submitWorkHistory = function(){
+		c.data.action = "submitWorkHistory";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'contacts';
+			c.data.work_history = true;
+		})	
+	}
+	c.submitContacts = function(){
+		c.data.action = "submitContacts";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'beneficiaries';
+			c.data.contacts = true;
+		})	
+	}
+	c.submitBeneficiaries = function(){
+		c.data.action = "submitBeneficiaries";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'dependents';
+			c.data.beneficiaries = true;
+		})	
+	}
+	c.submitDependents = function(){
+		c.data.action = "submitDependents";
+		c.server.update().then(function(response){
+			c.data.action = undefined;
+			c.currentSwitch = 'questionnaire';
+			c.data.dependents = true;
+		})	
+	}
+
+	/*c.addInfo = function(sysId, table, template, view) {
+		c.modalInstance = $uibModal.open({
+			templateUrl: template,
+			scope: $scope,
+			size: 'lg'
+		});
+
+		spUtil.get("widget-form-scoped", {
+			sys_id: sysId,
+			view: view,
+			table: table
+		}).then(function(response) {
+			if (template == 'Questionnaire'){
+				c.questionnaire = response;
+			}
+			if (template == 'newContact'){
+				c.newContact = response;
+			}
+		});
+	};
+
+	c.chosenWidget = function(template, widgetID) {
+		if(c.modalInstance2){
+			c.modalInstance3 = $uibModal.open({
+				templateUrl: template,
+				scope: $scope,
+				size: 'lg'
+			});
+		} else if (!c.modalInstance2){
+			c.modalInstance2 = $uibModal.open({
+				templateUrl: template,
+				scope: $scope,
+				size: 'lg'
+			});
+		}
+		spUtil.get(widgetID, {
+		}).then(function(response) {
+			c.selectedWidget = response;
+		});
+	};
+
+	//closeModal for the "x" 
+	c.closeModal = function() {
+		c.modalInstance.close();
+	};
+
+	//receiving $broadcast closeModal from Appt Scheduler widget so window closes automatically onSubmit
+	$rootScope.$on('closeModal', function() {
+		if(c.modalInstance){
+			c.modalInstance.close();
+		}
+		if(c.modalInstance2){
+			c.modalInstance2.close();
+		}
+		if(c.modalInstance3){
+			c.modalInstance3.close();
+		}
+	});*/
+
+
+	//recordWatchers
+	//spUtil.recordWatch($scope, "x_dnf_gw_obf_federal_onboarding_questionnaire", "", function(name, data) {
+	//spUtil.update($scope);
+	/*c.server.update().then(function(response){
+			c.data.action = undefined;
+		})*/
+	//});
+	/*spUtil.recordWatch($scope, "x_dnf_gw_found_work_history", "", function(name, data) {
+		spUtil.update($scope);
+		//c.runServer();
+	});*/
+	/*spUtil.recordWatch($scope, "sn_hr_core_beneficiary", "", function(name, data) {
+		spUtil.update($scope);
+	});
+	spUtil.recordWatch($scope, "x_dnf_appt_sch_appointment_enrollments", "", function(name, data) {
+		spUtil.update($scope);
+	});
+	spUtil.recordWatch($scope, "x_dnf_gw_symmetry_tax_withholding_forms", "", function(name, data) {
+		spUtil.update($scope);
+	});
+	spUtil.recordWatch($scope, "x_dnf_gw_found_hr_dependent", "", function(name, data) {
+		spUtil.update($scope);
+	});
+	spUtil.recordWatch($scope, "sn_hr_core_task", "", function(name, data) {
+		spUtil.update($scope);
+	});*/
+
+	/*need this recordWatch for the work history, beneficiaries, dependents icons*/
+	/*spUtil.recordWatch($scope, "sn_hr_core_profile", "", function(name, data) {
+		spUtil.update($scope);
+	});*/
+	c.updateKnowledge = function(val,val2){
+		$rootScope.$broadcast('updateKnowledge', val, val2);
+	}
+
+	spUtil.recordWatch($scope, "x_dnf_gw_symmetry_tax_withholding_forms", "", function(name, data) {
+		spUtil.update($scope);
+	});
+
+	$rootScope.$on('scheduled', function(event, status) {
+		if(status==true) {
+			c.data.appointments = true;
+		} else {
+			c.data.appointments = false;
+		}
+	});
+
+	$rootScope.$on('onboardingTaskCount', function(event, obj) {
+		$scope.data.task_cnt = obj;
+	});
+
+	$rootScope.$on('onboardingCompletedTasks', function(event, obj) {
+		$scope.data.completedTasks = obj;
+		//$scope.data.signedDocs = obj.signedDocs;
+	});
+
+	$rootScope.$on('questionnaireComplete', function(event, obj) {
+		c.data.questionnaire = obj;
+	});
+
+	console.log('onboarding-zap');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.deloitte {
+  float:left;
+  width: 150px;
+}
+
+/*.outer {
+margin: 1em 0;
+}*/
+
+.title {
+  h1, h4 {
+    margin: 0;
+  }
+
+  h1{
+    padding: 20px 0 10px 0;
+  }
+
+  h4{
+    padding: 10px 0;
+  }
+}
+
+.action-buttons {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  //padding: 0 4em 2em;
+  padding: 2em 4em;
+}
+
+.top, .detail {
+  padding: 2em 4em;
+}
+
+.submitBtn {
+  margin-bottom: 15px;
+}
+
+.title, .wrap, .action-buttons, .top, .bottom-div {
+  background: $color-darkest;
+  //background-image: url("light_pattern_background.png");
+  //background-color:$color-lighter;
+}
+
+.title, .form-title, .button, .sub-title {
+  text-align: center;
+}
+
+.title h1 { 
+  letter-spacing: 10px;
+  text-indent: 10px;
+
+  &gt; div {
+    position: relative;
+    display: inline-block;
+    + div {
+      display: block;
+    }
+  }
+  span {
+    text-indent: 0px;
+    letter-spacing: normal;
+    display: block;
+    margin-bottom: 10px;
+    font-size: .5em;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+    &amp;:before, &amp;:after {
+      content: "";
+      width: 35%;
+      height: 3px;
+      border-radius: 5px;
+      background: $due-today;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      top: .5em;
+    }
+    &amp;:after {
+      left: 0;
+    }
+  }
+}
+h4 {
+  //text-transform: uppercase;
+  //letter-spacing: 5px;
+  line-height:1.2em;
+}
+
+.wrap {
+  flex-wrap:wrap;
+  display:flex;
+  justify-content:space-evenly;
+  //width:100%; 
+  align-items:center;
+  //background: url(https://www.noupe.com/wp-content/uploads/2009/10/pattern-13.jpg);
+}
+
+.hr-line, .hr-line-dark {
+  //height: 2px;
+  flex: 1;
+  margin: 0 10px;
+  font-size: 3em;
+  text-align:center;
+}
+
+.hr-last {
+  -webkit-animation: flash infinite; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 6s; /* Safari 4.0 - 8.0 */
+  animation: flash infinite;
+  animation-duration: 6s;
+}
+
+.hr-line-dark {
+  color: $color-darkest;
+}
+
+.child {
+  flex:1;
+  padding-top:1em;
+  cursor: pointer;
+}
+
+.child, .child a {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  color: $color-accent;
+}
+
+.child a h4, h4, h2, h1, .hr-line, .hr-last {
+  //color: $color-darkest;
+  color: $color-lightest;
+}
+
+.child i {
+  border: 3px solid $color-accent;
+  border-radius: 25px;
+  padding: 0.5em  
+}
+
+.child i, .child h4 {
+  transition: all 0.5s linear;
+}
+
+.child a:hover {
+  i {
+    background: $color-accent;
+    color: $color-lightest;
+    //box-shadow: 0 0 0 0 $overdue;
+    -webkit-animation: rubberBand 1s;
+    animation: rubberBand 1s;
+  }
+  /*h4 {
+  color: $color-lightest;
+}*/
+}
+
+.fa-fw {
+  position:relative;
+  width: 2.3em;
+}
+
+.started {
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  color: $success;
+  background: $color-lightest;
+  border-radius: 50%;
+  width: 1em;
+}
+
+.detail {
+  //padding:1em 50.4px;
+  //display:none;
+  height:auto;
+
+  h1, h2, h4 {
+    color: $color-darkest;
+  }
+}
+
+.form-title {
+  margin-top:0;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.form-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80px;
+  height: 4px;
+  background: $due-today;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -otransform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  flex: 1;
+  max-width: 275px;
+  padding: 10px;
+  //color: $color-darkest;
+  color: $color-lightest;
+  font-size: 18px;
+  text-decoration: none;
+  //border: 3px solid $color-darkest;
+  border: 3px solid $color-lightest;
+  //overflow: hidden;
+  transition: color 100ms ease-in-out 100ms, 
+    border-color 200ms ease-out, box-shadow 200ms ease-in-out;
+  z-index: 1;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  //background-color: $color-darkest;
+  background-color: $color-lightest;
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 200ms ease-out 100ms;
+  transition: transform 200ms ease-out 100ms;
+  transition: transform 200ms ease-out 100ms, 
+    -webkit-transform 200ms ease-out 100ms;
+}
+.button:hover {
+  //color: $color-lightest;
+  //border-color: $color-darkest;
+  color: $color-darkest;
+  border-color: $color-lightest;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+}
+.button:hover:after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transition: -webkit-transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, 
+    -webkit-transform 200ms ease-out;
+}
+
+.button__badge {
+  position: absolute;
+  top:-15px;
+  right: -15px;
+  padding: 3px 9px;
+  border: 2px solid white;
+  border-radius:100px;
+  background-color: $overdue;
+  font:bold 16px/20px "Helvetica Neue", sans-serif; 
+  color: white;
+}
+
+/*.badge-pill {
+  background-color: $overdue;
+  font-size: 15px;
+}*/
+
+.animate-switch {
+  transition: all linear .5s;
+  opacity: 1;
+}
+.animate-switch.ng-hide {
+  opacity: 0;
+}
+
+.disabledClick{
+  color: gray !important;
+}
+
+.child &gt; .disabledClick &gt; i{
+  border: 3px solid gray !important;
+  color: gray !important;
+}
+
+.child &gt; .disabledClick:hover &gt; i{
+  border: 3px solid gray !important;
+  color: gray !important;
+  background: none;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.disabledClick:hover{
+  cursor: not-allowed;
+}
+
+//************************************MEDIA QUERIES************************************//
+
+@media screen and (max-width: 768px) {
+  .action-buttons  {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .button.center {
+    width:100%;
+    //margin: 0 auto;
+  }
+
+  .button.center:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  .wrap {
+    flex-direction: column;
+  }
+
+  .child, .fa-long-arrow-alt-down {
+    margin: 0.75%;
+  }  
+
+  .child:first-of-type {
+    margin-top: 0;
+  }
+
+  .child:last-of-type {
+    margin-bottom: 0;
+  }
+
+
+  .fa-long-arrow-alt-right{
+    display:none;
+  }
+
+  .fa-long-arrow-alt-down{
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) { 
+  .child {
+    width: 20%;
+  }
+
+  .child, .fa-long-arrow-alt-right {
+    margin: 1%;
+  }  
+
+  .fa-long-arrow-alt-right{
+    display:inline-block;
+  }
+
+  .fa-long-arrow-alt-down{
+    display: none;
+  }
+}
+
+//@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1025px) {
+  .child {
+    width: 10%;
+  }
+
+  .child, .fa-long-arrow-alt-right {
+    margin: 0.75%;
+  }  
+
+  .child:first-of-type {
+    margin-left: 0;
+  }
+
+  .child:last-of-type {
+    margin-right: 0;
+  }
+
+  .fa-long-arrow-alt-right{
+    display:inline-block;
+    width: 5%;
+  }
+
+  .fa-long-arrow-alt-down{
+    display: none;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding_instructions_ngshow_nghide</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Instructions ngShow ngHide</name>
+        <option_schema>[{"name":"intro","section":"Presentation","default_value":"Take a moment to fill out the necessary information in each section to expedite your onboarding process. When you have finished, use the buttons below to generate, sign and view your forms.","label":"Intro Text","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.questionnaire = false;
+	data.work_history = false;
+	data.beneficiaries = false;
+	data.contacts = false;
+	data.tax = false;
+	data.appointments = false;
+	data.dependents = false;
+	var me = gs.getUserID();
+
+	//Get flags on HR profile
+	var hr_profile = new GlideRecord('sn_hr_core_profile');
+	hr_profile.addQuery('user',me);
+	hr_profile.query();
+	if(hr_profile.next()){
+
+		data.work_history = hr_profile.getValue('x_dnf_gw_obf_work_history');
+		data.beneficiaries = hr_profile.getValue('x_dnf_gw_obf_beneficiaries');
+		data.dependents = hr_profile.getValue('x_dnf_gw_obf_dependents');
+		data.contacts = hr_profile.getValue('x_dnf_gw_obf_contacts');
+	}
+	//Check is user hax tax forms
+	var gr6 = new GlideRecord('x_dnf_gw_symmetry_tax_withholding_forms');
+	gr6.addQuery('subject_employee',me);
+	gr6.query();
+	if(gr6.next()){
+		data.tax = true;
+	}
+
+	/*var sys_id = -1;
+	var gr2 = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+	gr2.addQuery('user',me);
+	gr2.query();
+	if(gr2.next()){
+		sys_id = gr2.getValue('sys_id');
+		//data.questionnaire = true;
+	}*/
+	//Check if logged in user's questionnaire task is complete
+	var gr3 = new GlideRecord('sn_hr_core_task');
+	gr3.addQuery('assigned_to', me);
+	gr3.addQuery('hr_task_type','questionnaire');
+	gr3.addQuery('short_description','Onboarding Questionnaire');
+	gr3.addQuery('state','3');
+	gr3.query();
+	if(gr3.next()){
+		data.questionnaire = true;
+	}
+
+	var qTask = new GlideRecord('sn_hr_core_task');
+	qTask.addQuery('assigned_to', me);
+	qTask.addQuery('short_description', 'Onboarding Questionnaire');
+	qTask.query();
+	if(qTask.next()) {
+		data.task_id = qTask.getValue('sys_id');
+	}
+	/*
+	var sys_id = -1;
+	var me = gs.getUserID();
+	var gr2 = new GlideRecord('x_dnf_gw_obf_federal_onboarding_questionnaire');
+	gr2.addQuery('user',me);
+	gr2.query();
+	if(gr2.next()){
+		sys_id = gr2.getValue('sys_id');
+
+		data.questionnaire = true;
+
+	}
+	data.formOptions = {"sys_id": sys_id,
+											"view": "FED_ESS",
+											"table":"x_dnf_gw_obf_federal_onboarding_questionnaire"
+										 };
+
+	//Check if user has work history
+	var gr3 = new GlideRecord('x_dnf_gw_found_work_history');
+	gr3.addQuery('user',me);
+	gr3.query();
+	if(gr3.next()){
+		data.work_history = true;
+	}
+	//Check if user has beneficiaries
+	var gr4 = new GlideRecord('sn_hr_core_beneficiary');
+	gr4.addQuery('employee',me);
+	gr4.query();
+	if(gr4.next()){
+		data.beneficiaries = true;
+	}
+*/
+	/*var gr5 = new GlideRecord('x_dnf_appt_sch_appointment_enrollments');
+	gr5.addQuery('user',me);
+	gr5.query();
+	if(gr5.next()){
+		data.appointments = true;
+	}*/
+	/*
+	//Check is user hax tax forms
+	var gr6 = new GlideRecord('x_dnf_gw_symmetry_tax_withholding_forms');
+	gr6.addQuery('subject_employee',me);
+	gr6.query();
+	if(gr6.next()){
+		data.tax = true;
+	}
+	//Check if user has dependents
+	//To do - what if user has no dependents
+	var gr7 = new GlideRecord('x_dnf_gw_found_hr_dependent');
+	gr7.addQuery('employee',me);
+	gr7.query();
+	if(gr7.next()){
+		data.dependents = true;
+	}
+	*/
+
+	//get task counts
+	data.task_list = [];
+	var gr8 = new GlideRecord('sn_hr_core_task');
+	gr8.addQuery('assigned_to', me);
+	//gr8.addQuery('hr_task_type', 'sign_document');
+	//gr8.addQuery('state', '10');
+	gr8.query();
+	while(gr8.next()) {
+		data.task_list.push({
+			task_type: gr8.getValue('hr_task_type'),
+			state: gr8.getValue('state')
+		})
+	}
+	
+	data.completedTasks=0;
+	data.task_cnt=0;
+	//data.signedDocs = 0;
+	for(var i=0; i<data.task_list.length; i++){
+		if(data.task_list[i].state=='10'){
+			data.task_cnt++;
+		} else if(data.task_list[i].state=='3'){
+			data.completedTasks++;
+		}
+	}
+
+	if(input){
+		//Only used if there is generate forms button
+		if(input.action == 'generateForms'){
+			var gr = new GlideRecord('sn_hr_le_case');
+			gr.initialize(); 
+			gr.hr_service = '92481164dbd99740e18dd8c75e96191d';
+			gr.opened_for = me;
+			gr.state = '10';
+			gr.insert();
+		}
+		if(input.action =='submitWorkHistory'){
+			data = input;
+			var hr_profile2 = new GlideRecord('sn_hr_core_profile');
+			hr_profile2.addQuery('user',me);
+			hr_profile2.query();
+			if(hr_profile2.next()){
+				hr_profile2.x_dnf_gw_obf_work_history = true;
+				hr_profile2.update();
+			}
+		}
+		if(input.action =='submitContacts'){
+			data = input;
+			var hr_profile5 = new GlideRecord('sn_hr_core_profile');
+			hr_profile5.addQuery('user',me);
+			hr_profile5.query();
+			if(hr_profile5.next()){
+				hr_profile5.x_dnf_gw_obf_contacts = true;
+				hr_profile5.update();
+			}
+		}
+		if(input.action =='submitBeneficiaries'){
+			data = input;
+			var hr_profile3 = new GlideRecord('sn_hr_core_profile');
+			hr_profile3.addQuery('user',me);
+			hr_profile3.query();
+			if(hr_profile3.next()){
+				hr_profile3.x_dnf_gw_obf_beneficiaries = true;
+				hr_profile3.update();
+			}
+		}
+		if(input.action =='submitDependents'){
+			data = input;
+			var hr_profile4 = new GlideRecord('sn_hr_core_profile');
+			hr_profile4.addQuery('user',me);
+			hr_profile4.query();
+			if(hr_profile4.next()){
+				hr_profile4.x_dnf_gw_obf_dependents = true;
+				hr_profile4.update();
+			}
+		}
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-01-15 14:27:43</sys_created_on>
+        <sys_id>ec624741dbc3a70021eed90d68961990</sys_id>
+        <sys_mod_count>59</sys_mod_count>
+        <sys_name>Onboarding Instructions ngShow ngHide</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_ec624741dbc3a70021eed90d68961990</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2019-03-01 21:01:00</sys_updated_on>
+        <template><![CDATA[<head>
+  <!-- SN comes with font awesome v.4.7.  Loaded in the newest version first in order to use new icons, but default to 4.7 otherwise -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<div class="outer">
+  <div class="top">
+    <div class="title">
+      <h1>
+        <div>
+          WELCOME
+          <span>to your</span>
+        </div>
+        <div>ONBOARDING GUIDE</div>
+      </h1>
+      <h4>{{c.options.intro}}</h4>
+    </div>
+
+    <div class="wrap">
+      <div class="child">
+        <a ng-click="c.setSwitch('work'); c.updateKnowledge('','x_dnf_gw_found_work_history');" class="click">
+          <i class="fa fa-building fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.work_history == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.work_history == 1">1. <u><strong>Edit</strong></u> Work History</h4>
+          <h4 class="text-center" ng-if="c.data.work_history == 0">1. <u><strong>Start</strong></u> Work History</h4>
+        </a>
+      </div>
+      <i class="fas fa-long-arrow-alt-right" ng-class="{'hr-last': c.data.work_history==true && c.data.contacts==false, 'hr-line': c.data.work_history==true, 'hr-line-dark':c.data.work_history==false}"></i>
+      <i class="fas fa-long-arrow-alt-down" ng-class="{'hr-last': c.data.work_history==true && c.data.contacts==false, 'hr-line': c.data.work_history==true, 'hr-line-dark':c.data.work_history==false}"></i>
+
+      <div class="child">
+        <a title="Complete work history first" ng-class="{disabledClick: c.data.work_history == 0}" ng-click="c.data.work_history == 0 || c.setSwitch('contacts'); c.updateKnowledge('','sn_hr_core_contact');" class="click">
+          <i class="fa fa-address-card fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.contacts == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.contacts == 1">2. <u><strong>Edit</strong></u> Contacts</h4>
+          <h4 class="text-center" ng-if="c.data.contacts == 0">2. <u><strong>Start</strong></u> Contacts</h4>
+        </a>
+      </div>
+      <i class="fas fa-long-arrow-alt-right" ng-class="{'hr-last': c.data.contacts==true && c.data.beneficiaries==false, 'hr-line': c.data.contacts==true, 'hr-line-dark':c.data.contacts==false}"></i>
+      <i class="fas fa-long-arrow-alt-down" ng-class="{'hr-last': c.data.contacts==true && c.data.beneficiaries==false, 'hr-line': c.data.contacts==true, 'hr-line-dark':c.data.contacts==false}"></i>
+
+      <div class="child">
+       	<a title="Complete contacts first" ng-class="{disabledClick: c.data.contacts == 0}" ng-click="c.data.contacts == 0 || c.setSwitch('beneficiaries'); c.updateKnowledge('','sn_hr_core_beneficiary');" class="click">
+          <i class="fa fa-users fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.beneficiaries == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.beneficiaries == 1">3. <u><strong>Edit</strong></u> Beneficiaries</h4>
+          <h4 class="text-center" ng-if="c.data.beneficiaries == 0">3. <u><strong>Start</strong></u> Beneficiaries</h4>
+        </a>
+      </div>
+      <i class="fas fa-long-arrow-alt-right" ng-class="{'hr-last': c.data.beneficiaries==true && c.data.dependents==false, 'hr-line': c.data.beneficiaries==true, 'hr-line-dark':c.data.beneficiaries==false}"></i>
+      <i class="fas fa-long-arrow-alt-down" ng-class="{'hr-last': c.data.beneficiaries==true && c.data.dependents==false, 'hr-line': c.data.beneficiaries==true, 'hr-line-dark':c.data.beneficiaries==false}"></i>
+
+      <div class="child">
+        <!-- the commented line below is replaced by the line above for demo purposes only -->
+        <!--<a title="Complete beneficiaries first" ng-click="c.setSwitch('dependents')" class="click">-->
+        <a title="Complete beneficiaries first" ng-class="{disabledClick: c.data.beneficiaries == 0}" ng-click="c.data.beneficiaries == 0 || c.setSwitch('dependents'); c.updateKnowledge('','x_dnf_gw_found_hr_dependent');" class="click">
+          <i class="fa fa-child fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.dependents == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.dependents == 1">4. <u><strong>Edit</strong></u> Dependents</h4>
+          <h4 class="text-center" ng-if="c.data.dependents == 0">4. <u><strong>Start</strong></u> Dependents</h4>
+        </a>
+      </div>
+      <i class="fas fa-long-arrow-alt-right" ng-class="{'hr-last': c.data.dependents==true && c.data.questionnaire==false, 'hr-line': c.data.dependents==true, 'hr-line-dark':c.data.dependents==false}"></i>
+      <i class="fas fa-long-arrow-alt-down" ng-class="{'hr-last': c.data.dependents==true && c.data.questionnaire==false, 'hr-line': c.data.dependents==true, 'hr-line-dark':c.data.dependents==false}"></i>
+
+      <div class="child">
+        <!-- the commented line below is replaced by the line above for demo purposes only -->
+        <!--<a title="Complete dependents first" ng-click="c.setSwitch('questionnaire')" class="click">-->
+        <a title="Complete dependents first" ng-class="{disabledClick: c.data.dependents == 0}" ng-click="c.data.dependents == 0 || c.setSwitch('questionnaire'); c.updateKnowledge('','x_dnf_gw_obf_federal_onboarding_questionnaire');" class="click">
+          <i class="fa fa-clipboard fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.questionnaire == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.questionnaire == 1">5. <u><strong>Edit</strong></u> Questionnaire</h4>    
+          <h4 class="text-center" ng-if="c.data.questionnaire == 0">5. <u><strong>Start</strong></u> Questionnaire</h4> 
+        </a>
+      </div>
+      <i class="fas fa-long-arrow-alt-right" ng-class="{'hr-last': c.data.questionnaire==true && c.data.tax==false, 'hr-line': c.data.questionnaire==true, 'hr-line-dark':c.data.questionnaire==false}"></i>
+      <i class="fas fa-long-arrow-alt-down" ng-class="{'hr-last': c.data.questionnaire==true && c.data.tax==false, 'hr-line': c.data.questionnaire==true, 'hr-line-dark':c.data.questionnaire==false}"></i>
+
+      <div class="child">
+        <!-- the commented line below is replaced by the line above for demo purposes only -->
+        <!--<a title="Complete questionnaire first" ng-click="c.setSwitch('tax')" class="click">-->
+        <a title="Complete questionnaire first" ng-class="{disabledClick: c.data.questionnaire == 0}" ng-click="c.data.questionnaire == 0 || c.setSwitch('tax'); c.updateKnowledge('','x_dnf_gw_symmetry_tax_withholding_forms');" class="click">
+          <i class="fa fa-university fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.tax == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.tax == 1">6. <u><strong>Edit</strong></u> Tax Forms</h4>
+          <h4 class="text-center" ng-if="c.data.tax == 0">6. <u><strong>Start</strong></u> Tax Forms</h4>
+        </a>
+      </div>
+      <i class="fas fa-long-arrow-alt-right" ng-class="{'hr-last': c.data.tax==true && c.data.appointments==false, 'hr-line': c.data.tax==true, 'hr-line-dark':c.data.tax==false}"></i>
+      <i class="fas fa-long-arrow-alt-down" ng-class="{'hr-last': c.data.tax==true && c.data.appointments==false, 'hr-line': c.data.tax==true, 'hr-line-dark':c.data.tax==false}"></i>
+
+      <div class="child">
+        <!-- the commented line below is replaced by the line above for demo purposes only -->
+        <!--<a title="Complete tax forms first" ng-click="c.setSwitch('appointments')" class="click">-->
+        <a title="Complete tax forms first" ng-class="{disabledClick: c.data.tax == 0}" ng-click="c.data.tax == 0 || c.setSwitch('appointments'); c.updateKnowledge('','x_dnf_appt_sch_appointment_bundle');" class="click">
+          <i class="fa fa-calendar fa-3x fa-fw" aria-hidden="true">
+            <span ng-if="c.data.appointments == 1" class="fa fa-check-circle started"></span>
+          </i>
+          <h4 class="text-center" ng-if="c.data.appointments == 1">7. <u><strong>Reschedule</strong></u> Appointments</h4>
+          <h4 class="text-center" ng-if="c.data.appointments == 0">7. <u><strong>Schedule</strong></u> Appointments</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <a ng-click="c.setSwitch('action-items')" class="center button click" data-wipe="Action Items">
+      <span>Action Items</span>
+      <span ng-if="data.task_cnt > 0" class="button__badge">{{data.task_cnt}}</span>
+    </a>
+    <a ng-click="c.setSwitch('form-library')" class="center button click" data-wipe="Form Library">Form Library {{data.signedDocs}}</a>
+  </div>
+
+
+  <div class="detailContainer">
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'questionnaire'">
+      <h2 class="form-title">Onboarding Questionnaire</h2>
+      <widget id="gateway_questionnaire_widget" options="{questionnaire_table: 'x_dnf_gw_obf_federal_onboarding_questionnaire', service_id: '8a5af794db252b4021eed90d689619bb', task_table:'sn_hr_core_task', task_id:data.task_id}"></widget>
+    </div>  
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'work'">
+      <div class="text-center">
+        <h2 class="form-title">Tell Us About Your Work History</h2>
+        <button ng-if="c.data.work_history == 0" ng-click="c.submitWorkHistory()" title="Submit Work History" type="button" class="submitBtn btn btn-primary text-uppercase">Submit Work History</button>
+      </div>
+      <widget id="my-work-history-v2"></widget>
+    </div>  
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'contacts'">
+      <div class="text-center">
+        <h2 class="form-title">Provide Your Contacts</h2>
+        <button ng-if="c.data.contacts == 0" ng-click="c.submitContacts()" title="Submit Contacts" type="button" class="submitBtn btn btn-primary text-uppercase">Submit Contacts</button>
+      </div>
+      <widget id="my_contacts"></widget>
+    </div>  
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'beneficiaries'">
+      <div class="text-center">
+        <h2 class="form-title">Provide Your Beneficiaries</h2>
+        <button ng-if="c.data.beneficiaries == 0" ng-click="c.submitBeneficiaries()" title="Submit Beneficiaries" type="button" class="submitBtn btn btn-primary text-uppercase">Submit Beneficiaries</button>
+      </div>
+      <widget id="my-beneficiaries-v2"></widget>
+    </div>  
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'dependents'">
+      <div class="text-center">
+        <h2 class="form-title">Provide Your Dependents</h2>
+        <button ng-if="c.data.dependents == 0" ng-click="c.submitDependents()" title="Submit Dependents" type="button" class="submitBtn btn btn-primary text-uppercase">Submit Dependents</button>
+      </div>
+      <widget id="my_dependents"></widget>
+    </div>  
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'tax'">
+      <h2 class="form-title">Fill Out Your Tax Forms</h2>
+      <widget id="symmetry-client"></widget>
+    </div>
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'appointments'">
+      <h2 class="form-title">Schedule Your Appointments</h2>
+      <widget id="gateway_appointments_embed"></widget>
+    </div>
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'action-items'">
+      <h2 class="form-title">Action Required</h2>
+      <widget id="my_onboarding_tasks"></widget>
+      <h2 class="form-title" style="margin-top:15px; padding-top:15px;" ng-if="data.completedTasks>0">Completed</h2>
+      <widget id="my_onboarding_tasks_completed"></widget>
+    </div>
+    <div class="animate-switch detail" ng-show="c.currentSwitch == 'form-library'">
+      <h2 class="form-title">View/Download Your Completed Forms</h2>
+      <widget id="onboarding-form-library"></widget>
+    </div>
+  </div>
+
+  <div class="bottom-div">
+    <img class="deloitte" src="deloitte-logo.png" alt="Deloitte"/>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+
+
+<!--
+<select ng-model="selection" ng-options="item for item in items">
+</select>
+<code>selection={{selection}}</code>
+<hr/>
+<div class="animate-switch-container"
+ng-switch on="selection">
+<div class="animate-switch" ng-switch-when="settings|options" ng-switch-when-separator="|">Settings Div</div>
+<div class="animate-switch" ng-switch-when="home">Home Span</div>
+<div class="animate-switch" ng-switch-default>default</div>
+</div>-->]]></template>
+    </sp_widget>
+</record_update>

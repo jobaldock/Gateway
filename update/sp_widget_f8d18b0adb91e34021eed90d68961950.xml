@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {  
+	/* widget controller */  
+	var c = this;
+	
+	if (c.options.field_list)
+		c.cardFields = c.options.field_list.split(",");
+		c.getPrimaryField = function getPrimaryField(row){
+			return row[c.data.primaryField];
+		};
+	
+	console.log('Options');
+	console.log(c.options);
+
+	console.log('info');
+	console.log($scope);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/*@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+margin: 0;
+width: 100vw;
+overflow-x: hidden;
+background-color: #f0f0f0;
+font-family: 'Open Sans', sans-serif;
+font-size: 14.5px;
+line-height: 1.4em;
+color: #404646;
+}
+
+* {
+box-sizing: border-box;
+}
+*/
+.container {
+  //min-height: 100vh;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  padding: 0.9em;
+}
+
+.card {
+  border: 1px solid $color-darkest;
+  margin: 0.9em;
+  height: 100%;
+  //max-width: 45em;
+  flex: 1 1 auto;
+  display: flex;
+  background-color: white;
+  box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+}
+
+.card-icon, .card-icon span {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;	
+}
+
+.icon-color, .icon-background {
+  color: $color-accent-light;
+}
+
+.icon-color {
+  z-index:100;
+}
+
+.card-icon {
+  padding:1.5em;
+  min-width: 25%;
+  background: $color-darkest;  
+}
+
+.title{
+	text-align:center;
+  color: $color-lightest;
+}
+
+.card-body {
+  width: 12em;
+  max-height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  padding: 1.8em;
+}
+
+.card-text {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //margin: 0 0 0.8em 0;
+  padding: 0;
+}
+.card-text h3, .card-text p {
+  margin-top: 0;
+}
+/*.card-text:after {
+position: absolute;
+bottom: 0;
+content: "";
+width: 100%;
+height: 2.8em;
+//fade effect if too close to bottom of card-body
+//background: linear-gradient(rgba(255, 255, 255, 0), white);
+}*/
+
+a {
+  color: #d07777;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1100px) {
+  .card {
+    margin: 0.7826086957em;
+  }
+  .card img {
+    max-width: 18em;
+  }
+}
+@media (max-width: 870px) {
+  .card {
+    max-width: 100%;
+  }
+}
+@media (max-width: 570px) {
+  .container {
+    flex-flow: column nowrap;
+    padding: 0;
+  }
+
+  .card {
+    margin: 0.75em 1.1em;
+    //height: 15em;
+    flex: 1 1 auto;
+    display: flex;
+    //flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+  }
+  .card-icon {
+    max-width: 45%;
+  }
+}
+
+.card i {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.card:hover i {
+  -webkit-animation: tada 1s;
+  animation: tada 1s;
+}</css>
+        <data_table>x_dnf_gw_obf_info_cards_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,table,field_list,filter,header_field,subheader_field,icon</field_list>
+        <has_preview>false</has_preview>
+        <id>employee-info-v2</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding: Employee Info v2</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	var me = gs.getUserID();
+
+	//Do nothing on initial page load
+	/*if (!input) {
+		return;
+	}*/
+
+	//After page initially loads get data
+	//if (input && input.action == 'retrieve_data') {
+		if (options.table) {
+			data.rows = [];
+			
+			var gr = new GlideRecord(options.table);
+			//gr.addQuery('user', me);
+			gr.addEncodedQuery(options.filter);
+			//gr.setLimit(25);
+			gr.query();
+			if (!data.primaryField) {
+				data.primaryField = gr.getDisplayName();
+			}
+			var fields = "sys_id," + data.primaryField + "," + options.field_list;
+			data.fields = $sp.getFieldsObject(gr, fields);
+
+			
+			while(gr.next()) {
+				var row = {};
+				//$sp.getRecordDisplayValues(row, gr, fields);
+				$sp.getRecordElements(row, gr, fields);
+				data.rows.push(row);
+				
+				data.header_field=gr.getDisplayValue(options.header_field);
+				data.subheader_field=gr.getDisplayValue(options.subheader_field);
+			}
+		}
+	//}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-23 17:09:20</sys_created_on>
+        <sys_id>f8d18b0adb91e34021eed90d68961950</sys_id>
+        <sys_mod_count>145</sys_mod_count>
+        <sys_name>Onboarding: Employee Info v2</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_f8d18b0adb91e34021eed90d68961950</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-25 18:31:29</sys_updated_on>
+        <template><![CDATA[<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+<div class='container'>
+  <div class='card'>
+    <div class='card-icon'>
+      <span class="fa-stack fa-5x">
+        <i class="far fa-circle fa-stack-2x icon-background"></i>
+        <i class="fa fa-{{c.options.icon}} fa-1x icon-color" aria-hidden="true"></i>
+      </span>
+      <h2 class="title">{{c.options.title}}</h2>
+    </div>
+    <div class='card-body' ng-repeat="row in c.data.rows track by row.sys_id">
+      
+        <h3>{{c.data.header_field}}</h3>
+        <h5>{{c.data.subheader_field}}</h5>
+        <!--<p ng-repeat="f in c.cardFields">
+          <b>{{c.data.fields[f].label}}:</b> {{row[f]}}
+        </p>-->
+        <p ng-repeat="f in c.cardFields">
+          <b>{{row[f].label}}:</b> {{row[f].display_value}}
+        </p>
+      
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph>empty</glyph>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description>Videos from the HR links</short_description>
+        <size>md</size>
+        <sp_column display_value="1">6a7a1bf4dbcddf00e18dd8c75e961956</sp_column>
+        <sp_widget display_value="HRJ Video Carousel">b2c01dbcc3032200b599b4ad81d3ae2e</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-03-22 15:17:46</sys_created_on>
+        <sys_id>2a7a1bf4dbcddf00e18dd8c75e96195d</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Videos</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_instance_2a7a1bf4dbcddf00e18dd8c75e96195d</sys_update_name>
+        <sys_updated_by>kurt.bell</sys_updated_by>
+        <sys_updated_on>2018-05-03 16:38:07</sys_updated_on>
+        <title>Videos</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"hrWidgetInstance": {
+		"value": "Videos"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=2a7a1bf4dbcddf00e18dd8c75e96195d"/>
+</record_update>

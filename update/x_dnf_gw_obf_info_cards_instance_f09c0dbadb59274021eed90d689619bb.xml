@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_dnf_gw_obf_info_cards_instance">
+    <x_dnf_gw_obf_info_cards_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button_title/>
+        <button_url/>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field/>
+        <expandable_id/>
+        <field_list/>
+        <filter/>
+        <glyph/>
+        <header_field/>
+        <icon/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <show_button>false</show_button>
+        <size>md</size>
+        <sp_column display_value="1">2f8cc9badb59274021eed90d689619e8</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Onboarding: Employee Info v3">41238172db59274021eed90d68961931</sp_widget>
+        <subheader_field/>
+        <sys_class_name>x_dnf_gw_obf_info_cards_instance</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-25 16:32:29</sys_created_on>
+        <sys_id>f09c0dbadb59274021eed90d689619bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>x_dnf_gw_obf_info_cards_instance_f09c0dbadb59274021eed90d689619bb</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-25 16:32:29</sys_updated_on>
+        <table/>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </x_dnf_gw_obf_info_cards_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=f09c0dbadb59274021eed90d689619bb"/>
+</record_update>

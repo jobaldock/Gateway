@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, spUtil, $rootScope, $timeout) {
+	/* widget controller */
+	var c = this;
+
+	//Set value to show loading spinner
+	c.data.loading = true;
+	//set options
+	c.options.bar_height = c.options.bar_height || 40;
+	c.options.font_size = c.options.font_size || 'medium';
+	c.options.danger_threshold = c.options.danger_threshold || 50;
+	c.options.warning_threshold = c.options.warning_threshold || 75;
+	c.options.primary_threshold = c.options.primary_threshold || 99;
+
+	//After page initially loads re-call server script to load data
+	c.runServer = function() {
+		c.server.get({
+			action: 'percent_complete'
+		}).then(function(response) {
+			c.data.loading = false;
+			c.data.list = response.data.list;
+			c.data.table_fields = response.data.table_fields;
+			c.data.filled_in = response.data.filled_in;
+			c.data.empty = response.data.empty;
+			c.data.denominator = response.data.denominator;
+			c.data.numerator = response.data.numerator;
+			c.data.percent_complete = response.data.percent_complete;
+
+			//generate uib-progressbar attributes
+			//c.updateBar = function() {
+			var value = c.data.percent_complete;
+			var type='';
+
+			if (value <= c.options.danger_threshold) {
+				type = 'danger';
+			} else if (value > c.options.danger_threshold && value <= c.options.warning_threshold) {
+				type = 'warning';
+			} else if (value > c.options.warning_threshold && value <= c.options.primary_threshold) {
+				type = 'primary';
+			} else {
+				type = 'success';
+			}
+
+			c.percentage_label = value+'%';
+			c.type = type;
+			//}
+			
+			//generate uib-popover template/attributes
+			c.dynamicPopover = {
+				templateUrl: 'myPopoverTemplate.html',
+				title: c.data.empty.length +' Required Fields Missing',
+				placement: 'bottom'
+			};
+
+			//loop through data.list to grab table names 
+			//recordWatch has to be in a separate function, can't have function within loop
+			for(var i=0; i < c.data.list.length; i++){
+				recordWatchFunc();
+			}
+
+			function recordWatchFunc() {
+				spUtil.recordWatch($scope, c.data.list[i].table, "",function(event,data){
+					//spUtil.update($scope)
+					c.runServer();
+					/*.then(function(response) {
+			c.updateBar = response;
+		});*/
+				});
+			}
+
+		});
+	};
+	c.runServer();
+
+	console.log('form-percent-complete-widget');
+	console.log($scope);
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.progress{
+  display:-ms-flexbox;
+  display:flex;
+  //margin-bottom:0;
+  //border-top-left-radius: 0;
+  //border-top-right-radius: 0;
+}
+
+.progress-bar{
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  -ms-flex-pack:center;
+  justify-content:center;  
+}
+
+.popover-title, .popover-content {
+  color:$color-darkest;
+}
+
+.info {
+  font-size: x-small;
+  vertical-align: super;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title,glyph,color</field_list>
+        <has_preview>true</has_preview>
+        <id>form-percent-complete</id>
+        <internal>false</internal>
+        <link/>
+        <name>Form Percent Complete</name>
+        <option_schema>[{"hint":"height in px","name":"bar_height","section":"Presentation","default_value":"","label":"Bar Height","type":"integer"},{"name":"font_size","section":"Presentation","default_value":"","label":"Font Size","type":"choice","choices":[{"label":"xx-small","value":"xx-small"},{"label":"x-small","value":"x-small"},{"label":"small","value":"small"},{"label":"medium","value":"medium"},{"label":"large","value":"large"},{"label":"x-large","value":"x-large"},{"label":"xx-large","value":"xx-large"}]},{"name":"danger_threshold","section":"Presentation","default_value":"","label":"Danger Threshold","type":"integer"},{"name":"warning_threshold","section":"Presentation","default_value":"","label":"Warning Threshold","type":"integer"},{"name":"primary_threshold","section":"Presentation","default_value":"","label":"Primary Threshold","type":"integer"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	//Do nothing on initial page load
+	if (!input) {
+		return;
+	}
+
+	//tables
+	var required = 'x_dnf_gw_obf_required_form_fields';
+	var user_sysID = gs.getUserID();
+
+	data.list = [];
+	data.table_fields = [];
+	data.filled_in = [];
+	data.empty = [];
+	data.denominator = 0;
+	data.numerator = 0;
+	data.percent_complete = 0;
+
+	//After page initially loads get data
+	if (input && input.action == 'percent_complete') {
+		var req_fields = new GlideRecord(required);
+		req_fields.addQuery('active', 'true');
+		req_fields.query();
+		while(req_fields.next()){
+			var table = req_fields.getValue('table');
+			var user_column = '';
+			if(table == 'sys_user') {
+				user_column = 'sys_id';
+			} else {
+				user_column = req_fields.getValue('user_column');
+			}
+
+			//create array to store all required fields and their corresponding tables
+			data.list.push({
+				sys_ID: req_fields.getValue('sys_id'),
+				user_column: user_column,
+				hr_service: req_fields.getDisplayValue('hr_service'),
+				hr_service_sysID: req_fields.getValue('hr_service'),
+				table: table,
+				//split for displayValue has space after comma, but not for sys_id
+				required_fields: req_fields.getDisplayValue('required_fields').split(', '),
+				required_fields_sysID: req_fields.getValue('required_fields').split(',')
+			})
+		}
+
+		var gr = [];
+
+		for(var i=0; i<data.list.length; i++) {
+			//loop through data.list and adding required_fields.length to populate denominator
+			data.denominator = data.denominator+data.list[i].required_fields.length;
+
+			//dynamically create GlideRecord queries based on tables populated in data.list
+			gr[i] = new GlideRecord(data.list[i].table);
+			gr[i].addQuery(data.list[i].user_column, user_sysID);
+			gr[i].query();
+			while(gr[i].next()) {
+				//open GlideRecord query for sys_dictionary
+				//need to match required_fields_sysID from data.list to table_fields_sysID from data.table_fields
+				//once sysID's match, we need to grab table_fields from data.table_fields in order to generate 'value' for data.filled_in
+				var all_fields = new GlideRecord('sys_dictionary');
+				all_fields.addQuery('name', data.list[i].table);
+				var qc = all_fields.addQuery('column_label', data.list[i].required_fields[0]);
+				//dynamically create or conditions
+				for(var j=1; j<data.list[i].required_fields.length; j++) {
+					qc.addOrCondition('column_label', data.list[i].required_fields[j]);
+				}
+
+				all_fields.query();
+				while (all_fields.next()) {
+					data.table_fields.push({
+						table_fields: all_fields.getDisplayValue('element'),
+						table_fields_label: all_fields.getDisplayValue('column_label'),
+						table_fields_sysID: all_fields.getValue('sys_id')
+					})
+				}
+				//loop through data.table_fields and data.list
+				for (var y=0; y < data.table_fields.length;y++){
+					for (var x=0; x < data.list[i].required_fields.length;x++){
+						//if sysID's match, use table_fields to generate data.filled_in
+						if (data.table_fields[y].table_fields_sysID == data.list[i].required_fields_sysID[x]){
+							var temp = data.table_fields[y].table_fields;
+							if(gr[i].getDisplayValue(temp)){
+								data.filled_in.push({
+									value: gr[i].getDisplayValue(temp),
+									name: data.table_fields[y].table_fields
+								})
+								data.numerator = data.filled_in.length;
+							}
+							if(!gr[i].getDisplayValue(temp)){
+								data.empty.push({
+									label: data.table_fields[y].table_fields_label,
+									name: data.table_fields[y].table_fields
+								})
+							}
+						}
+					}
+				}
+			}
+		}
+		data.percent_complete = round(((data.numerator/data.denominator)*100), 1);
+		/*data.type='';
+	options.danger_threshold = options.danger_threshold || 50;
+	options.warning_threshold = options.warning_threshold || 75;
+	options.primary_threshold = options.primary_threshold || 99;
+
+	if (data.percent_complete <= options.danger_threshold) {
+		data.type = 'danger';
+	} else if (data.percent_complete > options.danger_threshold && data.percent_complete <= options.warning_threshold) {
+		data.type = 'warning';
+	} else if (data.percent_complete > options.warning_threshold && data.percent_complete <= options.primary_threshold) {
+		data.type = 'primary';
+	} else {
+		data.type = 'success';
+	}
+*/
+	}
+
+
+	function round(value, precision) {
+		var multiplier = Math.pow(10, precision || 0);
+		return Math.round(value * multiplier) / multiplier;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-05-04 20:28:27</sys_created_on>
+        <sys_id>b8fdb1f6dbbd5300af88f5861d9619bd</sys_id>
+        <sys_mod_count>457</sys_mod_count>
+        <sys_name>Form Percent Complete</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_b8fdb1f6dbbd5300af88f5861d9619bd</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-05-21 14:55:28</sys_updated_on>
+        <template><![CDATA[<span ng-if="c.data.loading">
+  <i  class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+</span>
+
+<div ng-if="!c.data.loading">
+  <uib-progressbar style="height: {{c.options.bar_height}}px;" class="progress-striped active" value="c.data.percent_complete" type="{{c.type}}">
+    <div>
+      <span style="font-size: {{c.options.font_size}};">{{c.percentage_label}}</span>
+      <i ng-if="c.data.empty.length>0" class="fa fa-info-circle info m-l-xs" popover-placement="{{c.dynamicPopover.placement}}" popover-trigger="mouseenter" uib-popover-template="c.dynamicPopover.templateUrl" popover-title="{{c.dynamicPopover.title}}"></i>
+    </div>
+  </uib-progressbar>
+</div>
+
+<script type="text/ng-template" id="myPopoverTemplate.html">
+<ul>
+	<li ng-repeat="missing in c.data.empty">{{missing.label}}</li>
+  </ul>
+</script>]]></template>
+    </sp_widget>
+</record_update>

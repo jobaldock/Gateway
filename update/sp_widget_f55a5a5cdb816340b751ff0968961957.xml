@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.container {
+  //margin: 60px auto 0px auto;
+  text-align: center;
+}
+.effect {
+  width: 100%;
+  //padding: 50px 0px 70px 0px;
+  //background-color: #212121;
+}
+.effect h2 {
+  color: $color-darkest;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+
+.effect .buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.effect a:last-child {
+  margin-right: 0px;
+}
+
+/*common link styles !!!YOU NEED THEM*/
+.effect {
+  /*display: flex; !!!uncomment this line !!!*/
+}
+.effect a {
+  text-decoration: none !important;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-right: 20px;
+  font-size: 25px;
+  overflow: hidden;
+  position: relative;
+}
+.effect a i {
+  position: relative;
+  z-index: 3;
+}
+.effect a.icon {
+  background-color: $color-darkest;
+}
+
+/* aeneas effect */
+.effect.aeneas a {
+  transition: border-top-left-radius 0.1s linear 0s, border-top-right-radius 0.1s linear 0.1s, border-bottom-right-radius 0.1s linear 0.2s, border-bottom-left-radius 0.1s linear 0.3s, -webkit-transform 0.4s linear 0s;
+  transition: transform 0.4s linear 0s, border-top-left-radius 0.1s linear 0s, border-top-right-radius 0.1s linear 0.1s, border-bottom-right-radius 0.1s linear 0.2s, border-bottom-left-radius 0.1s linear 0.3s;
+  transition: transform 0.4s linear 0s, border-top-left-radius 0.1s linear 0s, border-top-right-radius 0.1s linear 0.1s, border-bottom-right-radius 0.1s linear 0.2s, border-bottom-left-radius 0.1s linear 0.3s, -webkit-transform 0.4s linear 0s;
+}
+.effect.aeneas a i {
+  transition: -webkit-transform 0.4s linear 0s;
+  transition: transform 0.4s linear 0s;
+  transition: transform 0.4s linear 0s, -webkit-transform 0.4s linear 0s;
+}
+.effect.aeneas a:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  border-radius: 50%;
+}
+.effect.aeneas a:hover i {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.started {
+  font-size: 0.75em;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  color: $success;
+  background: $color-lightest;
+  border-radius: 50%;
+  width: 1em;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>onboarding-steps</id>
+        <internal>false</internal>
+        <link/>
+        <name>Onboarding Steps</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2018-10-05 17:32:40</sys_created_on>
+        <sys_id>f55a5a5cdb816340b751ff0968961957</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Onboarding Steps</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sp_widget_f55a5a5cdb816340b751ff0968961957</sys_update_name>
+        <sys_updated_by>davilu</sys_updated_by>
+        <sys_updated_on>2018-10-05 19:31:46</sys_updated_on>
+        <template><![CDATA[<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<div class="container">
+  <div class="effect aeneas">
+    <h2>Aeneas</h2>
+    <div class="buttons">
+      <a href="#" class="icon" data-toggle="tooltip" data-placement="bottom" title="Onbaording Questionnaire">
+        <i class="fa fa-clipboard" aria-hidden="true">
+          <span ng-if="c.data.questionnaire" class="fa fa-check-circle started"></span>
+        </i>
+      </a>
+      <a href="#" class="icon" data-toggle="tooltip" data-placement="bottom" title="Work History">
+        <i class="fa fa-building" aria-hidden="true">
+          <span ng-if="c.data.work_history" class="fa fa-check-circle started"></span>
+        </i>
+      </a>
+      <a href="#" class="icon" data-toggle="tooltip" data-placement="bottom" title="Beneficiaries">
+        <i class="fa fa-users" aria-hidden="true">
+          <span ng-if="c.data.beneficiaries" class="fa fa-check-circle started"></span>
+        </i>
+      </a>
+      <a href="#" class="icon" data-toggle="tooltip" data-placement="bottom" title="Dependents">
+        <i class="fa fa-child" aria-hidden="true">
+          <span ng-if="c.data.dependents" class="fa fa-check-circle started"></span>
+        </i>
+      </a>
+      <a href="#" class="icon" data-toggle="tooltip" data-placement="bottom" title="Tax Forms">
+        <i class="fa fa-dollar-sign" aria-hidden="true">
+          <span ng-if="c.data.tax" class="fa fa-check-circle started"></span>
+        </i>
+      </a>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

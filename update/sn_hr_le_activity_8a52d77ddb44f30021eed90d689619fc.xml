@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_hr_le_activity">
+    <sn_hr_le_activity action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <activity_set display_value="SF Form Test">fd42577ddb44f30021eed90d689619e9</activity_set>
+        <activity_type>fulfiller</activity_type>
+        <approval_accept_option>anyone</approval_accept_option>
+        <approval_reject_option>resubmit</approval_reject_option>
+        <approver_groups/>
+        <approver_users/>
+        <approvers/>
+        <badge display_value="HR">6439a617c3b00300b599b4ad81d3ae57</badge>
+        <catalog_item/>
+        <cmdb_model/>
+        <description/>
+        <email_template/>
+        <from/>
+        <fulfiller_activity display_value="HR Service">4dfecd3f531322003585c3c606dc3420</fulfiller_activity>
+        <hr_criteria/>
+        <hr_service display_value="Generate SF2823">eaaf645cdb39d780af88f5861d96192c</hr_service>
+        <hr_template/>
+        <missing_all_approvers>substitute</missing_all_approvers>
+        <missing_some_approvers>skip</missing_some_approvers>
+        <order_guide/>
+        <owning_group display_value="HR Activity Writers" name="HR Activity Writers">bf0b2a70e7723200c1dc8a63c2f6a93e</owning_group>
+        <recipient_fields/>
+        <recipient_groups/>
+        <recipient_users/>
+        <sys_class_name>sn_hr_le_activity</sys_class_name>
+        <sys_created_by>davilu</sys_created_by>
+        <sys_created_on>2019-03-08 16:36:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>8a52d77ddb44f30021eed90d689619fc</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>Form Test</sys_name>
+        <sys_package display_value="Gateway: Federal Onboarding Forms Automation" source="x_dnf_gw_obf">4f2cac37db249700e18dd8c75e9619a4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Gateway: Federal Onboarding Forms Automation">4f2cac37db249700e18dd8c75e9619a4</sys_scope>
+        <sys_update_name>sn_hr_le_activity_8a52d77ddb44f30021eed90d689619fc</sys_update_name>
+        <sys_updated_by>jobaldock</sys_updated_by>
+        <sys_updated_on>2019-03-18 18:48:01</sys_updated_on>
+        <system_template/>
+        <title>Form Test</title>
+        <use_badge_on_hr_service>true</use_badge_on_hr_service>
+        <wait_for_generated_tasks_to_complete>false</wait_for_generated_tasks_to_complete>
+    </sn_hr_le_activity>
+</record_update>
